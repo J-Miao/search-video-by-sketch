@@ -20,7 +20,8 @@ Read about it online.
 import os
 # from sqlalchemy import *
 # from sqlalchemy.pool import NullPool
-from flask import Flask, request, render_template, g, redirect, Response
+from flask import Flask, jsonify, request, render_template, g, redirect, Response
+from SketchLib.SketchRecogniser import sketch_recogniser
 
 # tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
 # static_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates/semantic/dist')
@@ -156,6 +157,29 @@ def index():
     #
     return render_template("index.html")
 
+# Test Restful API
+# @app.route("/test")
+# def test():
+#     tests = [
+#         {
+#             'id': 1,
+#             'title': u'Buy groceries',
+#             'description': u'Milk, Cheese, Pizza, Fruit, Tylenol', 
+#             'done': False
+#         },
+#         {
+#             'id': 2,
+#             'title': u'Learn Python',
+#             'description': u'Need to find a good Python tutorial on the web', 
+#             'done': False
+#         }
+#     ]
+#     return jsonify({"tests1": tests, "test2": tests})
+
+@app.route("/get_sketches", methods=["POST", "GET"])
+def get_sketches():
+    return sketch_recogniser()
+
 if __name__ == "__main__":
     import click
 
@@ -179,4 +203,5 @@ if __name__ == "__main__":
         HOST, PORT = host, port
         print "running on %s:%d" % (HOST, PORT)
         app.run(host=HOST, port=PORT, debug=debug, threaded=threaded)   
+
     run()
