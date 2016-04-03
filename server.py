@@ -1,14 +1,17 @@
 #!/usr/bin/env python2.7
 
 """
-Columbia's COMS W4111.001 Introduction to Databases
 Example Webserver
 
 To run locally:
 
     python server.py
 
-Go to http://localhost:8111 in your browser.
+To run with debug mode:
+
+    python server.py --debug
+
+Go to http://localhost:8080 in your browser.
 
 A debugger such as "pdb" may be helpful for debugging.
 Read about it online.
@@ -23,19 +26,19 @@ from flask import Flask, request, render_template, g, redirect, Response
 # static_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates/semantic/dist')
 app = Flask(__name__)
 
-#
-# The following is a dummy URI that does not connect to a valid database. You will need to modify it to connect to your Part 2 database in order to use the data.
-#
-# XXX: The URI should be in the format of: 
-#
-#     postgresql://USER:PASSWORD@w4111a.eastus.cloudapp.azure.com/proj1part2
-#
-# For example, if you had username gravano and password foobar, then the following line would be:
-#
-#     DATABASEURI = "postgresql://gravano:foobar@w4111a.eastus.cloudapp.azure.com/proj1part2"
-#
 
-# DATABASEURI = "postgresql://hl2907:481516losT_@w4111vm.eastus.cloudapp.azure.com/w4111"
+# The following is a dummy URI that does not connect to a valid database. You will need to modify it to connect to your Part 2 database in order to use the data.
+
+# XXX: The URI should be in the format of: 
+
+#     postgresql://USER:PASSWORD@w4111a.eastus.cloudapp.azure.com/proj1part2
+
+# For example, if you had username gravano and password foobar, then the following line would be:
+
+#     DATABASEURI = "postgresql://gravano:foobar@w4111a.eastus.cloudapp.azure.com/proj1part2"
+
+
+DATABASEURI = "postgresql://hl2907:481516losT_@w4111vm.eastus.cloudapp.azure.com/w4111"
 
 #
 # This line creates a database engine that knows how to connect to the URI above.
@@ -162,8 +165,8 @@ if __name__ == "__main__":
   @click.command()
   @click.option('--debug', is_flag=True)
   @click.option('--threaded', is_flag=True)
-  @click.argument('HOST', default='0.0.0.0')
-  @click.argument('PORT', default=8111, type=int)
+  @click.argument('HOST', default='127.0.0.1')
+  @click.argument('PORT', default=8080, type=int)
   def run(debug, threaded, host, port):
     """
     This function handles command line parameters.
