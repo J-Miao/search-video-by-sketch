@@ -18,8 +18,8 @@ Read about it online.
 """
 
 import os
-from sqlalchemy import *
-from sqlalchemy.pool import NullPool
+# from sqlalchemy import *
+# from sqlalchemy.pool import NullPool
 from flask import Flask, request, render_template, g, redirect, Response
 
 # tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
@@ -43,45 +43,45 @@ DATABASEURI = "postgresql://hl2907:481516losT_@w4111vm.eastus.cloudapp.azure.com
 #
 # This line creates a database engine that knows how to connect to the URI above.
 #
-engine = create_engine(DATABASEURI)
+# engine = create_engine(DATABASEURI)
 
 #
 # Example of running queries in your database
 # Note that this will probably not work if you already have a table named 'test' in your database, containing meaningful data. This is only an example showing you how to run queries in your database using SQLAlchemy.
 #
-engine.execute("""CREATE TABLE IF NOT EXISTS test (
-  id serial,
-  name text
-);""")
-engine.execute("""INSERT INTO test(name) VALUES ('grace hopper'), ('alan turing'), ('ada lovelace');""")
+# engine.execute("""CREATE TABLE IF NOT EXISTS test (
+#   id serial,
+#   name text
+# );""")
+# engine.execute("""INSERT INTO test(name) VALUES ('grace hopper'), ('alan turing'), ('ada lovelace');""")
 
 
-@app.before_request
-def before_request():
-    """
-    This function is run at the beginning of every web request 
-    (every time you enter an address in the web browser).
-    We use it to setup a database connection that can be used throughout the request.
+# @app.before_request
+# def before_request():
+#     """
+#     This function is run at the beginning of every web request 
+#     (every time you enter an address in the web browser).
+#     We use it to setup a database connection that can be used throughout the request.
 
-    The variable g is globally accessible.
-    """
-    try:
-    g.conn = engine.connect()
-    except:
-    print "uh oh, problem connecting to database"
-    import traceback; traceback.print_exc()
-    g.conn = None
+#     The variable g is globally accessible.
+#     """
+#     try:
+#         g.conn = engine.connect()
+#     except:
+#         print "uh oh, problem connecting to database"
+#         import traceback; traceback.print_exc()
+#         g.conn = None
 
-@app.teardown_request
-def teardown_request(exception):
-    """
-    At the end of the web request, this makes sure to close the database connection.
-    If you don't, the database could run out of memory!
-    """
-    try:
-    g.conn.close()
-    except Exception as e:
-    pass
+# @app.teardown_request
+# def teardown_request(exception):
+#     """
+#     At the end of the web request, this makes sure to close the database connection.
+#     If you don't, the database could run out of memory!
+#     """
+#     try:
+#         g.conn.close()
+#     except Exception as e:
+#         pass
 
 #
 # @app.route is a decorator around index() that means:
@@ -165,19 +165,18 @@ if __name__ == "__main__":
     @click.argument('HOST', default='127.0.0.1')
     @click.argument('PORT', default=8080, type=int)
     def run(debug, threaded, host, port):
-    """
-    This function handles command line parameters.
-    Run the server using:
+        """
+        This function handles command line parameters.
+        Run the server using:
 
-        python server.py
+            python server.py
 
-    Show the help text using:
+        Show the help text using:
 
-        python server.py --help
+            python server.py --help
 
-    """
-    HOST, PORT = host, port
-    print "running on %s:%d" % (HOST, PORT)
-    app.run(host=HOST, port=PORT, debug=debug, threaded=threaded)
-
+        """
+        HOST, PORT = host, port
+        print "running on %s:%d" % (HOST, PORT)
+        app.run(host=HOST, port=PORT, debug=debug, threaded=threaded)   
     run()
