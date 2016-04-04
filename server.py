@@ -17,15 +17,19 @@ A debugger such as "pdb" may be helpful for debugging.
 Read about it online.
 """
 
+from flask import Flask, g, jsonify, request, render_template, redirect, Response
+from flask.ext.pymongo import PyMongo
+
 import os
-# from sqlalchemy import *
-# from sqlalchemy.pool import NullPool
-from flask import Flask, jsonify, request, render_template, g, redirect, Response
-from SketchLib.SketchRecogniser import sketch_recogniser
+
+from SketchLib.SketchRecogniser import sketch_recogniser, picture_matcher
 
 # tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
 # static_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates/semantic/dist')
+
 app = Flask(__name__)
+app.config["MONGO_DBNAME"] = "vdb"
+mongo = PyMongo(app)
 
 
 # The following is a dummy URI that does not connect to a valid database. You will need to modify it to connect to your Part 2 database in order to use the data.
@@ -39,7 +43,7 @@ app = Flask(__name__)
 #     DATABASEURI = "postgresql://gravano:foobar@w4111a.eastus.cloudapp.azure.com/proj1part2"
 
 
-DATABASEURI = "postgresql://hl2907:481516losT_@w4111vm.eastus.cloudapp.azure.com/w4111"
+# DATABASEURI = "postgresql://hl2907:481516losT_@w4111vm.eastus.cloudapp.azure.com/w4111"
 
 #
 # This line creates a database engine that knows how to connect to the URI above.
@@ -157,28 +161,21 @@ def index():
     #
     return render_template("index.html")
 
-# Test Restful API
-# @app.route("/test")
-# def test():
-#     tests = [
-#         {
-#             'id': 1,
-#             'title': u'Buy groceries',
-#             'description': u'Milk, Cheese, Pizza, Fruit, Tylenol', 
-#             'done': False
-#         },
-#         {
-#             'id': 2,
-#             'title': u'Learn Python',
-#             'description': u'Need to find a good Python tutorial on the web', 
-#             'done': False
-#         }
-#     ]
-#     return jsonify({"tests1": tests, "test2": tests})
 
 @app.route("/get_sketches", methods=["POST", "GET"])
 def get_sketches():
-    return sketch_recogniser()
+    if request.method == "GET":
+        return sketch_recogniser()
+    else:
+        return sketch_recogniser()
+
+@app.route("/search_by_potential_sketches", methods=["POST", "GET"])
+def search_by_potential_sketches():
+    if request.method == "GET":
+        return picture_matcher(mongo)
+    else:
+        return picture_matcher(mongo)
+
 
 if __name__ == "__main__":
     import click
