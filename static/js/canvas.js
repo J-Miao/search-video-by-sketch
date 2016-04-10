@@ -76,7 +76,7 @@ function saveCanvas() {
     type: "POST",
     url: "/get_sketches",
     data: {
-      imgData: canvasData
+      sketch: canvasData
     }
   }).done(function(sketchName) {
     console.log('sketch saved: ' + sketchName);
