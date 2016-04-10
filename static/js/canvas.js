@@ -78,12 +78,11 @@ function saveCanvas() {
     data: {
       sketch: canvasData
     }
-  }).done(function(sketchName) {
-    console.log('sketch saved: ' + sketchName);
-    if (sketchName)
-      $("#name").text(sketchName);
-    else
-      $("#name").text('sketch name');
+  }).done(function(resList) {
+    console.log(resList);
+    for (var i = 0; i < resList.length; i++) {
+      $("#video-match-" + i + " > a > img").attr("src", resList[i]["img_url"]);
+    }
   });
 }
 
