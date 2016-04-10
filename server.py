@@ -16,21 +16,26 @@ Go to http://localhost:8080 in your browser.
 A debugger such as "pdb" may be helpful for debugging.
 Read about it online.
 """
-
-from flask import Flask, g, jsonify, request, render_template, redirect, Response
+import os
+from datetime import datetime
+from flask import Flask
+from flask import g
+from flask import jsonify
+from flask import make_response
+from flask import redirect
+from flask import render_template
+from flask import request
+from flask import Response
 from flask.ext.pymongo import PyMongo
 
-import os
-
-from SketchLib.SketchRecogniser import sketch_recogniser, picture_matcher
-
-# tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
-# static_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates/semantic/dist')
+from sqlalchemy import *
+from sqlalchemy.pool import NullPool
+from SketchLib.SketchRecogniser import sketch_recogniser
+from SketchLib.PictureLib import picture_matcher
 
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = "vdb"
 mongo = PyMongo(app)
-
 
 # The following is a dummy URI that does not connect to a valid database. You will need to modify it to connect to your Part 2 database in order to use the data.
 
