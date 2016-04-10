@@ -25,7 +25,7 @@ def sketch_recogniser_test():
     return jsonify({"sketches": ants})
 
 def sketch_recogniser(filename):
-    args = ("./sketch_search", filename)
+    args = ("./sketch-recognizer/build/tools/bin/sketch_search", filename)
     popen = subprocess.Popen(args, stdout=subprocess.PIPE)
     popen.wait()
     output = popen.stdout.read()

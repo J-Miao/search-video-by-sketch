@@ -148,10 +148,12 @@ def save_to_png(binary_str):
 def get_sketches():
     if request.method == "GET":
         print "get_sketches"
+
     else:
         # sketch_binary_str = request.form["sketch"]
         # save_to_png(sketch_binary_str)
-        return sketch_recogniser(output_sketch)
+        sketch_recogniser(output_sketch)
+    return redirect("/")
 
 @app.route("/search_by_potential_sketches", methods=["POST", "GET"])
 def search_by_potential_sketches():
