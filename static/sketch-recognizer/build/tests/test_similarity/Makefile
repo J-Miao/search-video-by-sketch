@@ -15,7 +15,7 @@ CXX           = g++
 DEFINES       = -DQT_NO_DEBUG -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE $(DEFINES)
 CXXFLAGS      = -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE $(DEFINES)
-INCPATH       = -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I../../../tests/test_similarity -I../../../../opensse -I/usr/include -I../../../../opensse -I/usr/include/boost -I../../../../../Downloads/opencv-2.4.9/modules/core/include -I../../../../../Downloads/opencv-2.4.9/modules/flann/include -I../../../../../Downloads/opencv-2.4.9/modules/imgproc/include -I../../../../../Downloads/opencv-2.4.9/modules/photo/include -I../../../../../Downloads/opencv-2.4.9/modules/video/include -I../../../../../Downloads/opencv-2.4.9/modules/features2d/include -I../../../../../Downloads/opencv-2.4.9/modules/objdetect/include -I../../../../../Downloads/opencv-2.4.9/modules/calib3d/include -I../../../../../Downloads/opencv-2.4.9/modules/ml/include -I../../../../../Downloads/opencv-2.4.9/modules/highgui/include -I../../../../../Downloads/opencv-2.4.9/modules/contrib/include -I../../../../../Downloads/opencv-2.4.9/include -I/usr/include/qt5 -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -I. -I.
+INCPATH       = -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I../../../tests/test_similarity -I../../../../sketch-recognizer -I/usr/include -I../../../../sketch-recognizer -I/usr/include/boost -I../../../../../../../Downloads/opencv-2.4.9/modules/core/include -I../../../../../../../Downloads/opencv-2.4.9/modules/flann/include -I../../../../../../../Downloads/opencv-2.4.9/modules/imgproc/include -I../../../../../../../Downloads/opencv-2.4.9/modules/photo/include -I../../../../../../../Downloads/opencv-2.4.9/modules/video/include -I../../../../../../../Downloads/opencv-2.4.9/modules/features2d/include -I../../../../../../../Downloads/opencv-2.4.9/modules/objdetect/include -I../../../../../../../Downloads/opencv-2.4.9/modules/calib3d/include -I../../../../../../../Downloads/opencv-2.4.9/modules/ml/include -I../../../../../../../Downloads/opencv-2.4.9/modules/highgui/include -I../../../../../../../Downloads/opencv-2.4.9/modules/contrib/include -I../../../../../../../Downloads/opencv-2.4.9/include -I/usr/include/qt5 -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -I. -I.
 LINK          = g++
 LFLAGS        = -m64 -Wl,-O1
 LIBS          = $(SUBLIBS) -L/usr/X11R6/lib64 -L/usr/lib/ -lconfig++ -L/home/leetz/Downloads/opencv-2.4.9/build/lib -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_features2d -lopencv_ml -L/usr/lib/x86_64-linux-gnu/ -lboost_thread -lboost_system -lQt5Gui -L/usr/lib/x86_64-linux-gnu -lQt5Core -lGL -lpthread 
@@ -326,9 +326,9 @@ compiler_clean:
 
 galif.o: ../../../features/galif.cpp ../../../features/galif.h \
 		../../../features/feature.h \
-		../../../common/types.h \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/core.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/types_c.h \
+		../../../../../sketch-recognizer/common/types.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/core.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/types_c.h \
 		/usr/include/assert.h \
 		/usr/include/features.h \
 		/usr/include/stdc-predef.h \
@@ -338,32 +338,32 @@ galif.o: ../../../features/galif.cpp ../../../features/galif.h \
 		/usr/include/string.h \
 		/usr/include/stdint.h \
 		/usr/include/math.h \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/version.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/version.hpp \
 		/usr/include/limits.h \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/operations.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/mat.hpp \
-		../../../../../Downloads/opencv-2.4.9/include/opencv2/opencv.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/core_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/miniflann.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/defines.h \
-		../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/config.h \
-		../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/types_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/photo/include/opencv2/photo/photo.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/photo/include/opencv2/photo/photo_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/video.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/tracking.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/background_segm.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/features2d/include/opencv2/features2d/features2d.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/objdetect/include/opencv2/objdetect/objdetect.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/calib3d/include/opencv2/calib3d/calib3d.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/ml/include/opencv2/ml/ml.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/contrib.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/retina.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/openfabmap.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/operations.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/mat.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/include/opencv2/opencv.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/core_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/miniflann.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/defines.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/config.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/types_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/photo/include/opencv2/photo/photo.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/photo/include/opencv2/photo/photo_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/video.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/tracking.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/background_segm.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/features2d/include/opencv2/features2d/features2d.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/objdetect/include/opencv2/objdetect/objdetect.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/calib3d/include/opencv2/calib3d/calib3d.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/ml/include/opencv2/ml/ml.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/contrib.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/retina.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/openfabmap.hpp \
 		/usr/include/boost/shared_ptr.hpp \
 		/usr/include/boost/smart_ptr/shared_ptr.hpp \
 		/usr/include/boost/config.hpp \
@@ -1487,9 +1487,9 @@ galif.o: ../../../features/galif.cpp ../../../features/galif.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o galif.o ../../../features/galif.cpp
 
 detector.o: ../../../features/detector.cpp ../../../features/detector.h \
-		../../../common/types.h \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/core.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/types_c.h \
+		../../../../../sketch-recognizer/common/types.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/core.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/types_c.h \
 		/usr/include/assert.h \
 		/usr/include/features.h \
 		/usr/include/stdc-predef.h \
@@ -1499,32 +1499,32 @@ detector.o: ../../../features/detector.cpp ../../../features/detector.h \
 		/usr/include/string.h \
 		/usr/include/stdint.h \
 		/usr/include/math.h \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/version.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/version.hpp \
 		/usr/include/limits.h \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/operations.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/mat.hpp \
-		../../../../../Downloads/opencv-2.4.9/include/opencv2/opencv.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/core_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/miniflann.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/defines.h \
-		../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/config.h \
-		../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/types_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/photo/include/opencv2/photo/photo.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/photo/include/opencv2/photo/photo_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/video.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/tracking.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/background_segm.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/features2d/include/opencv2/features2d/features2d.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/objdetect/include/opencv2/objdetect/objdetect.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/calib3d/include/opencv2/calib3d/calib3d.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/ml/include/opencv2/ml/ml.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/contrib.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/retina.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/openfabmap.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/operations.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/mat.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/include/opencv2/opencv.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/core_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/miniflann.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/defines.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/config.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/types_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/photo/include/opencv2/photo/photo.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/photo/include/opencv2/photo/photo_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/video.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/tracking.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/background_segm.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/features2d/include/opencv2/features2d/features2d.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/objdetect/include/opencv2/objdetect/objdetect.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/calib3d/include/opencv2/calib3d/calib3d.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/ml/include/opencv2/ml/ml.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/contrib.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/retina.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/openfabmap.hpp \
 		/usr/include/boost/shared_ptr.hpp \
 		/usr/include/boost/smart_ptr/shared_ptr.hpp \
 		/usr/include/boost/config.hpp \
@@ -2649,9 +2649,9 @@ generator.o: ../../../features/generator.cpp ../../../features/generator.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o generator.o ../../../features/generator.cpp
 
 util.o: ../../../features/util.cpp ../../../features/util.h \
-		../../../common/types.h \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/core.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/types_c.h \
+		../../../../../sketch-recognizer/common/types.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/core.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/types_c.h \
 		/usr/include/assert.h \
 		/usr/include/features.h \
 		/usr/include/stdc-predef.h \
@@ -2661,32 +2661,32 @@ util.o: ../../../features/util.cpp ../../../features/util.h \
 		/usr/include/string.h \
 		/usr/include/stdint.h \
 		/usr/include/math.h \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/version.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/version.hpp \
 		/usr/include/limits.h \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/operations.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/mat.hpp \
-		../../../../../Downloads/opencv-2.4.9/include/opencv2/opencv.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/core_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/miniflann.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/defines.h \
-		../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/config.h \
-		../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/types_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/photo/include/opencv2/photo/photo.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/photo/include/opencv2/photo/photo_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/video.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/tracking.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/background_segm.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/features2d/include/opencv2/features2d/features2d.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/objdetect/include/opencv2/objdetect/objdetect.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/calib3d/include/opencv2/calib3d/calib3d.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/ml/include/opencv2/ml/ml.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/contrib.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/retina.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/openfabmap.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/operations.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/mat.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/include/opencv2/opencv.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/core_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/miniflann.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/defines.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/config.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/types_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/photo/include/opencv2/photo/photo.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/photo/include/opencv2/photo/photo_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/video.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/tracking.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/background_segm.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/features2d/include/opencv2/features2d/features2d.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/objdetect/include/opencv2/objdetect/objdetect.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/calib3d/include/opencv2/calib3d/calib3d.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/ml/include/opencv2/ml/ml.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/contrib.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/retina.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/openfabmap.hpp \
 		/usr/include/boost/shared_ptr.hpp \
 		/usr/include/boost/smart_ptr/shared_ptr.hpp \
 		/usr/include/boost/config.hpp \
@@ -3809,8 +3809,8 @@ util.o: ../../../features/util.cpp ../../../features/util.h \
 
 filelist.o: ../../../io/filelist.cpp ../../../io/filelist.h \
 		../../../common/types.h \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/core.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/types_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/core.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/types_c.h \
 		/usr/include/assert.h \
 		/usr/include/features.h \
 		/usr/include/stdc-predef.h \
@@ -3820,32 +3820,32 @@ filelist.o: ../../../io/filelist.cpp ../../../io/filelist.h \
 		/usr/include/string.h \
 		/usr/include/stdint.h \
 		/usr/include/math.h \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/version.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/version.hpp \
 		/usr/include/limits.h \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/operations.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/mat.hpp \
-		../../../../../Downloads/opencv-2.4.9/include/opencv2/opencv.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/core_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/miniflann.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/defines.h \
-		../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/config.h \
-		../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/types_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/photo/include/opencv2/photo/photo.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/photo/include/opencv2/photo/photo_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/video.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/tracking.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/background_segm.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/features2d/include/opencv2/features2d/features2d.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/objdetect/include/opencv2/objdetect/objdetect.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/calib3d/include/opencv2/calib3d/calib3d.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/ml/include/opencv2/ml/ml.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/contrib.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/retina.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/openfabmap.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/operations.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/mat.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/include/opencv2/opencv.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/core_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/miniflann.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/defines.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/config.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/types_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/photo/include/opencv2/photo/photo.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/photo/include/opencv2/photo/photo_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/video.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/tracking.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/background_segm.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/features2d/include/opencv2/features2d/features2d.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/objdetect/include/opencv2/objdetect/objdetect.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/calib3d/include/opencv2/calib3d/calib3d.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/ml/include/opencv2/ml/ml.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/contrib.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/retina.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/openfabmap.hpp \
 		/usr/include/boost/shared_ptr.hpp \
 		/usr/include/boost/smart_ptr/shared_ptr.hpp \
 		/usr/include/boost/config.hpp \
@@ -5657,9 +5657,9 @@ filelist.o: ../../../io/filelist.cpp ../../../io/filelist.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o filelist.o ../../../io/filelist.cpp
 
 reader_writer.o: ../../../io/reader_writer.cpp ../../../io/reader_writer.h \
-		../../../common/types.h \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/core.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/types_c.h \
+		../../../../../sketch-recognizer/common/types.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/core.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/types_c.h \
 		/usr/include/assert.h \
 		/usr/include/features.h \
 		/usr/include/stdc-predef.h \
@@ -5669,32 +5669,32 @@ reader_writer.o: ../../../io/reader_writer.cpp ../../../io/reader_writer.h \
 		/usr/include/string.h \
 		/usr/include/stdint.h \
 		/usr/include/math.h \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/version.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/version.hpp \
 		/usr/include/limits.h \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/operations.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/mat.hpp \
-		../../../../../Downloads/opencv-2.4.9/include/opencv2/opencv.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/core_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/miniflann.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/defines.h \
-		../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/config.h \
-		../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/types_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/photo/include/opencv2/photo/photo.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/photo/include/opencv2/photo/photo_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/video.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/tracking.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/background_segm.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/features2d/include/opencv2/features2d/features2d.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/objdetect/include/opencv2/objdetect/objdetect.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/calib3d/include/opencv2/calib3d/calib3d.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/ml/include/opencv2/ml/ml.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/contrib.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/retina.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/openfabmap.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/operations.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/mat.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/include/opencv2/opencv.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/core_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/miniflann.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/defines.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/config.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/types_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/photo/include/opencv2/photo/photo.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/photo/include/opencv2/photo/photo_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/video.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/tracking.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/background_segm.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/features2d/include/opencv2/features2d/features2d.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/objdetect/include/opencv2/objdetect/objdetect.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/calib3d/include/opencv2/calib3d/calib3d.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/ml/include/opencv2/ml/ml.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/contrib.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/retina.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/openfabmap.hpp \
 		/usr/include/boost/shared_ptr.hpp \
 		/usr/include/boost/smart_ptr/shared_ptr.hpp \
 		/usr/include/boost/config.hpp \
@@ -6816,9 +6816,9 @@ reader_writer.o: ../../../io/reader_writer.cpp ../../../io/reader_writer.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o reader_writer.o ../../../io/reader_writer.cpp
 
 quantizer.o: ../../../quantize/quantizer.cpp ../../../quantize/quantizer.h \
-		../../../common/types.h \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/core.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/types_c.h \
+		../../../../../sketch-recognizer/common/types.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/core.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/types_c.h \
 		/usr/include/assert.h \
 		/usr/include/features.h \
 		/usr/include/stdc-predef.h \
@@ -6828,32 +6828,32 @@ quantizer.o: ../../../quantize/quantizer.cpp ../../../quantize/quantizer.h \
 		/usr/include/string.h \
 		/usr/include/stdint.h \
 		/usr/include/math.h \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/version.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/version.hpp \
 		/usr/include/limits.h \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/operations.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/mat.hpp \
-		../../../../../Downloads/opencv-2.4.9/include/opencv2/opencv.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/core_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/miniflann.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/defines.h \
-		../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/config.h \
-		../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/types_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/photo/include/opencv2/photo/photo.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/photo/include/opencv2/photo/photo_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/video.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/tracking.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/background_segm.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/features2d/include/opencv2/features2d/features2d.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/objdetect/include/opencv2/objdetect/objdetect.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/calib3d/include/opencv2/calib3d/calib3d.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/ml/include/opencv2/ml/ml.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/contrib.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/retina.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/openfabmap.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/operations.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/mat.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/include/opencv2/opencv.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/core_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/miniflann.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/defines.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/config.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/types_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/photo/include/opencv2/photo/photo.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/photo/include/opencv2/photo/photo_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/video.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/tracking.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/background_segm.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/features2d/include/opencv2/features2d/features2d.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/objdetect/include/opencv2/objdetect/objdetect.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/calib3d/include/opencv2/calib3d/calib3d.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/ml/include/opencv2/ml/ml.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/contrib.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/retina.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/openfabmap.hpp \
 		/usr/include/boost/shared_ptr.hpp \
 		/usr/include/boost/smart_ptr/shared_ptr.hpp \
 		/usr/include/boost/config.hpp \
@@ -7975,9 +7975,9 @@ quantizer.o: ../../../quantize/quantizer.cpp ../../../quantize/quantizer.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o quantizer.o ../../../quantize/quantizer.cpp
 
 invertedindex.o: ../../../index/invertedindex.cpp ../../../index/invertedindex.h \
-		../../../common/types.h \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/core.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/types_c.h \
+		../../../../../sketch-recognizer/common/types.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/core.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/types_c.h \
 		/usr/include/assert.h \
 		/usr/include/features.h \
 		/usr/include/stdc-predef.h \
@@ -7987,32 +7987,32 @@ invertedindex.o: ../../../index/invertedindex.cpp ../../../index/invertedindex.h
 		/usr/include/string.h \
 		/usr/include/stdint.h \
 		/usr/include/math.h \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/version.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/version.hpp \
 		/usr/include/limits.h \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/operations.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/mat.hpp \
-		../../../../../Downloads/opencv-2.4.9/include/opencv2/opencv.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/core_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/miniflann.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/defines.h \
-		../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/config.h \
-		../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/types_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/photo/include/opencv2/photo/photo.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/photo/include/opencv2/photo/photo_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/video.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/tracking.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/background_segm.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/features2d/include/opencv2/features2d/features2d.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/objdetect/include/opencv2/objdetect/objdetect.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/calib3d/include/opencv2/calib3d/calib3d.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/ml/include/opencv2/ml/ml.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/contrib.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/retina.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/openfabmap.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/operations.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/mat.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/include/opencv2/opencv.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/core_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/miniflann.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/defines.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/config.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/types_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/photo/include/opencv2/photo/photo.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/photo/include/opencv2/photo/photo_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/video.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/tracking.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/background_segm.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/features2d/include/opencv2/features2d/features2d.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/objdetect/include/opencv2/objdetect/objdetect.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/calib3d/include/opencv2/calib3d/calib3d.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/ml/include/opencv2/ml/ml.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/contrib.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/retina.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/openfabmap.hpp \
 		/usr/include/boost/shared_ptr.hpp \
 		/usr/include/boost/smart_ptr/shared_ptr.hpp \
 		/usr/include/boost/config.hpp \
@@ -9135,9 +9135,9 @@ invertedindex.o: ../../../index/invertedindex.cpp ../../../index/invertedindex.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o invertedindex.o ../../../index/invertedindex.cpp
 
 tfidf.o: ../../../index/tfidf.cpp ../../../index/tfidf.h \
-		../../../common/types.h \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/core.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/types_c.h \
+		../../../../../sketch-recognizer/common/types.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/core.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/types_c.h \
 		/usr/include/assert.h \
 		/usr/include/features.h \
 		/usr/include/stdc-predef.h \
@@ -9147,32 +9147,32 @@ tfidf.o: ../../../index/tfidf.cpp ../../../index/tfidf.h \
 		/usr/include/string.h \
 		/usr/include/stdint.h \
 		/usr/include/math.h \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/version.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/version.hpp \
 		/usr/include/limits.h \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/operations.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/mat.hpp \
-		../../../../../Downloads/opencv-2.4.9/include/opencv2/opencv.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/core_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/miniflann.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/defines.h \
-		../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/config.h \
-		../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/types_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/photo/include/opencv2/photo/photo.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/photo/include/opencv2/photo/photo_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/video.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/tracking.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/background_segm.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/features2d/include/opencv2/features2d/features2d.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/objdetect/include/opencv2/objdetect/objdetect.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/calib3d/include/opencv2/calib3d/calib3d.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/ml/include/opencv2/ml/ml.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/contrib.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/retina.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/openfabmap.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/operations.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/mat.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/include/opencv2/opencv.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/core_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/miniflann.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/defines.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/config.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/types_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/photo/include/opencv2/photo/photo.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/photo/include/opencv2/photo/photo_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/video.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/tracking.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/background_segm.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/features2d/include/opencv2/features2d/features2d.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/objdetect/include/opencv2/objdetect/objdetect.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/calib3d/include/opencv2/calib3d/calib3d.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/ml/include/opencv2/ml/ml.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/contrib.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/retina.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/openfabmap.hpp \
 		/usr/include/boost/shared_ptr.hpp \
 		/usr/include/boost/smart_ptr/shared_ptr.hpp \
 		/usr/include/boost/config.hpp \
@@ -10295,9 +10295,9 @@ tfidf.o: ../../../index/tfidf.cpp ../../../index/tfidf.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tfidf.o ../../../index/tfidf.cpp
 
 sketchrecognizer.o: ../../../recognize/sketchrecognizer.cpp ../../../recognize/sketchrecognizer.h \
-		../../../common/types.h \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/core.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/types_c.h \
+		../../../../../sketch-recognizer/common/types.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/core.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/types_c.h \
 		/usr/include/assert.h \
 		/usr/include/features.h \
 		/usr/include/stdc-predef.h \
@@ -10307,32 +10307,32 @@ sketchrecognizer.o: ../../../recognize/sketchrecognizer.cpp ../../../recognize/s
 		/usr/include/string.h \
 		/usr/include/stdint.h \
 		/usr/include/math.h \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/version.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/version.hpp \
 		/usr/include/limits.h \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/operations.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/mat.hpp \
-		../../../../../Downloads/opencv-2.4.9/include/opencv2/opencv.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/core_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/miniflann.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/defines.h \
-		../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/config.h \
-		../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/types_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/photo/include/opencv2/photo/photo.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/photo/include/opencv2/photo/photo_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/video.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/tracking.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/background_segm.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/features2d/include/opencv2/features2d/features2d.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/objdetect/include/opencv2/objdetect/objdetect.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/calib3d/include/opencv2/calib3d/calib3d.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/ml/include/opencv2/ml/ml.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/contrib.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/retina.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/openfabmap.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/operations.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/mat.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/include/opencv2/opencv.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/core_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/miniflann.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/defines.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/config.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/types_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/photo/include/opencv2/photo/photo.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/photo/include/opencv2/photo/photo_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/video.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/tracking.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/background_segm.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/features2d/include/opencv2/features2d/features2d.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/objdetect/include/opencv2/objdetect/objdetect.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/calib3d/include/opencv2/calib3d/calib3d.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/ml/include/opencv2/ml/ml.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/contrib.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/retina.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/openfabmap.hpp \
 		/usr/include/boost/shared_ptr.hpp \
 		/usr/include/boost/smart_ptr/shared_ptr.hpp \
 		/usr/include/boost/config.hpp \
@@ -11451,17 +11451,17 @@ sketchrecognizer.o: ../../../recognize/sketchrecognizer.cpp ../../../recognize/s
 		/usr/include/boost/spirit/home/classic/phoenix/operators.hpp \
 		/usr/include/boost/spirit/home/classic/phoenix/tuple_helpers.hpp \
 		/usr/include/boost/property_tree/detail/json_parser_write.hpp \
-		../../../features/galif.h \
-		../../../features/feature.h \
-		../../../features/detector.h \
-		../../../quantize/quantizer.h \
-		../../../io/reader_writer.h \
-		../../../common/distance.h
+		../../../../../sketch-recognizer/features/galif.h \
+		../../../../../sketch-recognizer/features/feature.h \
+		../../../../../sketch-recognizer/features/detector.h \
+		../../../../../sketch-recognizer/quantize/quantizer.h \
+		../../../../../sketch-recognizer/io/reader_writer.h \
+		../../../../../sketch-recognizer/common/distance.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o sketchrecognizer.o ../../../recognize/sketchrecognizer.cpp
 
-main.o: ../../../tests/test_similarity/main.cpp ../../../common/types.h \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/core.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/types_c.h \
+main.o: ../../../tests/test_similarity/main.cpp ../../../../../sketch-recognizer/common/types.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/core.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/types_c.h \
 		/usr/include/assert.h \
 		/usr/include/features.h \
 		/usr/include/stdc-predef.h \
@@ -11471,32 +11471,32 @@ main.o: ../../../tests/test_similarity/main.cpp ../../../common/types.h \
 		/usr/include/string.h \
 		/usr/include/stdint.h \
 		/usr/include/math.h \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/version.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/version.hpp \
 		/usr/include/limits.h \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/operations.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/mat.hpp \
-		../../../../../Downloads/opencv-2.4.9/include/opencv2/opencv.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/core_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/miniflann.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/defines.h \
-		../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/config.h \
-		../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/types_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/photo/include/opencv2/photo/photo.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/photo/include/opencv2/photo/photo_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/video.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/tracking.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/background_segm.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/features2d/include/opencv2/features2d/features2d.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/objdetect/include/opencv2/objdetect/objdetect.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/calib3d/include/opencv2/calib3d/calib3d.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/ml/include/opencv2/ml/ml.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui_c.h \
-		../../../../../Downloads/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/contrib.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/retina.hpp \
-		../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/openfabmap.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/operations.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/mat.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/include/opencv2/opencv.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/core/include/opencv2/core/core_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/miniflann.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/defines.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/flann/include/opencv2/flann/config.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/types_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/photo/include/opencv2/photo/photo.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/photo/include/opencv2/photo/photo_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/video.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/tracking.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/video/include/opencv2/video/background_segm.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/features2d/include/opencv2/features2d/features2d.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/objdetect/include/opencv2/objdetect/objdetect.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/calib3d/include/opencv2/calib3d/calib3d.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/ml/include/opencv2/ml/ml.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui_c.h \
+		../../../../../../../Downloads/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/contrib.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/retina.hpp \
+		../../../../../../../Downloads/opencv-2.4.9/modules/contrib/include/opencv2/contrib/openfabmap.hpp \
 		/usr/include/boost/shared_ptr.hpp \
 		/usr/include/boost/smart_ptr/shared_ptr.hpp \
 		/usr/include/boost/config.hpp \
@@ -12615,14 +12615,14 @@ main.o: ../../../tests/test_similarity/main.cpp ../../../common/types.h \
 		/usr/include/boost/spirit/home/classic/phoenix/operators.hpp \
 		/usr/include/boost/spirit/home/classic/phoenix/tuple_helpers.hpp \
 		/usr/include/boost/property_tree/detail/json_parser_write.hpp \
-		../../../common/distance.h \
-		../../../features/galif.h \
-		../../../features/feature.h \
-		../../../features/detector.h \
-		../../../quantize/quantizer.h \
-		../../../index/invertedindex.h \
-		../../../index/tfidf.h \
-		../../../io/reader_writer.h \
+		../../../../../sketch-recognizer/common/distance.h \
+		../../../../../sketch-recognizer/features/galif.h \
+		../../../../../sketch-recognizer/features/feature.h \
+		../../../../../sketch-recognizer/features/detector.h \
+		../../../../../sketch-recognizer/quantize/quantizer.h \
+		../../../../../sketch-recognizer/index/invertedindex.h \
+		../../../../../sketch-recognizer/index/tfidf.h \
+		../../../../../sketch-recognizer/io/reader_writer.h \
 		/usr/include/boost/lexical_cast.hpp \
 		/usr/include/boost/detail/lcast_precision.hpp \
 		/usr/include/boost/array.hpp \
