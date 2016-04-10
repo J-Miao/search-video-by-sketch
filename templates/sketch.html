@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Search Result</title>
+</head>
+<body>
+	{% for result in result_tuples %}
+		<h3>{{result[0]}}</h3>
+		<img src="{{result[1]}}">
+	{% endfor %}
+</body>
+</html>

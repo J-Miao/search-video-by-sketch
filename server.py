@@ -148,12 +148,12 @@ def save_to_png(binary_str):
 def get_sketches():
     if request.method == "GET":
         print "get_sketches"
-
+        return redirect("/")
     else:
-        # sketch_binary_str = request.form["sketch"]
-        # save_to_png(sketch_binary_str)
-        sketch_recogniser(output_sketch)
-    return redirect("/")
+        sketch_binary_str = request.form["sketch"]
+        save_to_png(sketch_binary_str)
+        similarity_picpath_tuples = sketch_recogniser(output_sketch)
+        return render_template("sketch.html", result_tuples=similarity_picpath_tuples)
 
 @app.route("/search_by_potential_sketches", methods=["POST", "GET"])
 def search_by_potential_sketches():

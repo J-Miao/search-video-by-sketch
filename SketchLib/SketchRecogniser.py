@@ -29,6 +29,6 @@ def sketch_recogniser(filename):
     popen = subprocess.Popen(args, stdout=subprocess.PIPE)
     popen.wait()
     output = popen.stdout.read()
-    print output
+    return [tuple(similarity_picpath_str.strip().split(' ')) for similarity_picpath_str in output.split('\n')]
 
 
