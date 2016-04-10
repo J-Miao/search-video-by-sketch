@@ -150,8 +150,7 @@ def get_sketches():
         print "get_sketches"
         return redirect("/")
     else:
-        # sketch_binary_str = request.form["sketch"]
-        sketch_binary_str = request.form["imgData"]
+        sketch_binary_str = request.form["sketch"]
         print sketch_binary_str
         save_to_png(sketch_binary_str)
         similarity_picpath_tuples = sketch_recogniser(output_sketch)
