@@ -29,6 +29,6 @@ def sketch_recogniser(filename):
     popen = subprocess.Popen(args, stdout=subprocess.PIPE)
     popen.wait()
     output = popen.stdout.read()
-    return output
+    print output
 
 

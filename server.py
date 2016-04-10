@@ -37,6 +37,8 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = "vdb"
 mongo = PyMongo(app)
 
+output_sketch = "static/img/sketch.png"
+
 # @app.before_request
 # def before_request():
 #     """
@@ -137,13 +139,19 @@ def index():
     #
     return render_template("index.html")
 
+def save_to_png(binary_str):
+    f = open(output_sketch, "rb")
+    f.write(binary_str)
+    f.close()
 
 @app.route("/get_sketches", methods=["POST", "GET"])
 def get_sketches():
     if request.method == "GET":
-        return sketch_recogniser()
+        print "get_sketches"
     else:
-        return sketch_recogniser()
+        # sketch_binary_str = request.form["sketch"]
+        # save_to_png(sketch_binary_str)
+        return sketch_recogniser(output_sketch)
 
 @app.route("/search_by_potential_sketches", methods=["POST", "GET"])
 def search_by_potential_sketches():
