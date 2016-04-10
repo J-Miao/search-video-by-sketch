@@ -140,9 +140,9 @@ def index():
     #
     return render_template("index.html")
 
-def save_to_png(binary_str):
+def save_to_png(binary_str, file_name):
     # os.remove(output_sketch)
-    f = open(output_sketch + " " + datetime.datetime.now().strftime("%Y-%m-%d-%H:%M:%S"), "w")
+    f = open(file_name)
     f.write(binary_str.decode("base64"))
     f.close()
 
@@ -152,8 +152,9 @@ def get_sketches():
         return redirect("/")
     else:
         sketch_binary_str = request.form["sketch"]
-        save_to_png(sketch_binary_str)
-        results = sketch_recogniser(output_sketch)
+        fname = output_sketch + "-" + datetime.datetime.now().strftime("%Y-%m-%d-%H:%M:%S")
+        save_to_png(sketch_binary_str, fname)
+        results = sketch_recogniser(fname)
         return jsonify({"sketches": results})
 
 @app.route("/search_by_potential_sketches", methods=["POST", "GET"])
