@@ -1,6 +1,57 @@
 {% extends "layout.html" %}
 {% block body %} 
 
-<h1>凡三往，乃見</h1>
+
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+            <p>凡三往，乃見</p></a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+            <li><p id="name">sketch name</p></li>
+            <li><a id="clear" class="clearbtn" onclick="clearCanvas()">clear</a></li>
+            <li><a id="change" class="changebtn" onclick="changePen()">eraser</a></li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span></a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="/home"><span class="glyphicon glyphicon-calendar"></span> Sketch</a></li>
+                <li><a href="/account/profile"><span class="glyphicon glyphicon-cog"></span> Background Color</a></li>
+            </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+{#<div class="ui horizontal segments" style="height:100%;">#}
+{#    <div class="ui segment">#}
+{#        <div class="eight wide column sketch" style="height:100%;">#}
+{#            <canvas id="canvas"></canvas>#}
+{#        </div>#}
+{#    </div>#}
+{#    <div class="ui segment">#}
+{#        <div class="eight wide column video" style="height:100%;">#}
+{#            <p></p>#}
+{#            <p></p>#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+<div class="container-fluid" style="height:600px">
+    <div class="row" style="height:100%;">
+        <div id="sketch-wrapper" class="col-md-6" style="height:100%;">
+            <div id="sketch" class="row" style="height:70%;position: relative">
+                <canvas id="canvas" style="position: absolute; z-index: 1"></canvas>
+                <canvas id="canvas-color" style="position: absolute; z-index: 0"></canvas>
+            </div>
+            <div id="options" class="row" style="height:30%;">
+                Line width: <input id="linewidth-slider" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="10" data-slider-step="0.2" data-slider-value="3"/>
+
+            </div>
+        </div>
+        <div id="video" class="col-md-6">
+        </div>
+    </div>
+</div>
 
 {% endblock %}
