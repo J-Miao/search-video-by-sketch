@@ -8,28 +8,73 @@ mail: zddhub@gmail.com
 */
 
 var canvas;
-var context;
+var backCanvas;
+var context = [null, null];
 var paint;
+var current_layer = 1;
 var isEraser;
-var mySlider;
+var sketchSlider;
+var backSlider;
+var eraserSlider;
+var backgroundColor = "#ff0000";
+
 $(document).ready(function() {
 
-    mySlider = new Slider('#linewidth-slider', {
-        formatter: function (value) {
-            return 'Current value: ' + value;
+  $("#background-color").on("change", function() {
+    console.log(this.jscolor);
+    backgroundColor = "#" + this.jscolor;
+  });
+
+  $(".dropdown-menu li a").click(function(){
+    var selText = $(this).text();
+    console.log($.trim(selText));
+    $(this).parents().find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
+    if ($.trim(selText) === "Draw sketch") {
+      isEraser = 0;
+      current_layer = 1;
+    }
+    else {
+      if ($.trim(selText) === "Draw background") {
+        isEraser = 0;
+        current_layer = 0;
+      }
+      else {
+        if ($.trim(selText === "Eraser")) {
+          current_layer = 1;
+          isEraser = 1;
         }
-    });
-    loadSketchCanvas();
+      }
+    }
+  });
+
+  sketchSlider = new Slider('#sketch-width-slider', {
+      formatter: function (value) {
+          return 'Current value: ' + value;
+      }
+  });
+  backSlider = new Slider('#background-width-slider', {
+      formatter: function (value) {
+          return 'Current value: ' + value;
+      }
+  });
+  eraserSlider = new Slider('#eraser-width-slider', {
+      formatter: function (value) {
+          return 'Current value: ' + value;
+      }
+  });
+  loadSketchCanvas();
 });
 
 
 function saveCanvas() {
-  var canvasData = canvas.toDataURL("image/png");
+  context[0].drawImage(canvas,0,0);
+
+  var canvasData = backCanvas.toDataURL("image/png");
   //delete "data:image/png;base64,"
   canvasData = canvasData.substring(22);
   $.ajax({
     type: "POST",
-    url: "/recognize",
+    url: "/get_sketches",
     data: {
       imgData: canvasData
     }
@@ -64,7 +109,10 @@ function mouseDownEvent(event) {
     y = event.clientY
   }
   //redraw(x-this.offsetLeft, y-this.offsetTop);
-  redraw(x-this.offsetLeft, y-this.offsetTop-$('#navbar').height());
+  if (isEraser) {
+    redraw(1 - current_layer, x - 16 -this.offsetLeft, y - 9 - this.offsetTop-$('#navbar').height());
+  }
+  redraw(current_layer, x - 16 - this.offsetLeft, y - 9 - this.offsetTop-$('#navbar').height());
 }
 
 function mouseMoveEvent(event) {
@@ -78,15 +126,34 @@ function mouseMoveEvent(event) {
       x = event.clientX;
       y = event.clientY
     }
-      console.log(x, y, this.offsetLeft, this.offsetTop, $('#navbar').height());
+      //console.log(x, y, this.offsetLeft, this.offsetTop, $('#navbar').height());
     //redraw(x-this.offsetLeft, y-this.offsetTop);
-    redraw(x-this.offsetLeft, y-this.offsetTop-$('#navbar').height());
+    if (isEraser) {
+      //redraw(1 - current_layer, x-this.offsetLeft, y-this.offsetTop-$('#navbar').height());
+      redraw(1 - current_layer, x - 15, y - 10 - this.offsetTop-$('#navbar').height());
+    }
+    //redraw(current_layer, x-this.offsetLeft, y-this.offsetTop-$('#navbar').height());
+    redraw(current_layer, x - 15, y - 10 - this.offsetTop-$('#navbar').height());
   }
 }
 
 function mouseUpEvent(event) {
   event.preventDefault();
   if (paint) {
+     if (device) {
+      var touch = event.originalEvent.targetTouches[0];
+      x = touch.pageX;
+      y = touch.pageY
+    } else {
+      x = event.clientX;
+      y = event.clientY
+    }
+
+    if (isEraser) {
+      redraw(1 - current_layer, x - 15, y - 10 - this.offsetTop-$('#navbar').height());
+    }
+    redraw(current_layer, x - 15, y - 10 - this.offsetTop-$('#navbar').height());
+
     paint = false;
     lastPostion = null;
     saveCanvas();
@@ -95,10 +162,14 @@ function mouseUpEvent(event) {
 
 function loadSketchCanvas() {
   canvas = document.getElementById('canvas');
-  context = canvas.getContext("2d");
+  backCanvas = document.getElementById('canvas-color');
+  context[0] = backCanvas.getContext("2d");
+  context[1] = canvas.getContext("2d");
 
   canvas.width = $('#sketch').width();
   canvas.height = $('#sketch').height();
+  backCanvas.width = $('#sketch').width();
+  backCanvas.height = $('#sketch').height();
   //  //
     //canvas.width = 600;
     //canvas.height = 400;
@@ -108,9 +179,13 @@ function loadSketchCanvas() {
 
   isEraser = false;
 
-  context.strokeStyle = "black";
-  context.lineJoin = "round";
-  context.lineWidth = mySlider.getValue();
+  context[0].strokeStyle = "black";
+  context[0].lineJoin = "round";
+  context[0].lineWidth = backSlider.getValue();
+
+  context[1].strokeStyle = "black";
+  context[1].lineJoin = "round";
+  context[1].lineWidth = sketchSlider.getValue();
   /*
      $('#canvas').mousedown(function(e) {
      paint = true;
@@ -172,7 +247,9 @@ var clickEraser = new Array();
 //save in server
 
 function clearCanvas() {
-  context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+
+  context[0].clearRect(0, 0, context[0].canvas.width, context[0].canvas.height);
+  context[1].clearRect(0, 0, context[1].canvas.width, context[1].canvas.height);
   clickX = new Array();
   clickY = new Array();
   clickDrag = new Array();
@@ -180,7 +257,7 @@ function clearCanvas() {
 
   isEraser = false;
   $("#name").text("sketch name");
-  document.getElementById("change").innerHTML = "eraser";
+  //document.getElementById("change").innerHTML = "eraser";
 }
 
 function addClick(x, y, dragging) {
@@ -190,34 +267,40 @@ function addClick(x, y, dragging) {
   clickEraser.push(isEraser);
 }
 
-function redraw(x, y) {
+function redraw(idx, x, y) {
   if (isEraser) {
-    context.globalCompositeOperation = "destination-out";
+    context[idx].globalCompositeOperation = "destination-out";
   } else {
-    context.globalCompositeOperation = "source-over";
+    context[idx].globalCompositeOperation = "source-over";
   }
-  context.beginPath();
+  console.log(isEraser, idx, current_layer);
+  context[idx].beginPath();
   if (!isEraser) {
-    context.strokeStyle = "black";
-    context.lineJoin = "round";
-    context.lineWidth =  mySlider.getValue();
+    if (idx === 1) {
+      context[idx].strokeStyle = "black";
+    }
+    else {
+      console.log(backgroundColor);
+      context[idx].strokeStyle = backgroundColor;
+    }
+    context[idx].lineJoin = "round";
+    context[idx].lineWidth =  idx==1 ? sketchSlider.getValue(): backSlider.getValue();
   }
   else {
-    context.strokeStyle = "white";
-    context.lineJoin = "round";
-    context.lineWidth =  2*mySlider.getValue();
-;
+    context[idx].strokeStyle = "white";
+    context[idx].lineJoin = "round";
+    context[idx].lineWidth =  eraserSlider.getValue();
   }
 
   if (lastPostion) {
-    context.moveTo(lastPostion[0], lastPostion[1]);
-    context.lineTo(x, y);
+    context[idx].moveTo(lastPostion[0], lastPostion[1]);
+    context[idx].lineTo(x, y);
   }
 
-  context.closePath();
-  context.stroke();
+  context[idx].closePath();
+  context[idx].stroke();
 
-  lastPostion = [x, y];
+  if (idx === current_layer) lastPostion = [x, y];
   /*
      for(var i = 0; i < clickX.length; i++) {
      context.beginPath();
