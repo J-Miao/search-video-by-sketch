@@ -24,6 +24,11 @@ def sketch_recogniser_test():
             ]
     return jsonify({"sketches": ants})
 
+def search_tag(filename):
+    return
+
+
+
 def sketch_recogniser(filename):
     args = ("./static/sketch-recognizer/build/tools/bin/sketch_search", filename)
     popen = subprocess.Popen(args, stdout=subprocess.PIPE)
