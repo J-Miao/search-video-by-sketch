@@ -140,8 +140,8 @@ def index():
     return render_template("index.html")
 
 def save_to_png(binary_str):
-    f = open(output_sketch, "rb")
-    f.write(binary_str)
+    f = open(output_sketch, "w")
+    f.write(binary_str.decode("base64"))
     f.close()
 
 @app.route("/get_sketches", methods=["POST", "GET"])
@@ -150,7 +150,9 @@ def get_sketches():
         print "get_sketches"
         return redirect("/")
     else:
-        sketch_binary_str = request.form["sketch"]
+        # sketch_binary_str = request.form["sketch"]
+        sketch_binary_str = request.form["imgData"]
+        print sketch_binary_str
         save_to_png(sketch_binary_str)
         similarity_picpath_tuples = sketch_recogniser(output_sketch)
         return render_template("sketch.html", result_tuples=similarity_picpath_tuples)
