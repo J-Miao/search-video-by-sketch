@@ -16,7 +16,6 @@ Go to http://localhost:8080 in your browser.
 A debugger such as "pdb" may be helpful for debugging.
 Read about it online.
 """
-import datetime
 import os
 from datetime import datetime
 from flask import Flask
@@ -142,7 +141,7 @@ def index():
 
 def save_to_png(binary_str, file_name):
     # os.remove(output_sketch)
-    f = open(file_name)
+    f = open(file_name, 'w')
     f.write(binary_str.decode("base64"))
     f.close()
 
