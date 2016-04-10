@@ -37,35 +37,6 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = "vdb"
 mongo = PyMongo(app)
 
-# The following is a dummy URI that does not connect to a valid database. You will need to modify it to connect to your Part 2 database in order to use the data.
-
-# XXX: The URI should be in the format of: 
-
-#     postgresql://USER:PASSWORD@w4111a.eastus.cloudapp.azure.com/proj1part2
-
-# For example, if you had username gravano and password foobar, then the following line would be:
-
-#     DATABASEURI = "postgresql://gravano:foobar@w4111a.eastus.cloudapp.azure.com/proj1part2"
-
-
-# DATABASEURI = "postgresql://hl2907:481516losT_@w4111vm.eastus.cloudapp.azure.com/w4111"
-
-#
-# This line creates a database engine that knows how to connect to the URI above.
-#
-# engine = create_engine(DATABASEURI)
-
-#
-# Example of running queries in your database
-# Note that this will probably not work if you already have a table named 'test' in your database, containing meaningful data. This is only an example showing you how to run queries in your database using SQLAlchemy.
-#
-# engine.execute("""CREATE TABLE IF NOT EXISTS test (
-#   id serial,
-#   name text
-# );""")
-# engine.execute("""INSERT INTO test(name) VALUES ('grace hopper'), ('alan turing'), ('ada lovelace');""")
-
-
 # @app.before_request
 # def before_request():
 #     """

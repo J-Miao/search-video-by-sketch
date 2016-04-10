@@ -1,9 +1,10 @@
+import subprocess
 from flask import jsonify
 # from flask.ext.pymongo import PyMongo
 
 # mongo = PyMongo(MONGO_DBNAME="app")
 
-def sketch_recogniser():
+def sketch_recogniser_test():
     '''
     For autocompletion
     input parameters: sketch image
@@ -22,5 +23,12 @@ def sketch_recogniser():
                 }
             ]
     return jsonify({"sketches": ants})
+
+def sketch_recogniser(filename):
+    args = ("./sketch_search", filename)
+    popen = subprocess.Popen(args, stdout=subprocess.PIPE)
+    popen.wait()
+    output = popen.stdout.read()
+    return output
 
 
