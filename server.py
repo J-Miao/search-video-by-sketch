@@ -66,20 +66,6 @@ output_sketch = "static/img/sketch.png"
 #     except Exception as e:
 #         pass
 
-#
-# @app.route is a decorator around index() that means:
-#   run index() whenever the user tries to access the "/" path using a GET request
-#
-# If you wanted the user to go to, for example, localhost:8111/foobar/ with POST or GET then you could use:
-#
-#       @app.route("/foobar/", methods=["POST", "GET"])
-#
-# PROTIP: (the trailing / in the path is important)
-# 
-# see for routing: http://flask.pocoo.org/docs/0.10/quickstart/#routing
-# see for decorators: http://simeonfranklin.com/blog/2012/jul/1/python-decorators-in-12-steps/
-#
-
 @app.route('/')
 def index():
     """
@@ -92,55 +78,11 @@ def index():
     See its API: http://flask.pocoo.org/docs/0.10/api/#incoming-request-data
     """
 
-    # DEBUG: this is debugging code to see what request looks like
-    # print request.args
-
-    #
-    # example of a database query
-    #
-    # cursor = g.conn.execute("SELECT Name FROM Person")
-    # names = []
-    # for result in cursor:
-    #   names.append(result['name'])  # can also be accessed using result[0]
-    # cursor.close()
-
-    #
-    # Flask uses Jinja templates, which is an extension to HTML where you can
-    # pass data to a template and dynamically generate HTML based on the data
-    # (you can think of it as simple PHP)
-    # documentation: https://realpython.com/blog/python/primer-on-jinja-templating/
-    #
-    # You can see an example template in templates/index.html
-    #
-    # context are the variables that are passed to the template.
-    # for example, "data" key in the context variable defined below will be 
-    # accessible as a variable in index.html:
-    #
-    #     # will print: [u'grace hopper', u'alan turing', u'ada lovelace']
-    #     <div>{{data}}</div>
-    #     
-    #     # creates a <div> tag for each element in data
-    #     # will print: 
-    #     #
-    #     #   <div>grace hopper</div>
-    #     #   <div>alan turing</div>
-    #     #   <div>ada lovelace</div>
-    #     #
-    #     {% for n in data %}
-    #     <div>{{n}}</div>
-    #     {% endfor %}
-    #
-    # context = dict(data = names)
-
-
-    #
-    # render_template looks in the templates/ folder for files.
-    # for example, the below file reads template/index.html
-    #
     return render_template("index.html")
 
-def save_to_png(binary_str):
-    f = open(output_sketch, "w")
+def save_to_png(binary_str, file_name):
+    # os.remove(output_sketch)
+    f = open(file_name, 'w')
     f.write(binary_str.decode("base64"))
     f.close()
 
@@ -150,8 +92,9 @@ def get_sketches():
         return redirect("/")
     else:
         sketch_binary_str = request.form["sketch"]
-        save_to_png(sketch_binary_str)
-        results = sketch_recogniser(output_sketch)
+        fname = output_sketch + "-" + datetime.datetime.now().strftime("%Y-%m-%d-%H:%M:%S")
+        save_to_png(sketch_binary_str, fname)
+        results = sketch_recogniser(fname)
         return jsonify({"sketches": results})
 
 @app.route("/search_by_potential_sketches", methods=["POST", "GET"])
@@ -160,7 +103,6 @@ def search_by_potential_sketches():
         return picture_matcher(mongo)
     else:
         return picture_matcher(mongo)
-
 
 if __name__ == "__main__":
     import click
