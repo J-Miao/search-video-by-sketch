@@ -22,35 +22,36 @@ def getTags(file):
 client = MongoClient('mongodb://localhost/')
 db = client.vdb_images
 db.authenticate('JRK', 'weloveVDB')
-#calculating signature
+# calculating signature
 gis = ImageSignature()
 
 
 def load_all_images(dirname):
-	for filename in os.listdir(dirname):
-		name, ext = os.path.splitext(filename)
-		if ext.lower() in [".png",".jpg",".bmp",".jpeg"]:
-			pathname = os.path.join(dirname, filename)
-			f = open(pathname, 'r')
-			data = f.read()
-			b64_string = base64.b64encode(data)
-			#print b64_string
+    for filename in os.listdir(dirname):
+        name, ext = os.path.splitext(filename)
+        if ext.lower() in [".png",".jpg",".bmp",".jpeg"]:
+            pathname = os.path.join(dirname, filename)
+            f = open(pathname, 'r')
+            data = f.read()
+            b64_string = base64.b64encode(data)
+            # print b64_string
 
-			result = db.vdb_images.insert({
-			'base64': b64_string,
-			# serialize signature into 1D array,pay attention to calling later
-			'signature': gis.generate_signature(pathname).tolist(),
-			'tags': getTags(f)
-			})
-			f.close()
+            result = db.vdb_images.insert({
+                'base64': b64_string,
+                # serialize signature into 1D array,pay attention to calling later
+                'signature': gis.generate_signature(pathname).tolist(),
+                'tags': getTags(f)
+            })
+            f.close()
+
 
 def main(): 
-	parser = argparse.ArgumentParser()
-	parser.add_argument('--add', help='add the directory of images')
-	args = parser.parse_args() 
-	if args.add: 
-		load_all_images(args.add) 
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--add', help='add the directory of images')
+    args = parser.parse_args() 
+    if args.add: 
+        load_all_images(args.add) 
 
 if __name__ == "__main__": 
-	main() 
+    main() 
 

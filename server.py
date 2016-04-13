@@ -34,7 +34,7 @@ from SketchLib.SketchRecogniser import sketch_recogniser
 from SketchLib.PictureLib import picture_matcher
 
 app = Flask(__name__)
-app.config["MONGO_DBNAME"] = "vdb"
+app.config["MONGO_DBNAME"] = "vdb_images"
 mongo = PyMongo(app)
 
 output_sketch = "static/img/sketch.png"
@@ -66,6 +66,7 @@ output_sketch = "static/img/sketch.png"
 #     except Exception as e:
 #         pass
 
+
 @app.route('/')
 def index():
     """
@@ -80,11 +81,13 @@ def index():
 
     return render_template("index.html")
 
+
 def save_to_png(binary_str, file_name):
     # os.remove(output_sketch)
     f = open(file_name, 'w')
     f.write(binary_str.decode("base64"))
     f.close()
+
 
 @app.route("/get_sketches", methods=["POST", "GET"])
 def get_sketches():
@@ -96,6 +99,7 @@ def get_sketches():
         save_to_png(sketch_binary_str, fname)
         results = sketch_recogniser(fname)
         return jsonify({"sketches": results})
+
 
 @app.route("/search_by_potential_sketches", methods=["POST", "GET"])
 def search_by_potential_sketches():
