@@ -15,7 +15,6 @@ var backgroundColor = "#ff0000";
 
 $(document).ready(function() {
 
-  $("#sketch-match-0 .sketch-tag").text("DIU");
   $("#background-color").on("change", function() {
     console.log(this.jscolor);
     backgroundColor = "#" + this.jscolor;
