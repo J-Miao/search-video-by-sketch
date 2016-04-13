@@ -26,7 +26,7 @@ gis = ImageSignature()
 def load_all_images(dirname):
 	for filename in os.listdir(dirname):
 		name, ext = os.path.splitext(filename)
-		if ext.lower() in [".png",".jpg",".bmp"]:
+		if ext.lower() in [".png",".jpg",".bmp","jpeg"]:
 			pathname = os.path.join(dirname, filename)
 			f = open(pathname, 'r')
 			data = f.read()
