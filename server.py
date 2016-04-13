@@ -35,6 +35,8 @@ from SketchLib.PictureLib import picture_matcher
 
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = "vdb_images"
+app.config["MONGO_USERNAME"] = "JRK"
+app.config["MONGO_PASSWORD"] = "weloveVDB"
 mongo = PyMongo(app)
 
 output_sketch = "static/img/sketch.png"
@@ -83,7 +85,6 @@ def index():
 
 
 def save_to_png(binary_str, file_name):
-    # os.remove(output_sketch)
     f = open(file_name, 'w')
     f.write(binary_str.decode("base64"))
     f.close()
