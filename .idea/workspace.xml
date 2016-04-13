@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="31d3c2f7-5447-43e9-bf60-e1a70a7b5b80" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loadImages.py" afterPath="$PROJECT_DIR$/loadImages.py" />
     </list>
     <ignored path="search-video-by-sketch.iws" />
@@ -62,8 +61,8 @@
       <file leaf-file-name="loadImages.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/loadImages.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.62068963">
-              <caret line="30" column="55" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
+            <state vertical-scroll-proportion="0.37241378">
+              <caret line="30" column="58" selection-start-line="30" selection-start-column="58" selection-end-line="30" selection-end-column="58" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -922,8 +921,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/loadImages.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.62068963">
-          <caret line="30" column="55" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
+        <state vertical-scroll-proportion="0.37241378">
+          <caret line="30" column="58" selection-start-line="30" selection-start-column="58" selection-end-line="30" selection-end-column="58" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
