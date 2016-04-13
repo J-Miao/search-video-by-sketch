@@ -66,11 +66,23 @@ LIBS += -L/home/opencv-2.4.9/build/lib \
 macx {
 
 INCLUDEPATH += $$PWD \
-    /usr/local/include
+    /usr/local/include \
+    /Users/J-Miao/Downloads/opencv-2.4.12/modules/core/include \
+    /Users/J-Miao/Downloads/opencv-2.4.12/modules/flann/include \
+    /Users/J-Miao/Downloads/opencv-2.4.12/modules/imgproc/include \
+    /Users/J-Miao/Downloads/opencv-2.4.12/modules/photo/include \
+    /Users/J-Miao/Downloads/opencv-2.4.12/modules/video/include \
+    /Users/J-Miao/Downloads/opencv-2.4.12/modules/features2d/include \
+    /Users/J-Miao/Downloads/opencv-2.4.12/modules/objdetect/include \
+    /Users/J-Miao/Downloads/opencv-2.4.12/modules/calib3d/include \
+    /Users/J-Miao/Downloads/opencv-2.4.12/modules/ml/include \
+    /Users/J-Miao/Downloads/opencv-2.4.12/modules/highgui/include \
+    /Users/J-Miao/Downloads/opencv-2.4.12/modules/contrib/include \
+    /Users/J-Miao/Downloads/opencv-2.4.12/include
 
 LIBS += -L/usr/local/lib/ \
-            -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_features2d -lopencv_ml\
-            -lboost_thread -lboost_system
+            -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_features2d -lopencv_ml \
+        -L/Users/J-Miao/Downloads/opencv-2.4.12/build/lib
 
 #for commind line
 CONFIG -= app_bundle
