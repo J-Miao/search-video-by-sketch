@@ -20,7 +20,8 @@ def getTags(file):
 
 
 client = MongoClient()
-db = client.test
+db = client.vdb_images
+db.authenticate('JRK', 'weloveVDB')
 #calculating signature
 gis = ImageSignature()
 
