@@ -12,7 +12,7 @@ from image_match.goldberg import ImageSignature
 def getTags(file):
     # assumes environment variables are set.
     clarifai_api = ClarifaiApi() 
-    result = clarifai_api.tag_images(f)
+    result = clarifai_api.tag_images(file)
     #parsing Json
     res = []
     return result['results'][0]['result']['tag']['classes']
