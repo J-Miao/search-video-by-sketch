@@ -21,7 +21,10 @@ $(document).ready(function() {
   });
 
   $("#sketch-results a img").click(function() {
-    context[1].drawImage($(this), 0, 0);
+    console.log($(this)[0]);
+    var tempImg = new Image();
+    tempImg.src = $(this)[0].src;
+    context[1].drawImage(tempImg, 0, 0);
   });
 
   $(".sketch-type.dropdown-menu li a").click(function(){
