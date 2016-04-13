@@ -36,8 +36,8 @@ def load_all_images(dirname):
 
 			result = db.vdb_images.insert({
 					'base64': b64_string,
-					signature: gis.generate_signature(pathname),
-					tags: getTags(f)
+					'signature': gis.generate_signature(pathname),
+					'tags': getTags(f)
 				})
 
 def main(): 
