@@ -2,10 +2,208 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="31d3c2f7-5447-43e9-bf60-e1a70a7b5b80" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/SketchSearchDemo/GLCamera.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/SketchSearchDemo/KDtree.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/SketchSearchDemo/detector.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/SketchSearchDemo/filelist.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/SketchSearchDemo/galif.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/SketchSearchDemo/generator.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/SketchSearchDemo/invertedindex.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/SketchSearchDemo/main.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/SketchSearchDemo/mainwindow.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/SketchSearchDemo/moc_mainwindow.cpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/SketchSearchDemo/moc_mainwindow.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/SketchSearchDemo/moc_resultphotowidget.cpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/SketchSearchDemo/moc_resultphotowidget.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/SketchSearchDemo/moc_sketcharea.cpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/SketchSearchDemo/moc_sketcharea.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/SketchSearchDemo/moc_trimeshview.cpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/SketchSearchDemo/moc_trimeshview.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/SketchSearchDemo/quantizer.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/SketchSearchDemo/reader_writer.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/SketchSearchDemo/resultphotowidget.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/SketchSearchDemo/sketcharea.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/SketchSearchDemo/sketchrecognizer.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/SketchSearchDemo/sketchsearcher.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/SketchSearchDemo/tfidf.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/SketchSearchDemo/trianglemesh_bounding.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/SketchSearchDemo/trianglemesh_connectivity.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/SketchSearchDemo/trianglemesh_curvature.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/SketchSearchDemo/trianglemesh_io.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/SketchSearchDemo/trianglemesh_normals.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/SketchSearchDemo/trianglemesh_pointareas.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/SketchSearchDemo/trianglemesh_stats.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/SketchSearchDemo/trianglemesh_tstrips.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/SketchSearchDemo/trimeshview.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/SketchSearchDemo/trimeshview_draw_apparent_ridges.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/SketchSearchDemo/trimeshview_draw_base.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/SketchSearchDemo/trimeshview_draw_lines.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/SketchSearchDemo/trimeshview_draw_ridges_and_valleys.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/SketchSearchDemo/util.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/bin/SketchSearchDemo" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/bin/stat_vocab" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/bin/test_galif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/bin/test_search" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/bin/test_similarity" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/stat_vocab/detector.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/stat_vocab/filelist.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/stat_vocab/galif.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/stat_vocab/generator.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/stat_vocab/invertedindex.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/stat_vocab/main.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/stat_vocab/quantizer.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/stat_vocab/reader_writer.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/stat_vocab/sketchrecognizer.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/stat_vocab/tfidf.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/stat_vocab/util.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_galif/main.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_search/detector.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_search/filelist.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_search/galif.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_search/generator.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_search/invertedindex.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_search/main.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_search/quantizer.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_search/reader_writer.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_search/sketchrecognizer.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_search/sketchsearcher.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_search/tfidf.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_search/util.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_similarity/detector.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_similarity/filelist.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_similarity/galif.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_similarity/generator.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_similarity/invertedindex.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_similarity/main.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_similarity/quantizer.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_similarity/reader_writer.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_similarity/sketchrecognizer.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_similarity/tfidf.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_similarity/util.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/bin/config.ini" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/bin/create_index" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/bin/extract_and_quantize" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/bin/generate_vocabulary" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/bin/quantize" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/bin/sketch_search" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/create_index/detector.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/create_index/filelist.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/create_index/galif.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/create_index/generator.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/create_index/invertedindex.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/create_index/main.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/create_index/quantizer.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/create_index/reader_writer.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/create_index/sketchrecognizer.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/create_index/tfidf.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/create_index/util.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/extract_and_quantize/detector.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/extract_and_quantize/filelist.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/extract_and_quantize/galif.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/extract_and_quantize/generator.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/extract_and_quantize/invertedindex.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/extract_and_quantize/main.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/extract_and_quantize/quantizer.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/extract_and_quantize/reader_writer.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/extract_and_quantize/sketchrecognizer.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/extract_and_quantize/tfidf.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/extract_and_quantize/util.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/generate_vocabulary/detector.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/generate_vocabulary/filelist.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/generate_vocabulary/galif.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/generate_vocabulary/generator.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/generate_vocabulary/invertedindex.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/generate_vocabulary/main.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/generate_vocabulary/quantizer.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/generate_vocabulary/reader_writer.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/generate_vocabulary/sketchrecognizer.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/generate_vocabulary/tfidf.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/generate_vocabulary/util.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/quantize/detector.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/quantize/filelist.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/quantize/galif.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/quantize/generator.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/quantize/invertedindex.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/quantize/main.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/quantize/quantizer.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/quantize/reader_writer.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/quantize/sketchrecognizer.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/quantize/tfidf.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/quantize/util.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/sketch_search/detector.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/sketch_search/filelist.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/sketch_search/galif.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/sketch_search/generator.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/sketch_search/invertedindex.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/sketch_search/main.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/sketch_search/quantizer.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/sketch_search/reader_writer.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/sketch_search/sketchrecognizer.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/sketch_search/tfidf.o" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/sketch_search/util.o" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/bin/test_reader_and_writer" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/bin/test_reader_and_writer" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_galif/detector.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_galif/detector.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_galif/filelist.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_galif/filelist.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_galif/galif.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_galif/galif.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_galif/generator.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_galif/generator.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_galif/invertedindex.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_galif/invertedindex.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_galif/quantizer.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_galif/quantizer.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_galif/reader_writer.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_galif/reader_writer.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_galif/sketchrecognizer.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_galif/sketchrecognizer.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_galif/tfidf.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_galif/tfidf.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_galif/util.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_galif/util.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_reader_and_writer/detector.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_reader_and_writer/detector.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_reader_and_writer/filelist.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_reader_and_writer/filelist.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_reader_and_writer/galif.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_reader_and_writer/galif.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_reader_and_writer/generator.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_reader_and_writer/generator.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_reader_and_writer/invertedindex.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_reader_and_writer/invertedindex.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_reader_and_writer/main.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_reader_and_writer/main.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_reader_and_writer/quantizer.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_reader_and_writer/quantizer.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_reader_and_writer/reader_writer.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_reader_and_writer/reader_writer.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_reader_and_writer/sketchrecognizer.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_reader_and_writer/sketchrecognizer.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_reader_and_writer/tfidf.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_reader_and_writer/tfidf.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_reader_and_writer/util.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_reader_and_writer/util.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/bin/extract_descriptors" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/bin/extract_descriptors" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/bin/generate_filelist" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/bin/generate_filelist" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/extract_descriptors/detector.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/extract_descriptors/detector.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/extract_descriptors/filelist.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/extract_descriptors/filelist.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/extract_descriptors/galif.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/extract_descriptors/galif.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/extract_descriptors/generator.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/extract_descriptors/generator.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/extract_descriptors/invertedindex.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/extract_descriptors/invertedindex.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/extract_descriptors/main.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/extract_descriptors/main.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/extract_descriptors/quantizer.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/extract_descriptors/quantizer.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/extract_descriptors/reader_writer.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/extract_descriptors/reader_writer.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/extract_descriptors/sketchrecognizer.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/extract_descriptors/sketchrecognizer.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/extract_descriptors/tfidf.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/extract_descriptors/tfidf.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/extract_descriptors/util.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/extract_descriptors/util.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/generate_filelist/detector.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/generate_filelist/detector.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/generate_filelist/filelist.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/generate_filelist/filelist.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/generate_filelist/galif.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/generate_filelist/galif.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/generate_filelist/generator.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/generate_filelist/generator.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/generate_filelist/invertedindex.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/generate_filelist/invertedindex.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/generate_filelist/main.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/generate_filelist/main.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/generate_filelist/quantizer.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/generate_filelist/quantizer.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/generate_filelist/reader_writer.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/generate_filelist/reader_writer.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/generate_filelist/sketchrecognizer.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/generate_filelist/sketchrecognizer.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/generate_filelist/tfidf.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/generate_filelist/tfidf.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/generate_filelist/util.o" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/generate_filelist/util.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/style.css" afterPath="$PROJECT_DIR$/static/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/canvas.js" afterPath="$PROJECT_DIR$/static/js/canvas.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/Makefile" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/SketchSearchDemo/Makefile" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/gui/SketchSearchDemo/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/stat_vocab/Makefile" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/stat_vocab/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_galif/Makefile" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_galif/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_reader_and_writer/Makefile" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_reader_and_writer/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_search/Makefile" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_search/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_similarity/Makefile" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tests/test_similarity/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/create_index/Makefile" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/create_index/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/extract_and_quantize/Makefile" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/extract_and_quantize/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/extract_descriptors/Makefile" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/extract_descriptors/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/generate_filelist/Makefile" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/generate_filelist/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/generate_vocabulary/Makefile" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/generate_vocabulary/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/quantize/Makefile" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/quantize/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/sketch_search/Makefile" afterPath="$PROJECT_DIR$/static/sketch-recognizer/build/tools/sketch_search/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/sketch-recognizer/opensse.pri" afterPath="$PROJECT_DIR$/static/sketch-recognizer/opensse.pri" />
     </list>
     <ignored path="search-video-by-sketch.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,7 +229,7 @@
         <entry file="file://$PROJECT_DIR$/server.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="95" column="12" selection-start-line="95" selection-start-column="12" selection-end-line="95" selection-end-column="12" />
+              <caret line="102" column="34" selection-start-line="102" selection-start-column="34" selection-end-line="102" selection-end-column="34" />
               <folding>
                 <element signature="e#270#279#0" expanded="true" />
               </folding>
@@ -42,29 +240,58 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.583334">
+            <state vertical-scroll-proportion="0.0">
               <caret line="104" column="52" selection-start-line="104" selection-start-column="52" selection-end-line="104" selection-end-column="52" />
-              <folding>
-                <element signature="n#style#0;n#input#0;n#li#1;n#ul#0;n#li#1;n#ul#0;n#div#1;n#nav#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#li#4;n#ul#0;n#li#1;n#ul#0;n#div#1;n#nav#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#li#7;n#ul#0;n#li#1;n#ul#0;n#div#1;n#nav#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#li#2;n#ul#0;n#div#1;n#nav#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#form#0;n#li#2;n#ul#0;n#div#1;n#nav#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#canvas#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="canvas.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="canvas.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/canvas.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.40830946">
-              <caret line="144" column="25" selection-start-line="144" selection-start-column="25" selection-end-line="144" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="106" column="33" selection-start-line="106" selection-start-column="33" selection-end-line="106" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.06446991">
+              <caret line="3" column="5" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="opensse.pri" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/sketch-recognizer/opensse.pri">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="57" column="19" selection-start-line="57" selection-start-column="19" selection-end-line="57" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="galif.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/sketch-recognizer/features/galif.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="galif.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/sketch-recognizer/features/galif.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="4" column="66" selection-start-line="4" selection-start-column="66" selection-end-line="4" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -73,7 +300,7 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.0">
+            <state vertical-scroll-proportion="0.0">
               <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
               <folding />
             </state>
@@ -111,6 +338,8 @@
         <option value="$PROJECT_DIR$/static/css/style.css" />
         <option value="$PROJECT_DIR$/static/js/canvas.js" />
         <option value="$PROJECT_DIR$/templates/index.html" />
+        <option value="$PROJECT_DIR$/static/sketch-recognizer/opensse.pri" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -148,7 +377,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -194,6 +422,124 @@
               <option name="myItemId" value="static" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sketch-recognizer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="search-video-by-sketch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="search-video-by-sketch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sketch-recognizer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="search-video-by-sketch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="search-video-by-sketch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sketch-recognizer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test_galif" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="search-video-by-sketch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="search-video-by-sketch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sketch-recognizer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="io" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="search-video-by-sketch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="search-video-by-sketch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sketch-recognizer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="features" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="search-video-by-sketch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="search-video-by-sketch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sketch-recognizer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -226,6 +572,20 @@
               <option name="myItemId" value="static" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="search-video-by-sketch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="search-video-by-sketch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
@@ -233,6 +593,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -521,7 +882,7 @@
     <entry file="file://$PROJECT_DIR$/server.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="95" column="12" selection-start-line="95" selection-start-column="12" selection-end-line="95" selection-end-column="12" />
           <folding>
             <element signature="e#270#279#0" expanded="true" />
           </folding>
@@ -531,19 +892,32 @@
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="23" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#li#1;n#ul#0;n#li#1;n#ul#0;n#div#1;n#nav#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#li#4;n#ul#0;n#li#1;n#ul#0;n#div#1;n#nav#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#li#7;n#ul#0;n#li#1;n#ul#0;n#div#1;n#nav#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#2;n#ul#0;n#div#1;n#nav#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#form#0;n#li#2;n#ul#0;n#div#1;n#nav#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#canvas#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
+          <caret line="104" column="52" selection-start-line="104" selection-start-column="52" selection-end-line="104" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/canvas.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -561,18 +935,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="43" column="23" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#input#0;n#li#1;n#ul#0;n#li#1;n#ul#0;n#div#1;n#nav#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#li#4;n#ul#0;n#li#1;n#ul#0;n#div#1;n#nav#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#li#7;n#ul#0;n#li#1;n#ul#0;n#div#1;n#nav#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#2;n#ul#0;n#div#1;n#nav#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#form#0;n#li#2;n#ul#0;n#div#1;n#nav#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#canvas#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#270#279#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="23" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -590,18 +971,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#li#1;n#ul#0;n#li#1;n#ul#0;n#div#1;n#nav#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#li#4;n#ul#0;n#li#1;n#ul#0;n#div#1;n#nav#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#li#7;n#ul#0;n#li#1;n#ul#0;n#div#1;n#nav#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#2;n#ul#0;n#div#1;n#nav#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#form#0;n#li#2;n#ul#0;n#div#1;n#nav#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#canvas#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -625,7 +995,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -649,14 +1018,45 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="104" column="52" selection-start-line="104" selection-start-column="52" selection-end-line="104" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/sketch-recognizer/features/galif.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="66" selection-start-line="4" selection-start-column="66" selection-end-line="4" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/sketch-recognizer/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/sketch-recognizer/features/galif.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -664,36 +1064,33 @@
     <entry file="file://$PROJECT_DIR$/server.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="95" column="12" selection-start-line="95" selection-start-column="12" selection-end-line="95" selection-end-column="12" />
+          <caret line="102" column="34" selection-start-line="102" selection-start-column="34" selection-end-line="102" selection-end-column="34" />
           <folding>
             <element signature="e#270#279#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
+    <entry file="file://$PROJECT_DIR$/static/js/canvas.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.583334">
-          <caret line="104" column="52" selection-start-line="104" selection-start-column="52" selection-end-line="104" selection-end-column="52" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#li#1;n#ul#0;n#li#1;n#ul#0;n#div#1;n#nav#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#li#4;n#ul#0;n#li#1;n#ul#0;n#div#1;n#nav#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#li#7;n#ul#0;n#li#1;n#ul#0;n#div#1;n#nav#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#2;n#ul#0;n#div#1;n#nav#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#form#0;n#li#2;n#ul#0;n#div#1;n#nav#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#canvas#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0">
+          <caret line="106" column="33" selection-start-line="106" selection-start-column="33" selection-end-line="106" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/canvas.js">
+    <entry file="file://$PROJECT_DIR$/static/sketch-recognizer/opensse.pri">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40830946">
-          <caret line="144" column="25" selection-start-line="144" selection-start-column="25" selection-end-line="144" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="57" column="19" selection-start-line="57" selection-start-column="19" selection-end-line="57" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.06446991">
+          <caret line="3" column="5" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
           <folding />
         </state>
       </provider>
