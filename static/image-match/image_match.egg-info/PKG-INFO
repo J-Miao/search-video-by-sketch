@@ -1,0 +1,31 @@
+Metadata-Version: 1.1
+Name: image-match
+Version: 0.2.1
+Summary: image_match is a simple package for finding approximate image matches from a corpus.
+Home-page: https://github.com/ascribe/image-match/
+Author: Ryan Henderson
+Author-email: ryan@ascribe.io
+License: Apache License 2.0
+Description: 
+        image_match is a simple package for finding approximate image matches from a
+        corpus. It is similar, for instance, to pHash <http://www.phash.org/>, but
+        includes a database backend that easily scales to billions of images and
+        supports sustained high rates of image insertion: up to 10,000 images/s on our
+        cluster!
+        
+        Based on the paper An image signature for any kind of image, Goldberg et
+        al <http://www.cs.cmu.edu/~hcwong/Pdfs/icip02.ps>.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Database
+Classifier: Topic :: Database :: Database Engines/Servers
+Classifier: Topic :: Software Development
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Topic :: Multimedia :: Graphics

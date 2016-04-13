@@ -45,6 +45,432 @@ SUBTARGETS    =  \
 
 sub-tests-test_galif-qmake_all:  FORCE
 	@test -d tests/test_galif/ || mkdir -p tests/test_galif/
+<<<<<<< HEAD
+	cd tests/test_galif/ && $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/test_galif/test_galif.pro -o Makefile
+	cd tests/test_galif/ && $(MAKE) -f Makefile qmake_all
+sub-tests-test_galif: FORCE
+	@test -d tests/test_galif/ || mkdir -p tests/test_galif/
+	cd tests/test_galif/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/test_galif/test_galif.pro -o Makefile ) && $(MAKE) -f Makefile
+sub-tests-test_galif-make_first: FORCE
+	@test -d tests/test_galif/ || mkdir -p tests/test_galif/
+	cd tests/test_galif/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/test_galif/test_galif.pro -o Makefile ) && $(MAKE) -f Makefile 
+sub-tests-test_galif-all: FORCE
+	@test -d tests/test_galif/ || mkdir -p tests/test_galif/
+	cd tests/test_galif/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/test_galif/test_galif.pro -o Makefile ) && $(MAKE) -f Makefile all
+sub-tests-test_galif-clean: FORCE
+	@test -d tests/test_galif/ || mkdir -p tests/test_galif/
+	cd tests/test_galif/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/test_galif/test_galif.pro -o Makefile ) && $(MAKE) -f Makefile clean
+sub-tests-test_galif-distclean: FORCE
+	@test -d tests/test_galif/ || mkdir -p tests/test_galif/
+	cd tests/test_galif/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/test_galif/test_galif.pro -o Makefile ) && $(MAKE) -f Makefile distclean
+sub-tests-test_galif-install_subtargets: FORCE
+	@test -d tests/test_galif/ || mkdir -p tests/test_galif/
+	cd tests/test_galif/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/test_galif/test_galif.pro -o Makefile ) && $(MAKE) -f Makefile install
+sub-tests-test_galif-uninstall_subtargets: FORCE
+	@test -d tests/test_galif/ || mkdir -p tests/test_galif/
+	cd tests/test_galif/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/test_galif/test_galif.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
+sub-tests-test_reader_and_writer-qmake_all:  FORCE
+	@test -d tests/test_reader_and_writer/ || mkdir -p tests/test_reader_and_writer/
+	cd tests/test_reader_and_writer/ && $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/test_reader_and_writer/test_reader_and_writer.pro -o Makefile
+	cd tests/test_reader_and_writer/ && $(MAKE) -f Makefile qmake_all
+sub-tests-test_reader_and_writer: FORCE
+	@test -d tests/test_reader_and_writer/ || mkdir -p tests/test_reader_and_writer/
+	cd tests/test_reader_and_writer/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/test_reader_and_writer/test_reader_and_writer.pro -o Makefile ) && $(MAKE) -f Makefile
+sub-tests-test_reader_and_writer-make_first: FORCE
+	@test -d tests/test_reader_and_writer/ || mkdir -p tests/test_reader_and_writer/
+	cd tests/test_reader_and_writer/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/test_reader_and_writer/test_reader_and_writer.pro -o Makefile ) && $(MAKE) -f Makefile 
+sub-tests-test_reader_and_writer-all: FORCE
+	@test -d tests/test_reader_and_writer/ || mkdir -p tests/test_reader_and_writer/
+	cd tests/test_reader_and_writer/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/test_reader_and_writer/test_reader_and_writer.pro -o Makefile ) && $(MAKE) -f Makefile all
+sub-tests-test_reader_and_writer-clean: FORCE
+	@test -d tests/test_reader_and_writer/ || mkdir -p tests/test_reader_and_writer/
+	cd tests/test_reader_and_writer/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/test_reader_and_writer/test_reader_and_writer.pro -o Makefile ) && $(MAKE) -f Makefile clean
+sub-tests-test_reader_and_writer-distclean: FORCE
+	@test -d tests/test_reader_and_writer/ || mkdir -p tests/test_reader_and_writer/
+	cd tests/test_reader_and_writer/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/test_reader_and_writer/test_reader_and_writer.pro -o Makefile ) && $(MAKE) -f Makefile distclean
+sub-tests-test_reader_and_writer-install_subtargets: FORCE
+	@test -d tests/test_reader_and_writer/ || mkdir -p tests/test_reader_and_writer/
+	cd tests/test_reader_and_writer/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/test_reader_and_writer/test_reader_and_writer.pro -o Makefile ) && $(MAKE) -f Makefile install
+sub-tests-test_reader_and_writer-uninstall_subtargets: FORCE
+	@test -d tests/test_reader_and_writer/ || mkdir -p tests/test_reader_and_writer/
+	cd tests/test_reader_and_writer/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/test_reader_and_writer/test_reader_and_writer.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
+sub-tools-extract_descriptors-qmake_all:  FORCE
+	@test -d tools/extract_descriptors/ || mkdir -p tools/extract_descriptors/
+	cd tools/extract_descriptors/ && $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/extract_descriptors/extract_descriptors.pro -o Makefile
+	cd tools/extract_descriptors/ && $(MAKE) -f Makefile qmake_all
+sub-tools-extract_descriptors: FORCE
+	@test -d tools/extract_descriptors/ || mkdir -p tools/extract_descriptors/
+	cd tools/extract_descriptors/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/extract_descriptors/extract_descriptors.pro -o Makefile ) && $(MAKE) -f Makefile
+sub-tools-extract_descriptors-make_first: FORCE
+	@test -d tools/extract_descriptors/ || mkdir -p tools/extract_descriptors/
+	cd tools/extract_descriptors/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/extract_descriptors/extract_descriptors.pro -o Makefile ) && $(MAKE) -f Makefile 
+sub-tools-extract_descriptors-all: FORCE
+	@test -d tools/extract_descriptors/ || mkdir -p tools/extract_descriptors/
+	cd tools/extract_descriptors/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/extract_descriptors/extract_descriptors.pro -o Makefile ) && $(MAKE) -f Makefile all
+sub-tools-extract_descriptors-clean: FORCE
+	@test -d tools/extract_descriptors/ || mkdir -p tools/extract_descriptors/
+	cd tools/extract_descriptors/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/extract_descriptors/extract_descriptors.pro -o Makefile ) && $(MAKE) -f Makefile clean
+sub-tools-extract_descriptors-distclean: FORCE
+	@test -d tools/extract_descriptors/ || mkdir -p tools/extract_descriptors/
+	cd tools/extract_descriptors/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/extract_descriptors/extract_descriptors.pro -o Makefile ) && $(MAKE) -f Makefile distclean
+sub-tools-extract_descriptors-install_subtargets: FORCE
+	@test -d tools/extract_descriptors/ || mkdir -p tools/extract_descriptors/
+	cd tools/extract_descriptors/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/extract_descriptors/extract_descriptors.pro -o Makefile ) && $(MAKE) -f Makefile install
+sub-tools-extract_descriptors-uninstall_subtargets: FORCE
+	@test -d tools/extract_descriptors/ || mkdir -p tools/extract_descriptors/
+	cd tools/extract_descriptors/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/extract_descriptors/extract_descriptors.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
+sub-tools-generate_filelist-qmake_all:  FORCE
+	@test -d tools/generate_filelist/ || mkdir -p tools/generate_filelist/
+	cd tools/generate_filelist/ && $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/generate_filelist/generate_filelist.pro -o Makefile
+	cd tools/generate_filelist/ && $(MAKE) -f Makefile qmake_all
+sub-tools-generate_filelist: FORCE
+	@test -d tools/generate_filelist/ || mkdir -p tools/generate_filelist/
+	cd tools/generate_filelist/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/generate_filelist/generate_filelist.pro -o Makefile ) && $(MAKE) -f Makefile
+sub-tools-generate_filelist-make_first: FORCE
+	@test -d tools/generate_filelist/ || mkdir -p tools/generate_filelist/
+	cd tools/generate_filelist/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/generate_filelist/generate_filelist.pro -o Makefile ) && $(MAKE) -f Makefile 
+sub-tools-generate_filelist-all: FORCE
+	@test -d tools/generate_filelist/ || mkdir -p tools/generate_filelist/
+	cd tools/generate_filelist/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/generate_filelist/generate_filelist.pro -o Makefile ) && $(MAKE) -f Makefile all
+sub-tools-generate_filelist-clean: FORCE
+	@test -d tools/generate_filelist/ || mkdir -p tools/generate_filelist/
+	cd tools/generate_filelist/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/generate_filelist/generate_filelist.pro -o Makefile ) && $(MAKE) -f Makefile clean
+sub-tools-generate_filelist-distclean: FORCE
+	@test -d tools/generate_filelist/ || mkdir -p tools/generate_filelist/
+	cd tools/generate_filelist/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/generate_filelist/generate_filelist.pro -o Makefile ) && $(MAKE) -f Makefile distclean
+sub-tools-generate_filelist-install_subtargets: FORCE
+	@test -d tools/generate_filelist/ || mkdir -p tools/generate_filelist/
+	cd tools/generate_filelist/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/generate_filelist/generate_filelist.pro -o Makefile ) && $(MAKE) -f Makefile install
+sub-tools-generate_filelist-uninstall_subtargets: FORCE
+	@test -d tools/generate_filelist/ || mkdir -p tools/generate_filelist/
+	cd tools/generate_filelist/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/generate_filelist/generate_filelist.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
+sub-tools-generate_vocabulary-qmake_all:  FORCE
+	@test -d tools/generate_vocabulary/ || mkdir -p tools/generate_vocabulary/
+	cd tools/generate_vocabulary/ && $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/generate_vocabulary/generate_vocabulary.pro -o Makefile
+	cd tools/generate_vocabulary/ && $(MAKE) -f Makefile qmake_all
+sub-tools-generate_vocabulary: FORCE
+	@test -d tools/generate_vocabulary/ || mkdir -p tools/generate_vocabulary/
+	cd tools/generate_vocabulary/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/generate_vocabulary/generate_vocabulary.pro -o Makefile ) && $(MAKE) -f Makefile
+sub-tools-generate_vocabulary-make_first: FORCE
+	@test -d tools/generate_vocabulary/ || mkdir -p tools/generate_vocabulary/
+	cd tools/generate_vocabulary/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/generate_vocabulary/generate_vocabulary.pro -o Makefile ) && $(MAKE) -f Makefile 
+sub-tools-generate_vocabulary-all: FORCE
+	@test -d tools/generate_vocabulary/ || mkdir -p tools/generate_vocabulary/
+	cd tools/generate_vocabulary/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/generate_vocabulary/generate_vocabulary.pro -o Makefile ) && $(MAKE) -f Makefile all
+sub-tools-generate_vocabulary-clean: FORCE
+	@test -d tools/generate_vocabulary/ || mkdir -p tools/generate_vocabulary/
+	cd tools/generate_vocabulary/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/generate_vocabulary/generate_vocabulary.pro -o Makefile ) && $(MAKE) -f Makefile clean
+sub-tools-generate_vocabulary-distclean: FORCE
+	@test -d tools/generate_vocabulary/ || mkdir -p tools/generate_vocabulary/
+	cd tools/generate_vocabulary/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/generate_vocabulary/generate_vocabulary.pro -o Makefile ) && $(MAKE) -f Makefile distclean
+sub-tools-generate_vocabulary-install_subtargets: FORCE
+	@test -d tools/generate_vocabulary/ || mkdir -p tools/generate_vocabulary/
+	cd tools/generate_vocabulary/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/generate_vocabulary/generate_vocabulary.pro -o Makefile ) && $(MAKE) -f Makefile install
+sub-tools-generate_vocabulary-uninstall_subtargets: FORCE
+	@test -d tools/generate_vocabulary/ || mkdir -p tools/generate_vocabulary/
+	cd tools/generate_vocabulary/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/generate_vocabulary/generate_vocabulary.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
+sub-tools-quantize-qmake_all:  FORCE
+	@test -d tools/quantize/ || mkdir -p tools/quantize/
+	cd tools/quantize/ && $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/quantize/quantize.pro -o Makefile
+	cd tools/quantize/ && $(MAKE) -f Makefile qmake_all
+sub-tools-quantize: FORCE
+	@test -d tools/quantize/ || mkdir -p tools/quantize/
+	cd tools/quantize/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/quantize/quantize.pro -o Makefile ) && $(MAKE) -f Makefile
+sub-tools-quantize-make_first: FORCE
+	@test -d tools/quantize/ || mkdir -p tools/quantize/
+	cd tools/quantize/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/quantize/quantize.pro -o Makefile ) && $(MAKE) -f Makefile 
+sub-tools-quantize-all: FORCE
+	@test -d tools/quantize/ || mkdir -p tools/quantize/
+	cd tools/quantize/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/quantize/quantize.pro -o Makefile ) && $(MAKE) -f Makefile all
+sub-tools-quantize-clean: FORCE
+	@test -d tools/quantize/ || mkdir -p tools/quantize/
+	cd tools/quantize/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/quantize/quantize.pro -o Makefile ) && $(MAKE) -f Makefile clean
+sub-tools-quantize-distclean: FORCE
+	@test -d tools/quantize/ || mkdir -p tools/quantize/
+	cd tools/quantize/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/quantize/quantize.pro -o Makefile ) && $(MAKE) -f Makefile distclean
+sub-tools-quantize-install_subtargets: FORCE
+	@test -d tools/quantize/ || mkdir -p tools/quantize/
+	cd tools/quantize/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/quantize/quantize.pro -o Makefile ) && $(MAKE) -f Makefile install
+sub-tools-quantize-uninstall_subtargets: FORCE
+	@test -d tools/quantize/ || mkdir -p tools/quantize/
+	cd tools/quantize/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/quantize/quantize.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
+sub-tools-create_index-qmake_all:  FORCE
+	@test -d tools/create_index/ || mkdir -p tools/create_index/
+	cd tools/create_index/ && $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/create_index/create_index.pro -o Makefile
+	cd tools/create_index/ && $(MAKE) -f Makefile qmake_all
+sub-tools-create_index: FORCE
+	@test -d tools/create_index/ || mkdir -p tools/create_index/
+	cd tools/create_index/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/create_index/create_index.pro -o Makefile ) && $(MAKE) -f Makefile
+sub-tools-create_index-make_first: FORCE
+	@test -d tools/create_index/ || mkdir -p tools/create_index/
+	cd tools/create_index/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/create_index/create_index.pro -o Makefile ) && $(MAKE) -f Makefile 
+sub-tools-create_index-all: FORCE
+	@test -d tools/create_index/ || mkdir -p tools/create_index/
+	cd tools/create_index/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/create_index/create_index.pro -o Makefile ) && $(MAKE) -f Makefile all
+sub-tools-create_index-clean: FORCE
+	@test -d tools/create_index/ || mkdir -p tools/create_index/
+	cd tools/create_index/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/create_index/create_index.pro -o Makefile ) && $(MAKE) -f Makefile clean
+sub-tools-create_index-distclean: FORCE
+	@test -d tools/create_index/ || mkdir -p tools/create_index/
+	cd tools/create_index/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/create_index/create_index.pro -o Makefile ) && $(MAKE) -f Makefile distclean
+sub-tools-create_index-install_subtargets: FORCE
+	@test -d tools/create_index/ || mkdir -p tools/create_index/
+	cd tools/create_index/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/create_index/create_index.pro -o Makefile ) && $(MAKE) -f Makefile install
+sub-tools-create_index-uninstall_subtargets: FORCE
+	@test -d tools/create_index/ || mkdir -p tools/create_index/
+	cd tools/create_index/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/create_index/create_index.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
+sub-tools-sketch_search-qmake_all:  FORCE
+	@test -d tools/sketch_search/ || mkdir -p tools/sketch_search/
+	cd tools/sketch_search/ && $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/sketch_search/sketch_search.pro -o Makefile
+	cd tools/sketch_search/ && $(MAKE) -f Makefile qmake_all
+sub-tools-sketch_search: FORCE
+	@test -d tools/sketch_search/ || mkdir -p tools/sketch_search/
+	cd tools/sketch_search/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/sketch_search/sketch_search.pro -o Makefile ) && $(MAKE) -f Makefile
+sub-tools-sketch_search-make_first: FORCE
+	@test -d tools/sketch_search/ || mkdir -p tools/sketch_search/
+	cd tools/sketch_search/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/sketch_search/sketch_search.pro -o Makefile ) && $(MAKE) -f Makefile 
+sub-tools-sketch_search-all: FORCE
+	@test -d tools/sketch_search/ || mkdir -p tools/sketch_search/
+	cd tools/sketch_search/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/sketch_search/sketch_search.pro -o Makefile ) && $(MAKE) -f Makefile all
+sub-tools-sketch_search-clean: FORCE
+	@test -d tools/sketch_search/ || mkdir -p tools/sketch_search/
+	cd tools/sketch_search/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/sketch_search/sketch_search.pro -o Makefile ) && $(MAKE) -f Makefile clean
+sub-tools-sketch_search-distclean: FORCE
+	@test -d tools/sketch_search/ || mkdir -p tools/sketch_search/
+	cd tools/sketch_search/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/sketch_search/sketch_search.pro -o Makefile ) && $(MAKE) -f Makefile distclean
+sub-tools-sketch_search-install_subtargets: FORCE
+	@test -d tools/sketch_search/ || mkdir -p tools/sketch_search/
+	cd tools/sketch_search/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/sketch_search/sketch_search.pro -o Makefile ) && $(MAKE) -f Makefile install
+sub-tools-sketch_search-uninstall_subtargets: FORCE
+	@test -d tools/sketch_search/ || mkdir -p tools/sketch_search/
+	cd tools/sketch_search/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/sketch_search/sketch_search.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
+sub-gui-SketchSearchDemo-qmake_all:  FORCE
+	@test -d gui/SketchSearchDemo/ || mkdir -p gui/SketchSearchDemo/
+	cd gui/SketchSearchDemo/ && $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/gui/SketchSearchDemo/SketchSearchDemo.pro -o Makefile
+	cd gui/SketchSearchDemo/ && $(MAKE) -f Makefile qmake_all
+sub-gui-SketchSearchDemo: FORCE
+	@test -d gui/SketchSearchDemo/ || mkdir -p gui/SketchSearchDemo/
+	cd gui/SketchSearchDemo/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/gui/SketchSearchDemo/SketchSearchDemo.pro -o Makefile ) && $(MAKE) -f Makefile
+sub-gui-SketchSearchDemo-make_first: FORCE
+	@test -d gui/SketchSearchDemo/ || mkdir -p gui/SketchSearchDemo/
+	cd gui/SketchSearchDemo/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/gui/SketchSearchDemo/SketchSearchDemo.pro -o Makefile ) && $(MAKE) -f Makefile 
+sub-gui-SketchSearchDemo-all: FORCE
+	@test -d gui/SketchSearchDemo/ || mkdir -p gui/SketchSearchDemo/
+	cd gui/SketchSearchDemo/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/gui/SketchSearchDemo/SketchSearchDemo.pro -o Makefile ) && $(MAKE) -f Makefile all
+sub-gui-SketchSearchDemo-clean: FORCE
+	@test -d gui/SketchSearchDemo/ || mkdir -p gui/SketchSearchDemo/
+	cd gui/SketchSearchDemo/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/gui/SketchSearchDemo/SketchSearchDemo.pro -o Makefile ) && $(MAKE) -f Makefile clean
+sub-gui-SketchSearchDemo-distclean: FORCE
+	@test -d gui/SketchSearchDemo/ || mkdir -p gui/SketchSearchDemo/
+	cd gui/SketchSearchDemo/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/gui/SketchSearchDemo/SketchSearchDemo.pro -o Makefile ) && $(MAKE) -f Makefile distclean
+sub-gui-SketchSearchDemo-install_subtargets: FORCE
+	@test -d gui/SketchSearchDemo/ || mkdir -p gui/SketchSearchDemo/
+	cd gui/SketchSearchDemo/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/gui/SketchSearchDemo/SketchSearchDemo.pro -o Makefile ) && $(MAKE) -f Makefile install
+sub-gui-SketchSearchDemo-uninstall_subtargets: FORCE
+	@test -d gui/SketchSearchDemo/ || mkdir -p gui/SketchSearchDemo/
+	cd gui/SketchSearchDemo/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/gui/SketchSearchDemo/SketchSearchDemo.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
+sub-tests-test_similarity-qmake_all:  FORCE
+	@test -d tests/test_similarity/ || mkdir -p tests/test_similarity/
+	cd tests/test_similarity/ && $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/test_similarity/test_similarity.pro -o Makefile
+	cd tests/test_similarity/ && $(MAKE) -f Makefile qmake_all
+sub-tests-test_similarity: FORCE
+	@test -d tests/test_similarity/ || mkdir -p tests/test_similarity/
+	cd tests/test_similarity/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/test_similarity/test_similarity.pro -o Makefile ) && $(MAKE) -f Makefile
+sub-tests-test_similarity-make_first: FORCE
+	@test -d tests/test_similarity/ || mkdir -p tests/test_similarity/
+	cd tests/test_similarity/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/test_similarity/test_similarity.pro -o Makefile ) && $(MAKE) -f Makefile 
+sub-tests-test_similarity-all: FORCE
+	@test -d tests/test_similarity/ || mkdir -p tests/test_similarity/
+	cd tests/test_similarity/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/test_similarity/test_similarity.pro -o Makefile ) && $(MAKE) -f Makefile all
+sub-tests-test_similarity-clean: FORCE
+	@test -d tests/test_similarity/ || mkdir -p tests/test_similarity/
+	cd tests/test_similarity/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/test_similarity/test_similarity.pro -o Makefile ) && $(MAKE) -f Makefile clean
+sub-tests-test_similarity-distclean: FORCE
+	@test -d tests/test_similarity/ || mkdir -p tests/test_similarity/
+	cd tests/test_similarity/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/test_similarity/test_similarity.pro -o Makefile ) && $(MAKE) -f Makefile distclean
+sub-tests-test_similarity-install_subtargets: FORCE
+	@test -d tests/test_similarity/ || mkdir -p tests/test_similarity/
+	cd tests/test_similarity/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/test_similarity/test_similarity.pro -o Makefile ) && $(MAKE) -f Makefile install
+sub-tests-test_similarity-uninstall_subtargets: FORCE
+	@test -d tests/test_similarity/ || mkdir -p tests/test_similarity/
+	cd tests/test_similarity/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/test_similarity/test_similarity.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
+sub-tests-stat_vocab-qmake_all:  FORCE
+	@test -d tests/stat_vocab/ || mkdir -p tests/stat_vocab/
+	cd tests/stat_vocab/ && $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/stat_vocab/stat_vocab.pro -o Makefile
+	cd tests/stat_vocab/ && $(MAKE) -f Makefile qmake_all
+sub-tests-stat_vocab: FORCE
+	@test -d tests/stat_vocab/ || mkdir -p tests/stat_vocab/
+	cd tests/stat_vocab/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/stat_vocab/stat_vocab.pro -o Makefile ) && $(MAKE) -f Makefile
+sub-tests-stat_vocab-make_first: FORCE
+	@test -d tests/stat_vocab/ || mkdir -p tests/stat_vocab/
+	cd tests/stat_vocab/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/stat_vocab/stat_vocab.pro -o Makefile ) && $(MAKE) -f Makefile 
+sub-tests-stat_vocab-all: FORCE
+	@test -d tests/stat_vocab/ || mkdir -p tests/stat_vocab/
+	cd tests/stat_vocab/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/stat_vocab/stat_vocab.pro -o Makefile ) && $(MAKE) -f Makefile all
+sub-tests-stat_vocab-clean: FORCE
+	@test -d tests/stat_vocab/ || mkdir -p tests/stat_vocab/
+	cd tests/stat_vocab/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/stat_vocab/stat_vocab.pro -o Makefile ) && $(MAKE) -f Makefile clean
+sub-tests-stat_vocab-distclean: FORCE
+	@test -d tests/stat_vocab/ || mkdir -p tests/stat_vocab/
+	cd tests/stat_vocab/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/stat_vocab/stat_vocab.pro -o Makefile ) && $(MAKE) -f Makefile distclean
+sub-tests-stat_vocab-install_subtargets: FORCE
+	@test -d tests/stat_vocab/ || mkdir -p tests/stat_vocab/
+	cd tests/stat_vocab/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/stat_vocab/stat_vocab.pro -o Makefile ) && $(MAKE) -f Makefile install
+sub-tests-stat_vocab-uninstall_subtargets: FORCE
+	@test -d tests/stat_vocab/ || mkdir -p tests/stat_vocab/
+	cd tests/stat_vocab/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/stat_vocab/stat_vocab.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
+sub-tests-test_search-qmake_all:  FORCE
+	@test -d tests/test_search/ || mkdir -p tests/test_search/
+	cd tests/test_search/ && $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/test_search/test_search.pro -o Makefile
+	cd tests/test_search/ && $(MAKE) -f Makefile qmake_all
+sub-tests-test_search: FORCE
+	@test -d tests/test_search/ || mkdir -p tests/test_search/
+	cd tests/test_search/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/test_search/test_search.pro -o Makefile ) && $(MAKE) -f Makefile
+sub-tests-test_search-make_first: FORCE
+	@test -d tests/test_search/ || mkdir -p tests/test_search/
+	cd tests/test_search/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/test_search/test_search.pro -o Makefile ) && $(MAKE) -f Makefile 
+sub-tests-test_search-all: FORCE
+	@test -d tests/test_search/ || mkdir -p tests/test_search/
+	cd tests/test_search/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/test_search/test_search.pro -o Makefile ) && $(MAKE) -f Makefile all
+sub-tests-test_search-clean: FORCE
+	@test -d tests/test_search/ || mkdir -p tests/test_search/
+	cd tests/test_search/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/test_search/test_search.pro -o Makefile ) && $(MAKE) -f Makefile clean
+sub-tests-test_search-distclean: FORCE
+	@test -d tests/test_search/ || mkdir -p tests/test_search/
+	cd tests/test_search/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/test_search/test_search.pro -o Makefile ) && $(MAKE) -f Makefile distclean
+sub-tests-test_search-install_subtargets: FORCE
+	@test -d tests/test_search/ || mkdir -p tests/test_search/
+	cd tests/test_search/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/test_search/test_search.pro -o Makefile ) && $(MAKE) -f Makefile install
+sub-tests-test_search-uninstall_subtargets: FORCE
+	@test -d tests/test_search/ || mkdir -p tests/test_search/
+	cd tests/test_search/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/test_search/test_search.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
+sub-tools-extract_and_quantize-qmake_all:  FORCE
+	@test -d tools/extract_and_quantize/ || mkdir -p tools/extract_and_quantize/
+	cd tools/extract_and_quantize/ && $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/extract_and_quantize/extract_and_quantize.pro -o Makefile
+	cd tools/extract_and_quantize/ && $(MAKE) -f Makefile qmake_all
+sub-tools-extract_and_quantize: FORCE
+	@test -d tools/extract_and_quantize/ || mkdir -p tools/extract_and_quantize/
+	cd tools/extract_and_quantize/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/extract_and_quantize/extract_and_quantize.pro -o Makefile ) && $(MAKE) -f Makefile
+sub-tools-extract_and_quantize-make_first: FORCE
+	@test -d tools/extract_and_quantize/ || mkdir -p tools/extract_and_quantize/
+	cd tools/extract_and_quantize/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/extract_and_quantize/extract_and_quantize.pro -o Makefile ) && $(MAKE) -f Makefile 
+sub-tools-extract_and_quantize-all: FORCE
+	@test -d tools/extract_and_quantize/ || mkdir -p tools/extract_and_quantize/
+	cd tools/extract_and_quantize/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/extract_and_quantize/extract_and_quantize.pro -o Makefile ) && $(MAKE) -f Makefile all
+sub-tools-extract_and_quantize-clean: FORCE
+	@test -d tools/extract_and_quantize/ || mkdir -p tools/extract_and_quantize/
+	cd tools/extract_and_quantize/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/extract_and_quantize/extract_and_quantize.pro -o Makefile ) && $(MAKE) -f Makefile clean
+sub-tools-extract_and_quantize-distclean: FORCE
+	@test -d tools/extract_and_quantize/ || mkdir -p tools/extract_and_quantize/
+	cd tools/extract_and_quantize/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/extract_and_quantize/extract_and_quantize.pro -o Makefile ) && $(MAKE) -f Makefile distclean
+sub-tools-extract_and_quantize-install_subtargets: FORCE
+	@test -d tools/extract_and_quantize/ || mkdir -p tools/extract_and_quantize/
+	cd tools/extract_and_quantize/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/extract_and_quantize/extract_and_quantize.pro -o Makefile ) && $(MAKE) -f Makefile install
+sub-tools-extract_and_quantize-uninstall_subtargets: FORCE
+	@test -d tools/extract_and_quantize/ || mkdir -p tools/extract_and_quantize/
+	cd tools/extract_and_quantize/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/extract_and_quantize/extract_and_quantize.pro -o Makefile ) && $(MAKE) -f Makefile uninstall
+
+Makefile: ../opensse.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.conf /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/shell-unix.conf \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/gcc-base.conf \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/gcc-base-unix.conf \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/g++-base.conf \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/g++-unix.conf \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/qconfig.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_bootstrap_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_concurrent.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_concurrent_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_core.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_core_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_dbus.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_dbus_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_gui.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_gui_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_network.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_network_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_opengl.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_opengl_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_openglextensions.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_openglextensions_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_platformsupport_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xml.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xml_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_functions.prf \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.conf \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resolve_config.prf \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_post.prf \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/unix/gdb_dwarf_index.prf \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/warn_on.prf \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/testcase_targets.prf \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
+		../opensse.pro
+	$(QMAKE) -o Makefile ../opensse.pro
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/shell-unix.conf:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/gcc-base.conf:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/gcc-base-unix.conf:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/g++-base.conf:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/g++-unix.conf:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/qconfig.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_bootstrap_private.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_concurrent.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_concurrent_private.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_core.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_core_private.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_dbus.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_dbus_private.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_gui.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_gui_private.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_network.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_network_private.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_opengl.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_opengl_private.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_openglextensions.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_openglextensions_private.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_platformsupport_private.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport_private.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql_private.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib_private.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets_private.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xml.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xml_private.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_functions.prf:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.conf:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resolve_config.prf:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_post.prf:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/unix/gdb_dwarf_index.prf:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/warn_on.prf:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/testcase_targets.prf:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf:
+=======
 	cd tests/test_galif/ && $(QMAKE) /Users/J-Miao/Documents/2016Spring/Visual\ Databases/search-video-by-sketch/static/sketch-recognizer/tests/test_galif/test_galif.pro -o Makefile
 	cd tests/test_galif/ && $(MAKE) -f Makefile qmake_all
 sub-tests-test_galif: FORCE
@@ -611,6 +1037,7 @@ Makefile: ../opensse.pro /usr/local/Cellar/qt5/5.4.2/mkspecs/macx-clang/qmake.co
 /usr/local/Cellar/qt5/5.4.2/mkspecs/features/exceptions.prf:
 /usr/local/Cellar/qt5/5.4.2/mkspecs/features/yacc.prf:
 /usr/local/Cellar/qt5/5.4.2/mkspecs/features/lex.prf:
+>>>>>>> d7d91e57952acd1ecd86808ccb5cc6e50beb3baa
 ../opensse.pro:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ../opensse.pro
@@ -627,6 +1054,45 @@ uninstall_subtargets: sub-tests-test_galif-uninstall_subtargets sub-tests-test_r
 
 sub-tests-test_galif-check:
 	@test -d tests/test_galif/ || mkdir -p tests/test_galif/
+<<<<<<< HEAD
+	cd tests/test_galif/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/test_galif/test_galif.pro -o Makefile ) && $(MAKE) -f Makefile check
+sub-tests-test_reader_and_writer-check:
+	@test -d tests/test_reader_and_writer/ || mkdir -p tests/test_reader_and_writer/
+	cd tests/test_reader_and_writer/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/test_reader_and_writer/test_reader_and_writer.pro -o Makefile ) && $(MAKE) -f Makefile check
+sub-tools-extract_descriptors-check:
+	@test -d tools/extract_descriptors/ || mkdir -p tools/extract_descriptors/
+	cd tools/extract_descriptors/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/extract_descriptors/extract_descriptors.pro -o Makefile ) && $(MAKE) -f Makefile check
+sub-tools-generate_filelist-check:
+	@test -d tools/generate_filelist/ || mkdir -p tools/generate_filelist/
+	cd tools/generate_filelist/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/generate_filelist/generate_filelist.pro -o Makefile ) && $(MAKE) -f Makefile check
+sub-tools-generate_vocabulary-check:
+	@test -d tools/generate_vocabulary/ || mkdir -p tools/generate_vocabulary/
+	cd tools/generate_vocabulary/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/generate_vocabulary/generate_vocabulary.pro -o Makefile ) && $(MAKE) -f Makefile check
+sub-tools-quantize-check:
+	@test -d tools/quantize/ || mkdir -p tools/quantize/
+	cd tools/quantize/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/quantize/quantize.pro -o Makefile ) && $(MAKE) -f Makefile check
+sub-tools-create_index-check:
+	@test -d tools/create_index/ || mkdir -p tools/create_index/
+	cd tools/create_index/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/create_index/create_index.pro -o Makefile ) && $(MAKE) -f Makefile check
+sub-tools-sketch_search-check:
+	@test -d tools/sketch_search/ || mkdir -p tools/sketch_search/
+	cd tools/sketch_search/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/sketch_search/sketch_search.pro -o Makefile ) && $(MAKE) -f Makefile check
+sub-gui-SketchSearchDemo-check:
+	@test -d gui/SketchSearchDemo/ || mkdir -p gui/SketchSearchDemo/
+	cd gui/SketchSearchDemo/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/gui/SketchSearchDemo/SketchSearchDemo.pro -o Makefile ) && $(MAKE) -f Makefile check
+sub-tests-test_similarity-check:
+	@test -d tests/test_similarity/ || mkdir -p tests/test_similarity/
+	cd tests/test_similarity/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/test_similarity/test_similarity.pro -o Makefile ) && $(MAKE) -f Makefile check
+sub-tests-stat_vocab-check:
+	@test -d tests/stat_vocab/ || mkdir -p tests/stat_vocab/
+	cd tests/stat_vocab/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/stat_vocab/stat_vocab.pro -o Makefile ) && $(MAKE) -f Makefile check
+sub-tests-test_search-check:
+	@test -d tests/test_search/ || mkdir -p tests/test_search/
+	cd tests/test_search/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tests/test_search/test_search.pro -o Makefile ) && $(MAKE) -f Makefile check
+sub-tools-extract_and_quantize-check:
+	@test -d tools/extract_and_quantize/ || mkdir -p tools/extract_and_quantize/
+	cd tools/extract_and_quantize/ && ( test -e Makefile || $(QMAKE) /home/search-video-by-sketch/static/sketch-recognizer/tools/extract_and_quantize/extract_and_quantize.pro -o Makefile ) && $(MAKE) -f Makefile check
+=======
 	cd tests/test_galif/ && ( test -e Makefile || $(QMAKE) /Users/J-Miao/Documents/2016Spring/Visual\ Databases/search-video-by-sketch/static/sketch-recognizer/tests/test_galif/test_galif.pro -o Makefile ) && $(MAKE) -f Makefile check
 sub-tests-test_reader_and_writer-check:
 	@test -d tests/test_reader_and_writer/ || mkdir -p tests/test_reader_and_writer/
@@ -664,6 +1130,7 @@ sub-tests-test_search-check:
 sub-tools-extract_and_quantize-check:
 	@test -d tools/extract_and_quantize/ || mkdir -p tools/extract_and_quantize/
 	cd tools/extract_and_quantize/ && ( test -e Makefile || $(QMAKE) /Users/J-Miao/Documents/2016Spring/Visual\ Databases/search-video-by-sketch/static/sketch-recognizer/tools/extract_and_quantize/extract_and_quantize.pro -o Makefile ) && $(MAKE) -f Makefile check
+>>>>>>> d7d91e57952acd1ecd86808ccb5cc6e50beb3baa
 check: sub-tests-test_galif-check sub-tests-test_reader_and_writer-check sub-tools-extract_descriptors-check sub-tools-generate_filelist-check sub-tools-generate_vocabulary-check sub-tools-quantize-check sub-tools-create_index-check sub-tools-sketch_search-check sub-gui-SketchSearchDemo-check sub-tests-test_similarity-check sub-tests-stat_vocab-check sub-tests-test_search-check sub-tools-extract_and_quantize-check
 install: install_subtargets  FORCE
 
