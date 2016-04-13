@@ -19,7 +19,7 @@ def getTags(file):
     return result['results'][0]['result']['tag']['classes']
 
 
-client = MongoClient()
+client = MongoClient('mongodb://localhost/')
 db = client.vdb_images
 db.authenticate('JRK', 'weloveVDB')
 #calculating signature
