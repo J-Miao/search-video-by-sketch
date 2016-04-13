@@ -2,11 +2,6 @@
  * Created by J-Miao on 4/3/16.
  */
 
-/*
-   Copyright 2014 zdd (zddhub.com)
-mail: zddhub@gmail.com
-*/
-
 var canvas;
 var backCanvas;
 var context = [null, null];
@@ -25,10 +20,17 @@ $(document).ready(function() {
     backgroundColor = "#" + this.jscolor;
   });
 
-  $(".dropdown-menu li a").click(function(){
+  $("#sketch-results a img").click(function() {
+    console.log($(this)[0]);
+    var tempImg = new Image();
+    tempImg.src = $(this)[0].src;
+    context[1].drawImage(tempImg, 0, 0);
+  });
+
+  $(".sketch-type.dropdown-menu li a").click(function(){
     var selText = $(this).text();
     console.log($.trim(selText));
-    $(this).parents().find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
+    $(this).parents().find('.sketch-type.dropdown-toggle').html(selText+' <span class="caret"></span>');
     if ($.trim(selText) === "Draw sketch") {
       isEraser = 0;
       current_layer = 1;
@@ -45,6 +47,9 @@ $(document).ready(function() {
         }
       }
     }
+  });
+  $('ul.dropdown-menu.not-close-dropdown-menu').on('click', function(event){
+    event.stopPropagation();
   });
 
   sketchSlider = new Slider('#sketch-width-slider', {
@@ -69,9 +74,33 @@ $(document).ready(function() {
 function saveCanvas() {
   context[0].drawImage(canvas,0,0);
 
+  //get the current ImageData for the canvas.
+  var imgData = context[0].getImageData(0,0,backCanvas.width,backCanvas.height);
+
+  //store the current globalCompositeOperation
+  var compositeOperation = context[0].globalCompositeOperation;
+
+  //set to draw behind current content
+  context[0].globalCompositeOperation = "destination-over";
+
+  //set background color
+  context[0].fillStyle = "#FFFFFF";
+
+  //draw background / rect on entire canvas
+  context[0].fillRect(0,0,backCanvas.width, backCanvas.height);
+
   var canvasData = backCanvas.toDataURL("image/png");
   //delete "data:image/png;base64,"
   canvasData = canvasData.substring(22);
+  console.log(canvasData);
+  //clear the canvas
+  context[0].clearRect(0,0,backCanvas.width, backCanvas.height);
+  //restore it with original / cached ImageData
+  context[0].putImageData(imgData, 0,0);
+
+  //reset the globalCompositeOperation to what it was
+  context[0].globalCompositeOperation = compositeOperation;
+
   $.ajax({
     type: "POST",
     url: "/get_sketches",
@@ -81,7 +110,9 @@ function saveCanvas() {
   }).done(function(res) {
     console.log(res);
     for (var i = 0; i < res["sketches"].length; i++) {
-      $("#video-match-" + i + " > a > img").attr("src", res["sketches"][i]["img_url"]);
+      $("#sketch-match-" + i).removeClass("hidden");
+      $("#sketch-match-" + i + " > a > img").attr("src", res["sketches"][i]["img_url"]);
+      $("#sketch-match-" + i + " .sketch-tag").text(res["sketches"][i]["tag"]);
     }
   });
 }
@@ -109,9 +140,11 @@ function mouseDownEvent(event) {
   }
   //redraw(x-this.offsetLeft, y-this.offsetTop);
   if (isEraser) {
-    redraw(1 - current_layer, x - 16 -this.offsetLeft, y - 9 - this.offsetTop-$('#navbar').height());
+    redraw(1 - current_layer, x - this.offsetLeft, y - 9 - this.offsetTop-$('#navbar').height());
+    //redraw(1 - current_layer, x - 16 -this.offsetLeft, y - 9 - this.offsetTop-$('#navbar').height());
   }
-  redraw(current_layer, x - 16 - this.offsetLeft, y - 9 - this.offsetTop-$('#navbar').height());
+  redraw(current_layer, x - this.offsetLeft, y - 9 -this.offsetTop-$('#navbar').height());
+  //redraw(current_layer, x - 16 - this.offsetLeft, y - 9 - this.offsetTop-$('#navbar').height());
 }
 
 function mouseMoveEvent(event) {
@@ -125,14 +158,14 @@ function mouseMoveEvent(event) {
       x = event.clientX;
       y = event.clientY
     }
-      //console.log(x, y, this.offsetLeft, this.offsetTop, $('#navbar').height());
+    console.log(x, y, this.offsetLeft, this.offsetTop, $('#navbar').height());
     //redraw(x-this.offsetLeft, y-this.offsetTop);
     if (isEraser) {
-      //redraw(1 - current_layer, x-this.offsetLeft, y-this.offsetTop-$('#navbar').height());
-      redraw(1 - current_layer, x - 15, y - 10 - this.offsetTop-$('#navbar').height());
+      redraw(1 - current_layer, x-this.offsetLeft, y-10-this.offsetTop-$('#navbar').height());
+      //redraw(1 - current_layer, x - 25, y - 10 - this.offsetTop-$('#navbar').height());
     }
-    //redraw(current_layer, x-this.offsetLeft, y-this.offsetTop-$('#navbar').height());
-    redraw(current_layer, x - 15, y - 10 - this.offsetTop-$('#navbar').height());
+    redraw(current_layer, x-this.offsetLeft, y-10-this.offsetTop-$('#navbar').height());
+    //redraw(current_layer, x - 25, y - 10 - this.offsetTop-$('#navbar').height());
   }
 }
 
@@ -149,9 +182,11 @@ function mouseUpEvent(event) {
     }
 
     if (isEraser) {
-      redraw(1 - current_layer, x - 15, y - 10 - this.offsetTop-$('#navbar').height());
+      redraw(1 - current_layer, x - this.offsetLeft, y - 10 - this.offsetTop-$('#navbar').height());
+      //redraw(1 - current_layer, x - 15, y - 10 - this.offsetTop-$('#navbar').height());
     }
-    redraw(current_layer, x - 15, y - 10 - this.offsetTop-$('#navbar').height());
+    redraw(current_layer, x - this.offsetLeft, y - 10 - this.offsetTop-$('#navbar').height());
+    //redraw(current_layer, x - 15, y - 10 - this.offsetTop-$('#navbar').height());
 
     paint = false;
     lastPostion = null;
@@ -165,10 +200,10 @@ function loadSketchCanvas() {
   context[0] = backCanvas.getContext("2d");
   context[1] = canvas.getContext("2d");
 
-  canvas.width = $('#sketch').width();
-  canvas.height = $('#sketch').height();
-  backCanvas.width = $('#sketch').width();
-  backCanvas.height = $('#sketch').height();
+  canvas.width = $('#canvas-wrapper').width() * 0.98;
+  canvas.height = $('#canvas-wrapper').height();
+  backCanvas.width = $('#canvas-wrapper').width() * 0.98;
+  backCanvas.height = $('#canvas-wrapper').height();
   //  //
     //canvas.width = 600;
     //canvas.height = 400;
@@ -272,7 +307,7 @@ function redraw(idx, x, y) {
   } else {
     context[idx].globalCompositeOperation = "source-over";
   }
-  console.log(isEraser, idx, current_layer);
+  //console.log(isEraser, idx, current_layer);
   context[idx].beginPath();
   if (!isEraser) {
     if (idx === 1) {

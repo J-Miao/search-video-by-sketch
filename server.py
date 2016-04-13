@@ -68,6 +68,7 @@ output_sketch = "static/img/sketch.png"
 #     except Exception as e:
 #         pass
 
+
 @app.route('/')
 def index():
     """
@@ -82,10 +83,12 @@ def index():
 
     return render_template("index.html")
 
+
 def save_to_png(binary_str, file_name):
     f = open(file_name, 'w')
     f.write(binary_str.decode("base64"))
     f.close()
+
 
 @app.route("/get_sketches", methods=["POST", "GET"])
 def get_sketches():
@@ -93,10 +96,11 @@ def get_sketches():
         return redirect("/")
     else:
         sketch_binary_str = request.form["sketch"]
-        fname = output_sketch + "-" + datetime.datetime.now().strftime("%Y-%m-%d-%H:%M:%S")
+        fname = output_sketch + "-" + datetime.now().strftime("%Y-%m-%d-%H:%M:%S")
         save_to_png(sketch_binary_str, fname)
         results = sketch_recogniser(fname)
         return jsonify({"sketches": results})
+
 
 @app.route("/search_by_potential_sketches", methods=["POST", "GET"])
 def search_by_potential_sketches():
@@ -111,7 +115,7 @@ if __name__ == "__main__":
     @click.command()
     @click.option('--debug', is_flag=True)
     @click.option('--threaded', is_flag=True)
-    @click.argument('HOST', default='127.0.0.1')
+    @click.argument('HOST', default='0.0.0.0')
     @click.argument('PORT', default=8080, type=int)
     def run(debug, threaded, host, port):
         """
