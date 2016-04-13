@@ -4,4 +4,4 @@
 *.o
 build/
 static/img/
-static/sketch-recognizer/build/*.*
+static/sketch-recognizer/build/*.o
