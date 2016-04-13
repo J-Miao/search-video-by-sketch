@@ -30,7 +30,7 @@ def load_all_images(dirname):
 			pathname = os.path.join(dirname, filename)
 			f = open(pathname, 'r')
 			data = f.read()
-			f.close()
+			
 			b64_string = base64.b64encode(data)
 			#print b64_string
 
@@ -39,6 +39,7 @@ def load_all_images(dirname):
 					'signature': gis.generate_signature(pathname),
 					'tags': getTags(f)
 				})
+			f.close()
 
 def main(): 
 	parser = argparse.ArgumentParser()
