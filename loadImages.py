@@ -12,7 +12,7 @@ from image_match.goldberg import ImageSignature
 def getTags(file):
     # assumes environment variables are set.
     clarifai_api = ClarifaiApi() 
-    result = clarifai_api.tag_images(f)
+    result = clarifai_api.tag_images(file)
     #parsing Json
     res = []
     return result['results'][0]['result']['tag']['classes']
@@ -30,15 +30,17 @@ def load_all_images(dirname):
 			pathname = os.path.join(dirname, filename)
 			f = open(pathname, 'r')
 			data = f.read()
-			f.close()
+			
 			b64_string = base64.b64encode(data)
 			#print b64_string
 
 			result = db.vdb_images.insert({
 					'base64': b64_string,
-					signature: gis.generate_signature(pathname),
-					tags: getTags(f)
+					# serialize signature into 1D array,pay attention to calling later
+					'signature': gis.generate_signature(pathname).tolist(),
+					'tags': getTags(f)
 				})
+			f.close()
 
 def main(): 
 	parser = argparse.ArgumentParser()
