@@ -104,7 +104,7 @@ function saveCanvas() {
   }).done(function(res) {
     console.log(res);
     for (var i = 0; i < res["sketches"].length; i++) {
-      $("#sketch-match-" + i).removeAttr("hidden");
+      $("#sketch-match-" + i).removeClass("hidden");
       $("#sketch-match-" + i + " > a > img").attr("src", res["sketches"][i]["img_url"]);
       $("#sketch-match-" + i + " .sketch-tag").text(res["sketches"][i]["tag"]);
     }
