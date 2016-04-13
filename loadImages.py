@@ -8,6 +8,7 @@ from pymongo import MongoClient
 from clarifai.client import ClarifaiApi
 from image_match.goldberg import ImageSignature
 
+
 # input parameter is open("path", "rb")
 def getTags(file):
     # assumes environment variables are set.
@@ -23,23 +24,23 @@ db = client.test
 #calculating signature
 gis = ImageSignature()
 
+
 def load_all_images(dirname):
 	for filename in os.listdir(dirname):
 		name, ext = os.path.splitext(filename)
-		if ext.lower() in [".png",".jpg",".bmp"]:
+		if ext.lower() in [".png",".jpg",".bmp", ".jpeg"]:
 			pathname = os.path.join(dirname, filename)
 			f = open(pathname, 'r')
 			data = f.read()
-			
 			b64_string = base64.b64encode(data)
 			#print b64_string
 
 			result = db.vdb_images.insert({
-					'base64': b64_string,
-					# serialize signature into 1D array,pay attention to calling later
-					'signature': gis.generate_signature(pathname).tolist(),
-					'tags': getTags(f)
-				})
+			'base64': b64_string,
+			# serialize signature into 1D array,pay attention to calling later
+			'signature': gis.generate_signature(pathname).tolist(),
+			'tags': getTags(f)
+			})
 			f.close()
 
 def main(): 
