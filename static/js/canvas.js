@@ -20,6 +20,10 @@ $(document).ready(function() {
     backgroundColor = "#" + this.jscolor;
   });
 
+  $("#sketch-results a img").click(function() {
+    context[1].drawImage($(this), 0, 0);
+  });
+
   $(".sketch-type.dropdown-menu li a").click(function(){
     var selText = $(this).text();
     console.log($.trim(selText));
