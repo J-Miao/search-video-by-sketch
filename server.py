@@ -84,7 +84,6 @@ def index():
 
     return render_template("index.html")
 
-
 def save_to_png(binary_str, file_name):
     f = open(file_name, 'w')
     f.write(binary_str.decode("base64"))
@@ -106,6 +105,7 @@ def get_pictures():
     sketch_tag = request.form.get('tag', None)
     page_idx = request.form.get('page', 0)
     if page_idx == 0:
+       global picture_results
        picture_results = picture_matcher(mongo, sketch_tag)
     return jsonify({"pcitures": picture_results[page_idx:page_idx + 20]})
 
