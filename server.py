@@ -112,7 +112,7 @@ def get_pictures():
     page_idx = int(request.form.get('page', 0))
     global picture_results
     if page_idx == 0 and len(picture_results) == 0:
-       picture_results = picture_matcher(mongo, sketch_tag, sketch_pic)
+       picture_results = picture_matcher(mongo, sketch_tag, sketch_pic_base64)
     return jsonify({"pictures": picture_results[page_idx:page_idx + 20]})
     # if page_idx == 0:
     #    global picture_results
