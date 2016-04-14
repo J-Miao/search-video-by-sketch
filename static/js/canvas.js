@@ -381,11 +381,12 @@ function addClick(x, y, dragging) {
 }
 
 function redraw(idx, x, y) {
-  if (isEraser) {
-    context[idx].globalCompositeOperation = "destination-out";
-  } else {
-    context[idx].globalCompositeOperation = "source-over";
-  }
+  //if (isEraser) {
+  //  context[idx].globalCompositeOperation = "destination-out";
+  //} else {
+  //  context[idx].globalCompositeOperation = "source-over";
+  //}
+  context[idx].globalCompositeOperation = "source-over";
   //console.log(isEraser, idx, current_layer);
   context[idx].beginPath();
   if (!isEraser) {
