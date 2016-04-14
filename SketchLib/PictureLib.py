@@ -11,6 +11,7 @@ def save_to_png(base64_str, file_name):
     f = open(file_name, 'w')
     f.write(base64_str.decode("base64"))
     f.close()
+    return file_name
 
 def compare(result_dict):
 	return gis.normalized_distance(result_dict['signature'], user_signature)
@@ -18,8 +19,7 @@ def compare(result_dict):
 def picture_matcher(mongo, sketch_tag, user_sketch_pic_base64, page_idx=0):
     call_back = mongo.db.vdb_images.find()
     results = []
-    save_to_png(user_sketch_pic_base64, user_sketch_image)
-    user_signature = np.fromiter(gis.generate_signature(user_sketch_image).tolist())
+    user_signature = np.fromiter(gis.generate_signature(save_to_png(user_sketch_pic_base64, user_sketch_image))
     for document in call_back:
     	if sketch_tag in document['tags']:
         	results.append({'pic': document['base64'], 'signature': document['signature']})
