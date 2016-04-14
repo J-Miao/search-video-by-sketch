@@ -143,32 +143,32 @@ $(document).ready(function() {
 
 function saveCanvas() {
   //get the current ImageData for the canvas.
-  var imgData = context[0].getImageData(0,0,backCanvas.width,backCanvas.height);
+  var imgData = context[1].getImageData(0,0,backCanvas.width,backCanvas.height);
 
-  context[0].drawImage(canvas,0,0);
+  context[1].drawImage(canvas,0,0);
   //store the current globalCompositeOperation
-  var compositeOperation = context[0].globalCompositeOperation;
+  var compositeOperation = context[1].globalCompositeOperation;
 
   //set to draw behind current content
-  context[0].globalCompositeOperation = "destination-over";
+  context[1].globalCompositeOperation = "destination-over";
 
   //set background color
-  context[0].fillStyle = "#FFFFFF";
+  context[1].fillStyle = "#FFFFFF";
 
   //draw background / rect on entire canvas
-  context[0].fillRect(0,0,backCanvas.width, backCanvas.height);
+  context[1].fillRect(0,0,backCanvas.width, backCanvas.height);
 
   var canvasData = backCanvas.toDataURL("image/png");
   //delete "data:image/png;base64,"
   canvasData = canvasData.substring(22);
   console.log(canvasData);
   //clear the canvas
-  context[0].clearRect(0,0,backCanvas.width, backCanvas.height);
+  context[1].clearRect(0,0,backCanvas.width, backCanvas.height);
   //restore it with original / cached ImageData
-  context[0].putImageData(imgData, 0,0);
+  context[1].putImageData(imgData, 0,0);
 
   //reset the globalCompositeOperation to what it was
-  context[0].globalCompositeOperation = compositeOperation;
+  context[1].globalCompositeOperation = compositeOperation;
 
   $.ajax({
     type: "POST",
