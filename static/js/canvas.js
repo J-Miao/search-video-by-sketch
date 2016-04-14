@@ -62,7 +62,7 @@ $(document).ready(function() {
     console.log($(this)[0]);
     var tempImg = new Image();
     tempImg.src = $(this)[0].src;
-
+    context[1].clearRect(0, 0, context[1].canvas.width, context[1].canvas.height);
     context[1].drawImage(tempImg, 0, 0, Math.min(backCanvas.width,backCanvas.height), Math.min(backCanvas.width,backCanvas.height));
     var imgd = context[1].getImageData(0, 0, Math.min(backCanvas.width,backCanvas.height), Math.min(backCanvas.width,backCanvas.height)),
       pix = imgd.data,
@@ -74,7 +74,7 @@ $(document).ready(function() {
         b = pix[i+2];
 
       // If its white then change it
-      if(r == 255 && g == 255 && b == 255){
+      if(r >= 200 && g >= 200 && b >= 200){
         // Change the white to whatever.
         pix[i] = newColor.r;
         pix[i+1] = newColor.g;
