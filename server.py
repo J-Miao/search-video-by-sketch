@@ -31,7 +31,10 @@ from flask.ext.pymongo import PyMongo
 from sqlalchemy import *
 from sqlalchemy.pool import NullPool
 from SketchLib.SketchRecogniser import sketch_recogniser
+
 from SketchLib.PictureLib import picture_matcher
+from SketchLib.PictureLib import save_to_png
+
 
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = "vdb_images"
@@ -86,11 +89,10 @@ def index():
     return render_template("index.html")
 
 
-def save_to_png(binary_str, file_name):
-    f = open(file_name, 'w')
-    f.write(binary_str.decode("base64"))
-    f.close()
-
+# def save_to_png(base64_str, file_name):
+#     f = open(file_name, 'w')
+#     f.write(base64_str.decode("base64"))
+#     f.close()
 
 @app.route("/get_sketches", methods=["POST", "GET"])
 def get_sketches():
@@ -103,14 +105,14 @@ def get_sketches():
         results = sketch_recogniser(fname)
         return jsonify({"sketches": results})
 
-
 @app.route("/get_pictures", methods=["POST"])
 def get_pictures():
     sketch_tag = request.form.get('tag', None)
+    sketch_pic_base64 = request.form.get('sketch_pic', "")
     page_idx = int(request.form.get('page', 0))
     global picture_results
     if page_idx == 0 and len(picture_results) == 0:
-       picture_results = picture_matcher(mongo, sketch_tag, page_idx)
+       picture_results = picture_matcher(mongo, sketch_tag, sketch_pic)
     return jsonify({"pictures": picture_results[page_idx:page_idx + 20]})
 
 @app.route("/search_by_potential_sketches", methods=["POST", "GET"])
