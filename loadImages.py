@@ -8,7 +8,6 @@ from pymongo import MongoClient
 from clarifai.client import ClarifaiApi
 from image_match.goldberg import ImageSignature
 
-
 # input parameter is open("path", "rb")
 def getTags(file):
     # assumes environment variables are set.
@@ -18,13 +17,12 @@ def getTags(file):
     res = []
     return result['results'][0]['result']['tag']['classes']
 
-
 client = MongoClient('mongodb://localhost/')
 db = client.vdb_images
 db.authenticate('JRK', 'weloveVDB')
+
 # calculating signature
 gis = ImageSignature()
-
 
 def load_all_images(dirname):
     for filename in os.listdir(dirname):
@@ -52,6 +50,6 @@ def main():
     if args.add: 
         load_all_images(args.add) 
 
-if __name__ == "__main__": 
-    main() 
+# if __name__ == "__main__": 
+#     main() 
 
