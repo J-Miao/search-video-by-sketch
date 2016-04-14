@@ -34,7 +34,7 @@ from SketchLib.SketchRecogniser import sketch_recogniser
 from SketchLib.PictureLib import picture_matcher
 
 app = Flask(__name__)
-app.config["MONGO_DBNAME"] = "vdb_images"
+app.config["MONGO_DBNAME"] = "vdb_image"
 mongo = PyMongo(app)
 
 output_sketch = "static/img/sketch.png"
