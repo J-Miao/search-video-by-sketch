@@ -142,9 +142,9 @@ $(document).ready(function() {
 
 function saveCanvas() {
   //get the current ImageData for the canvas.
-  var imgData = context[1].getImageData(0,0,backCanvas.width,backCanvas.height);
+  var imgData = context[1].getImageData(0,0,canvas.width,canvas.height);
 
-  context[1].drawImage(canvas,0,0);
+  // context[1].drawImage(canvas,0,0);
   //store the current globalCompositeOperation
   var compositeOperation = context[1].globalCompositeOperation;
 
@@ -155,14 +155,14 @@ function saveCanvas() {
   context[1].fillStyle = "#FFFFFF";
 
   //draw background / rect on entire canvas
-  context[1].fillRect(0,0,backCanvas.width, backCanvas.height);
+  context[1].fillRect(0,0,canvas.width, canvas.height);
 
-  var canvasData = backCanvas.toDataURL("image/png");
+  var canvasData = canvas.toDataURL("image/png");
   //delete "data:image/png;base64,"
   canvasData = canvasData.substring(22);
   console.log(canvasData);
   //clear the canvas
-  context[1].clearRect(0,0,backCanvas.width, backCanvas.height);
+  context[1].clearRect(0,0,canvas.width, canvas.height);
   //restore it with original / cached ImageData
   context[1].putImageData(imgData, 0,0);
 
