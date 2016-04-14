@@ -37,6 +37,7 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = "vdb_images"
 app.config["MONGO_USERNAME"] = "JRK"
 app.config["MONGO_PASSWORD"] = "weloveVDB"
+
 mongo = PyMongo(app)
 
 output_sketch = "static/img/sketch.png"
@@ -84,10 +85,12 @@ def index():
 
     return render_template("index.html")
 
+
 def save_to_png(binary_str, file_name):
     f = open(file_name, 'w')
     f.write(binary_str.decode("base64"))
     f.close()
+
 
 @app.route("/get_sketches", methods=["POST", "GET"])
 def get_sketches():
@@ -100,6 +103,7 @@ def get_sketches():
         results = sketch_recogniser(fname)
         return jsonify({"sketches": results})
 
+
 @app.route("/get_pictures", methods=["POST"])
 def get_pictures():
     sketch_tag = request.form.get('tag', None)
@@ -107,8 +111,8 @@ def get_pictures():
     if page_idx == 0:
        global picture_results
        picture_results = picture_matcher(mongo, sketch_tag)
-    # return jsonify({"pcitures": picture_results[page_idx:page_idx + 20]})
-    return jsonify({"pcitures": picture_results})
+    return jsonify({"pcitures": picture_results[page_idx:page_idx + 20]})
+    # return jsonify({"pcitures": picture_results})
 
 
 @app.route("/search_by_potential_sketches", methods=["POST", "GET"])

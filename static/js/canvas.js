@@ -13,6 +13,23 @@ var backSlider;
 var eraserSlider;
 var backgroundColor = "#ff0000";
 
+function getPictures(searchTag) {
+  $.ajax({
+    type: "POST",
+    url: "/get_pictures",
+    data: {
+      tag: searchTag
+    }
+  }).done(function(res) {
+    console.log(res);
+    for (var i = 0; i < res["pictures"].length; i++) {
+      $("#image-match-" + i).removeClass("hidden");
+      $("#image-match-" + i + " > a > img").attr("src", res["pictures"][i]["pic"]);
+      //$("#image-match-" + i + " .image-tag").text(res["pictures"][i]["tag"]);
+    }
+  });
+}
+
 $(document).ready(function() {
 
   $("#background-color").on("change", function() {
@@ -24,7 +41,13 @@ $(document).ready(function() {
     console.log($(this)[0]);
     var tempImg = new Image();
     tempImg.src = $(this)[0].src;
+<<<<<<< HEAD
     context[1].drawImage(tempImg, 0, 0, backCanvas.width, backCanvas.height);
+=======
+    context[1].drawImage(tempImg, 0, 0, backCanvas.width,backCanvas.height);
+    getPictures($(this)[0]["tag"]);
+    saveCanvas();
+>>>>>>> 1ac60a64f9461fcee9689773b97b97ee6a27f310
   });
 
   $(".sketch-type.dropdown-menu li a").click(function(){
@@ -75,7 +98,7 @@ function saveCanvas() {
   context[0].drawImage(canvas,0,0);
 
   //get the current ImageData for the canvas.
-  var imgData = context[0].getImageData(0,0,backCanvas.width,backCanvas.height);
+  var imgData = context[0].getImageData(0,0,Math.min(backCanvas.width,backCanvas.height), Math.min(backCanvas.width,backCanvas.height));
 
   //store the current globalCompositeOperation
   var compositeOperation = context[0].globalCompositeOperation;
@@ -112,6 +135,7 @@ function saveCanvas() {
     for (var i = 0; i < res["sketches"].length; i++) {
       $("#sketch-match-" + i).removeClass("hidden");
       $("#sketch-match-" + i + " > a > img").attr("src", res["sketches"][i]["img_url"]);
+      $("#sketch-match-" + i + " > a > img").attr("tag", res["sketches"][i]["tag"]);
       $("#sketch-match-" + i + " .sketch-tag").text(res["sketches"][i]["tag"]);
     }
   });
