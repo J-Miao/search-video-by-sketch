@@ -31,7 +31,7 @@ def save_to_png(base64_str, file_name):
     return file_name
 
 def compare(result_dict):
-    print "result_dict", result_dict
+    #print "result_dict", result_dict
     #return distance(result_dict['signature'].tolist(), user_signature)	
     return gis.normalized_distance(np.fromiter(result_dict['signature'],dtype='int8'), user_signature)
 
