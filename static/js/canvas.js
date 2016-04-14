@@ -4,6 +4,8 @@
 
 var canvas;
 var backCanvas;
+var tempCanvas;
+var tempContext;
 var context = [null, null];
 var paint;
 var current_layer = 1;
@@ -62,8 +64,8 @@ $(document).ready(function() {
     console.log($(this)[0]);
     var tempImg = new Image();
     tempImg.src = $(this)[0].src;
-    //context[1].clearRect(0, 0, context[1].canvas.width, context[1].canvas.height);
-    clearCanvas();
+    context[1].clearRect(0, 0, context[1].canvas.width, context[1].canvas.height);
+    //clearCanvas();
     context[1].drawImage(tempImg, 0, 0, Math.min(backCanvas.width,backCanvas.height), Math.min(backCanvas.width,backCanvas.height));
     var imgd = context[1].getImageData(0, 0, Math.min(backCanvas.width,backCanvas.height), Math.min(backCanvas.width,backCanvas.height)),
       pix = imgd.data,
@@ -135,11 +137,10 @@ $(document).ready(function() {
 
 
 function saveCanvas() {
-  context[0].drawImage(canvas,0,0);
-
   //get the current ImageData for the canvas.
   var imgData = context[0].getImageData(0,0,backCanvas.width,backCanvas.height);
 
+  context[0].drawImage(canvas,0,0);
   //store the current globalCompositeOperation
   var compositeOperation = context[0].globalCompositeOperation;
 
@@ -261,13 +262,17 @@ function mouseUpEvent(event) {
 function loadSketchCanvas() {
   canvas = document.getElementById('canvas');
   backCanvas = document.getElementById('canvas-color');
+  tempCanvas = document.getElementById('temp-canvas');
   context[0] = backCanvas.getContext("2d");
   context[1] = canvas.getContext("2d");
+  tempContext = tempCanvas.getContext("2d");
 
   canvas.width = $('#canvas-wrapper').width() * 0.98;
   canvas.height = $('#canvas-wrapper').height();
   backCanvas.width = $('#canvas-wrapper').width() * 0.98;
   backCanvas.height = $('#canvas-wrapper').height();
+  tempCanvas.width = $('#canvas-wrapper').width() * 0.98;
+  tempCanvas.height = $('#canvas-wrapper').height();
   //  //
     //canvas.width = 600;
     //canvas.height = 400;
