@@ -25,6 +25,10 @@ function getPictures(searchTag, imgSrc) {
     }
   }).done(function(res) {
     console.log(res);
+    for (var i = 0; i < 20; i++) {
+      $("#image-match-" + i).addClass("hidden");
+      $("#image-match-" + i + " > a > img").attr("src", "");
+    }
     for (var i = 0; i < res["pictures"].length; i++) {
       $("#image-match-" + i).removeClass("hidden");
       $("#image-match-" + i + " > a > img").attr("src", "data:image/png;base64," + res["pictures"][i]["pic"]);
