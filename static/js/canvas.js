@@ -34,7 +34,12 @@ $(document).ready(function() {
 
   $('.grid').masonry({
     itemSelector: '.grid-item',
-    columnWidth: 200
+    columnWidth: 110,
+    animate: true,
+    animationOptions: {
+      duration: speed,
+      queue: true
+    }
   });
 
   $("#background-color").on("change", function() {
