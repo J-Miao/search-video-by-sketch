@@ -108,12 +108,10 @@ def get_sketches():
 def get_pictures():
     sketch_tag = request.form.get('tag', None)
     page_idx = int(request.form.get('page', 0))
-    if page_idx == 0:
-       global picture_results
-       picture_results = picture_matcher(mongo, sketch_tag)
-    return jsonify({"pcitures": picture_results[page_idx:page_idx + 20]})
-    # return jsonify({"pcitures": picture_results})
-
+    global picture_results
+    if page_idx == 0 and len(picture_results) == 0:
+       picture_results = picture_matcher(mongo, sketch_tag, page_idx)
+    return jsonify({"pictures": picture_results[page_idx:page_idx + 20]})
 
 @app.route("/search_by_potential_sketches", methods=["POST", "GET"])
 def search_by_potential_sketches():
