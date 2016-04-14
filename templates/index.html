@@ -71,7 +71,11 @@
 {#    </div>#}
 {#</div>#}
 <script id="waterfall-tpl" type="text/x-handlebars-template">
-    //template content
+    {{#result}}
+        <div class="item">
+            <img src="{{image}}" width="{{width}}" height="{{height}}" />
+        </div>
+    {{/result}}
 </script>
 
 <div class="container-fluid" style="height:600px">
