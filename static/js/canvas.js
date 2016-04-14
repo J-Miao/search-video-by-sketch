@@ -24,7 +24,7 @@ function getPictures(searchTag) {
     console.log(res);
     for (var i = 0; i < res["pictures"].length; i++) {
       $("#image-match-" + i).removeClass("hidden");
-      $("#image-match-" + i + " > a > img").attr("src", res["pictures"][i]["pic"]);
+      $("#image-match-" + i + " > a > img").attr("src", "data:image/png;base64," + res["pictures"][i]["pic"]);
       //$("#image-match-" + i + " .image-tag").text(res["pictures"][i]["tag"]);
     }
   });
