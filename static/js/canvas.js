@@ -67,9 +67,9 @@ $(document).ready(function() {
     context[1].clearRect(0, 0, context[1].canvas.width, context[1].canvas.height);
     //clearCanvas();
     context[1].drawImage(tempImg, 0, 0, Math.min(backCanvas.width,backCanvas.height), Math.min(backCanvas.width,backCanvas.height));
-    var imgd = context[1].getImageData(0, 0, Math.min(backCanvas.width,backCanvas.height), Math.min(backCanvas.width,backCanvas.height)),
-      pix = imgd.data,
-      newColor = {r:0,g:0,b:0, a:0};
+    var imgd = context[1].getImageData(0, 0, Math.min(backCanvas.width,backCanvas.height), Math.min(backCanvas.width,backCanvas.height));
+    var pix = imgd.data;
+    var newColor = {r:0,g:0,b:0, a:0};
 
     for (var i = 0, n = pix.length; i <n; i += 4) {
       var r = pix[i],
