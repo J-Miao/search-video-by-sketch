@@ -67,9 +67,9 @@ $(document).ready(function() {
     context[1].clearRect(0, 0, context[1].canvas.width, context[1].canvas.height);
     //clearCanvas();
     context[1].drawImage(tempImg, 0, 0, Math.min(backCanvas.width,backCanvas.height), Math.min(backCanvas.width,backCanvas.height));
-    var imgd = context[1].getImageData(0, 0, Math.min(backCanvas.width,backCanvas.height), Math.min(backCanvas.width,backCanvas.height)),
-      pix = imgd.data,
-      newColor = {r:0,g:0,b:0, a:0};
+    var imgd = context[1].getImageData(0, 0, Math.min(backCanvas.width,backCanvas.height), Math.min(backCanvas.width,backCanvas.height));
+    var pix = imgd.data;
+    var newColor = {r:0,g:0,b:0, a:0};
 
     for (var i = 0, n = pix.length; i <n; i += 4) {
       var r = pix[i],
@@ -262,17 +262,17 @@ function mouseUpEvent(event) {
 function loadSketchCanvas() {
   canvas = document.getElementById('canvas');
   backCanvas = document.getElementById('canvas-color');
-  tempCanvas = document.getElementById('temp-canvas');
+  // tempCanvas = document.getElementById('temp-canvas');
   context[0] = backCanvas.getContext("2d");
   context[1] = canvas.getContext("2d");
-  tempContext = tempCanvas.getContext("2d");
+  // tempContext = tempCanvas.getContext("2d");
 
   canvas.width = $('#canvas-wrapper').width() * 0.98;
   canvas.height = $('#canvas-wrapper').height();
   backCanvas.width = $('#canvas-wrapper').width() * 0.98;
   backCanvas.height = $('#canvas-wrapper').height();
-  tempCanvas.width = $('#canvas-wrapper').width() * 0.98;
-  tempCanvas.height = $('#canvas-wrapper').height();
+  // tempCanvas.width = $('#canvas-wrapper').width() * 0.98;
+  // tempCanvas.height = $('#canvas-wrapper').height();
   //  //
     //canvas.width = 600;
     //canvas.height = 400;
