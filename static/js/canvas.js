@@ -32,6 +32,11 @@ function getPictures(searchTag) {
 
 $(document).ready(function() {
 
+  $('.grid').masonry({
+    itemSelector: '.grid-item',
+    columnWidth: 200
+  });
+
   $("#background-color").on("change", function() {
     console.log(this.jscolor);
     backgroundColor = "#" + this.jscolor;
