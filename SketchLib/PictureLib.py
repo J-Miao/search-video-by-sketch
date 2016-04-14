@@ -4,7 +4,8 @@ from image_match.goldberg import ImageSignature
 import numpy as np
 
 gis = ImageSignature()
-user_sketch_image = "../static/img/user_sketch_img.png"
+#user_sketch_image = "../static/img/user_sketch_img.png"
+user_sketch_image = "/home/search-video-by-sketch/static/img/user_sketch_img.png"
 user_signature = None
 
 def save_to_png(base64_str, file_name):
@@ -19,9 +20,9 @@ def picture_matcher(mongo, sketch_tag, user_sketch_pic_base64, page_idx=0):
     call_back = mongo.db.vdb_images.find()
     results = []
     save_to_png(user_sketch_pic_base64, user_sketch_image)
-    user_signature = np.fromiter(gis.generate_signature(user_sketch_image).tolist())
+    user_signature = gis.generate_signature(user_sketch_image)
     for document in call_back:
     	if sketch_tag in document['tags']:
-        	results.append({'pic': document['base64'], 'signature': document['signature']})
+        	results.append({'pic': document['base64'], 'signature': np.fromiter(document['signature'])})
 	return sorted(results, key=compare)
 
