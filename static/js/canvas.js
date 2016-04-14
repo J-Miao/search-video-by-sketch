@@ -41,13 +41,9 @@ $(document).ready(function() {
     console.log($(this)[0]);
     var tempImg = new Image();
     tempImg.src = $(this)[0].src;
-<<<<<<< HEAD
-    context[1].drawImage(tempImg, 0, 0, backCanvas.width, backCanvas.height);
-=======
     context[1].drawImage(tempImg, 0, 0, backCanvas.width,backCanvas.height);
     getPictures($(this)[0]["tag"]);
     saveCanvas();
->>>>>>> 1ac60a64f9461fcee9689773b97b97ee6a27f310
   });
 
   $(".sketch-type.dropdown-menu li a").click(function(){
