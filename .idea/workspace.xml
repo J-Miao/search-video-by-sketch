@@ -83,8 +83,8 @@
       <file leaf-file-name="canvas.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/js/canvas.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.64469916">
-              <caret line="170" column="37" selection-start-line="170" selection-start-column="37" selection-end-line="170" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.3581662">
+              <caret line="230" column="13" selection-start-line="230" selection-start-column="7" selection-end-line="230" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -890,8 +890,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/canvas.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.64469916">
-          <caret line="170" column="37" selection-start-line="170" selection-start-column="37" selection-end-line="170" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.3581662">
+          <caret line="230" column="13" selection-start-line="230" selection-start-column="7" selection-end-line="230" selection-end-column="13" />
           <folding />
         </state>
       </provider>

@@ -66,7 +66,6 @@ $(document).ready(function() {
   });
 
   $("#sketch-results a img").click(function() {
-    console.log($(this)[0]);
     var tempImg = new Image();
     tempImg.src = $(this)[0].src;
     context[1].clearRect(0, 0, context[1].canvas.width, context[1].canvas.height);
@@ -75,7 +74,7 @@ $(document).ready(function() {
     var imgd = context[1].getImageData(0, 0, Math.min(backCanvas.width,backCanvas.height), Math.min(backCanvas.width,backCanvas.height));
     var pix = imgd.data;
     var newColor = {r:0,g:0,b:0, a:0};
-
+    var replaceCnt = 0;
     for (var i = 0, n = pix.length; i <n; i += 4) {
       var r = pix[i],
         g = pix[i+1],
@@ -88,8 +87,10 @@ $(document).ready(function() {
         pix[i+1] = newColor.g;
         pix[i+2] = newColor.b;
         pix[i+3] = newColor.a;
+        replaceCnt += 1;
       }
     }
+    console.log(replaceCnt);
 
     context[1].putImageData(imgd, 0, 0);
     getPictures($($(this)[0]).attr("tag"), $(this)[0].src);
@@ -98,7 +99,6 @@ $(document).ready(function() {
 
   $(".sketch-type.dropdown-menu li a").click(function(){
     var selText = $(this).text();
-    console.log($.trim(selText));
     $(this).parents().find('.sketch-type.dropdown-toggle').html(selText+' <span class="caret"></span>');
     if ($.trim(selText) === "Draw sketch") {
       isEraser = 0;
@@ -227,7 +227,7 @@ function mouseMoveEvent(event) {
       x = event.clientX;
       y = event.clientY
     }
-    console.log(x, y, this.offsetLeft, this.offsetTop, $('#navbar').height());
+    // console.log(x, y, this.offsetLeft, this.offsetTop, $('#navbar').height());
     //redraw(x-this.offsetLeft, y-this.offsetTop);
     if (isEraser) {
       redraw(1 - current_layer, x-this.offsetLeft, y-10-this.offsetTop-$('#navbar').height());
@@ -387,7 +387,6 @@ function redraw(idx, x, y) {
       context[idx].strokeStyle = "black";
     }
     else {
-      console.log(backgroundColor);
       context[idx].strokeStyle = backgroundColor;
     }
     context[idx].lineJoin = "round";
