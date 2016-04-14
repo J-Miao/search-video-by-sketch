@@ -13,12 +13,13 @@ var backSlider;
 var eraserSlider;
 var backgroundColor = "#ff0000";
 
-function getPictures(searchTag) {
+function getPictures(searchTag, imgSrc) {
   $.ajax({
     type: "POST",
     url: "/get_pictures",
     data: {
-      tag: searchTag
+      tag: searchTag,
+      sketch_filepath: imgSrc
     }
   }).done(function(res) {
     console.log(res);
@@ -61,8 +62,30 @@ $(document).ready(function() {
     console.log($(this)[0]);
     var tempImg = new Image();
     tempImg.src = $(this)[0].src;
+
     context[1].drawImage(tempImg, 0, 0, Math.min(backCanvas.width,backCanvas.height), Math.min(backCanvas.width,backCanvas.height));
-    getPictures($($(this)[0]).attr("tag"));
+    var imgd = context[1].getImageData(0, 0, Math.min(backCanvas.width,backCanvas.height), Math.min(backCanvas.width,backCanvas.height)),
+      pix = imgd.data,
+      newColor = {r:0,g:0,b:0, a:0};
+
+    for (var i = 0, n = pix.length; i <n; i += 4) {
+      var r = pix[i],
+        g = pix[i+1],
+        b = pix[i+2];
+
+      // If its white then change it
+      if(r == 255 && g == 255 && b == 255){
+        // Change the white to whatever.
+        pix[i] = newColor.r;
+        pix[i+1] = newColor.g;
+        pix[i+2] = newColor.b;
+        pix[i+3] = newColor.a;
+      }
+    }
+
+    context[1].putImageData(imgd, 0, 0);​
+
+    getPictures($($(this)[0]).attr("tag"), $(this)[0].src);
     saveCanvas();
   });
 
