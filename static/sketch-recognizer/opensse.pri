@@ -27,18 +27,18 @@ LIBS += -L/usr/lib/ \
 # opencv 2.4.7 - 2.4.9 can work well.
 INCLUDEPATH += $$PWD \
      /usr/include/boost \ 
-     #/home/leetz/Downloads/opencv-2.4.9/modules/core/include \
-     #/home/leetz/Downloads/opencv-2.4.9/modules/flann/include \
-     #/home/leetz/Downloads/opencv-2.4.9/modules/imgproc/include \
-     #/home/leetz/Downloads/opencv-2.4.9/modules/photo/include \
-     #/home/leetz/Downloads/opencv-2.4.9/modules/video/include \
-     #/home/leetz/Downloads/opencv-2.4.9/modules/features2d/include \
-     #/home/leetz/Downloads/opencv-2.4.9/modules/objdetect/include \
-     #/home/leetz/Downloads/opencv-2.4.9/modules/calib3d/include \
-     #/home/leetz/Downloads/opencv-2.4.9/modules/ml/include \
-     #/home/leetz/Downloads/opencv-2.4.9/modules/highgui/include \
-     #/home/leetz/Downloads/opencv-2.4.9/modules/contrib/include \
-     #/home/leetz/Downloads/opencv-2.4.9/include \
+     /home/leetz/Downloads/opencv-2.4.9/modules/core/include \
+     /home/leetz/Downloads/opencv-2.4.9/modules/flann/include \
+     /home/leetz/Downloads/opencv-2.4.9/modules/imgproc/include \
+     /home/leetz/Downloads/opencv-2.4.9/modules/photo/include \
+     /home/leetz/Downloads/opencv-2.4.9/modules/video/include \
+     /home/leetz/Downloads/opencv-2.4.9/modules/features2d/include \
+     /home/leetz/Downloads/opencv-2.4.9/modules/objdetect/include \
+     /home/leetz/Downloads/opencv-2.4.9/modules/calib3d/include \
+     /home/leetz/Downloads/opencv-2.4.9/modules/ml/include \
+     /home/leetz/Downloads/opencv-2.4.9/modules/highgui/include \
+     /home/leetz/Downloads/opencv-2.4.9/modules/contrib/include \
+     /home/leetz/Downloads/opencv-2.4.9/include \
      /home/opencv-2.4.9/modules/core/include \
      /home/opencv-2.4.9/modules/flann/include \
      /home/opencv-2.4.9/modules/imgproc/include \
@@ -54,10 +54,10 @@ INCLUDEPATH += $$PWD \
 #    /home/zdd/boost_1_55_0 \
 #    /home/opencv-2.4.8/include \
 
-#LIBS += #-L/home/leetz/Downloads/opencv-2.4.9/build/lib \     
-        #    -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_features2d -lopencv_ml\
-LIBS += -L/home/opencv-2.4.9/build/lib \
+LIBS += -L/home/leetz/Downloads/opencv-2.4.9/build/lib \     
             -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_features2d -lopencv_ml\
+#LIBS += -L/home/opencv-2.4.9/build/lib \
+#            -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_features2d -lopencv_ml\
 	-L/usr/lib/x86_64-linux-gnu/ \
             -lboost_thread -lboost_system -lconfig++
 }
