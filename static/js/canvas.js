@@ -83,8 +83,7 @@ $(document).ready(function() {
       }
     }
 
-    context[1].putImageData(imgd, 0, 0);​
-
+    context[1].putImageData(imgd, 0, 0);
     getPictures($($(this)[0]).attr("tag"), $(this)[0].src);
     saveCanvas();
   });
