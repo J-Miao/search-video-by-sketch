@@ -7,6 +7,8 @@
 48 duck
 50 goose
 53 fish
+70 dophin
+75 shark
 82 snake
 86 dog
 93 cat

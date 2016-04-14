@@ -1,8 +1,9 @@
 from flask import jsonify
 
-def picture_matcher(mongo):
-    call_back = mongo.db.sketch.find()
-    result = []
+def picture_matcher(mongo, tag, page_idx=0):
+    call_back = mongo.db.vdb_images.find()
+    results = []
     for document in call_back:
-        result.append({'id': document['id'], 'name': document['name'], 'img_url': document['img_url']})
-    return jsonify({"pictures": result})
+    	if sketch_tag in document['tags']:
+        	results.append({'pic': document['base64']})
+    return results
