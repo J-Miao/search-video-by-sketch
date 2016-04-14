@@ -26,8 +26,9 @@ def distance(a,b):
     return sqrt(de) / (sqrt(suma) + sqrt(sumb))
 
 def save_to_png(base64_str, file_name):
+   # with open('file_name', 'w') as f:
     f = open(file_name, 'wb')
-    print "base64_decode", base64_str.decode("base64")
+        #print "base64_decode", base64_str.decode("base64")
     f.write(base64_str.decode("base64"))
     f.close()
     #time.sleep(1)

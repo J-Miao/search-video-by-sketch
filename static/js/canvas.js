@@ -44,13 +44,13 @@ $(document).ready(function() {
 
   var imgRes = $("#image-results");
 
-    imgRes.imagesLoaded(function () {
+    //imgRes.imagesLoaded(function () {
         imgRes.pinto({
             itemWidth:150,
             gapX:10,
             gapY:10
         });
-    });
+   // });
 
   $("#background-color").on("change", function() {
     console.log(this.jscolor);
