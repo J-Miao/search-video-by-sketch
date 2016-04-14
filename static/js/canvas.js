@@ -42,7 +42,7 @@ $(document).ready(function() {
     var tempImg = new Image();
     tempImg.src = $(this)[0].src;
     context[1].drawImage(tempImg, 0, 0, backCanvas.width,backCanvas.height);
-    getPictures($(this)[0]["tag"]);
+    getPictures($($(this)[0]).attr("tag"));
     saveCanvas();
   });
 
