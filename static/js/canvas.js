@@ -74,7 +74,8 @@ $(document).ready(function() {
     console.log(tempImg);
     var imgd = context[1].getImageData(0, 0, Math.min(backCanvas.width,backCanvas.height), Math.min(backCanvas.width,backCanvas.height));
     var pix = imgd.data;
-    console.log(pix);
+    context[1].clearRect(0, 0, context[1].canvas.width, context[1].canvas.height);
+    console.log(canvas.toDataURL("image/png"));
     var newColor = {r:0,g:0,b:0, a:0};
     var replaceCnt = 0;
     for (var i = 0, n = pix.length; i <n; i += 4) {
@@ -95,6 +96,8 @@ $(document).ready(function() {
     console.log(replaceCnt);
 
     context[1].putImageData(imgd, 0, 0);
+    console.log(canvas.toDataURL("image/png"));
+
     getPictures($($(this)[0]).attr("tag"), $(this)[0].src);
     saveCanvas();
   });
