@@ -114,6 +114,11 @@ def get_pictures():
     if page_idx == 0 and len(picture_results) == 0:
        picture_results = picture_matcher(mongo, sketch_tag, sketch_pic)
     return jsonify({"pictures": picture_results[page_idx:page_idx + 20]})
+    # if page_idx == 0:
+    #    global picture_results
+    #    picture_results = picture_matcher(mongo, sketch_tag)
+    # return jsonify({"pictures": picture_results[page_idx:page_idx + 20]})
+    # return jsonify({"pcitures": picture_results})
 
 @app.route("/search_by_potential_sketches", methods=["POST", "GET"])
 def search_by_potential_sketches():

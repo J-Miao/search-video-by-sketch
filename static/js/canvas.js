@@ -24,13 +24,23 @@ function getPictures(searchTag) {
     console.log(res);
     for (var i = 0; i < res["pictures"].length; i++) {
       $("#image-match-" + i).removeClass("hidden");
-      $("#image-match-" + i + " > a > img").attr("src", res["pictures"][i]["pic"]);
+      $("#image-match-" + i + " > a > img").attr("src", "data:image/png;base64," + res["pictures"][i]["pic"]);
       //$("#image-match-" + i + " .image-tag").text(res["pictures"][i]["tag"]);
     }
   });
 }
 
 $(document).ready(function() {
+
+  $('.grid').masonry({
+    itemSelector: '.grid-item',
+    columnWidth: 110,
+    animate: true,
+    animationOptions: {
+      duration: 700,
+      queue: true
+    }
+  });
 
   $("#background-color").on("change", function() {
     console.log(this.jscolor);
@@ -42,7 +52,7 @@ $(document).ready(function() {
     var tempImg = new Image();
     tempImg.src = $(this)[0].src;
     context[1].drawImage(tempImg, 0, 0, backCanvas.width,backCanvas.height);
-    getPictures($(this)[0]["tag"]);
+    getPictures($($(this)[0]).attr("tag"));
     saveCanvas();
   });
 
