@@ -32,14 +32,23 @@ function getPictures(searchTag) {
 
 $(document).ready(function() {
 
-  $('.grid').masonry({
-    itemSelector: '.grid-item',
-    columnWidth: 110,
-    animate: true,
-    animationOptions: {
-      duration: 700,
-      queue: true
-    }
+  //$('.grid').masonry({
+  //  itemSelector: '.grid-item',
+  //  columnWidth: 110,
+  //  animate: true,
+  //  animationOptions: {
+  //    duration: 700,
+  //    queue: true
+  //  }
+  //});
+
+  $('#image-results').waterfall({
+    itemCls: 'image-item',
+    colWidth: 150,
+    gutterWidth: 15,
+    gutterHeight: 15,
+    fitWidth: false,
+    checkImagesLoaded: false
   });
 
   $("#background-color").on("change", function() {
