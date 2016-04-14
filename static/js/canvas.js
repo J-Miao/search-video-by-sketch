@@ -24,7 +24,7 @@ $(document).ready(function() {
     console.log($(this)[0]);
     var tempImg = new Image();
     tempImg.src = $(this)[0].src;
-    context[1].drawImage(tempImg, 0, 0);
+    context[1].drawImage(tempImg, 0, 0, backCanvas.width, backCanvas.height);
   });
 
   $(".sketch-type.dropdown-menu li a").click(function(){
