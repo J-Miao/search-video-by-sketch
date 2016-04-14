@@ -50,7 +50,7 @@ $(document).ready(function() {
             gapX:10,
             gapY:10
         });
-   // });
+    //});
 
   $("#background-color").on("change", function() {
     console.log(this.jscolor);
@@ -61,7 +61,7 @@ $(document).ready(function() {
     console.log($(this)[0]);
     var tempImg = new Image();
     tempImg.src = $(this)[0].src;
-    context[1].drawImage(tempImg, 0, 0, backCanvas.width,backCanvas.height);
+    context[1].drawImage(tempImg, 0, 0, Math.min(backCanvas.width,backCanvas.height), Math.min(backCanvas.width,backCanvas.height));
     getPictures($($(this)[0]).attr("tag"));
     saveCanvas();
   });
@@ -114,7 +114,7 @@ function saveCanvas() {
   context[0].drawImage(canvas,0,0);
 
   //get the current ImageData for the canvas.
-  var imgData = context[0].getImageData(0,0,Math.min(backCanvas.width,backCanvas.height), Math.min(backCanvas.width,backCanvas.height));
+  var imgData = context[0].getImageData(0,0,backCanvas.width,backCanvas.height);
 
   //store the current globalCompositeOperation
   var compositeOperation = context[0].globalCompositeOperation;
@@ -183,7 +183,7 @@ function mouseDownEvent(event) {
     redraw(1 - current_layer, x - this.offsetLeft, y - 9 - this.offsetTop-$('#navbar').height());
     //redraw(1 - current_layer, x - 16 -this.offsetLeft, y - 9 - this.offsetTop-$('#navbar').height());
   }
-  redraw(current_layer, x - this.offsetLeft, y - 9 -this.offsetTop-$('#navbar').height());
+  redraw(current_layer, x - this.offsetLeft, y - 9 - this.offsetTop-$('#navbar').height());
   //redraw(current_layer, x - 16 - this.offsetLeft, y - 9 - this.offsetTop-$('#navbar').height());
 }
 
