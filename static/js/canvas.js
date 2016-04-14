@@ -42,14 +42,15 @@ $(document).ready(function() {
   //  }
   //});
 
-  $('#image-results').waterfall({
-    itemCls: 'image-item',
-    colWidth: 150,
-    gutterWidth: 15,
-    gutterHeight: 15,
-    fitWidth: false,
-    checkImagesLoaded: false
-  });
+  var imgRes = $("#image-results");
+
+    imgRes.imagesLoaded(function () {
+        imgRes.pinto({
+            itemWidth:150,
+            gapX:10,
+            gapY:10
+        });
+    });
 
   $("#background-color").on("change", function() {
     console.log(this.jscolor);

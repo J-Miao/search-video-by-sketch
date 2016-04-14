@@ -70,9 +70,6 @@
 {#        </div>#}
 {#    </div>#}
 {#</div>#}
-<script id="waterfall-tpl" type="text/x-handlebars-template">
-    //template content
-</script>
 
 <div class="container-fluid" style="height:600px">
     <div class="row" style="height:100%;">
@@ -104,14 +101,16 @@
                 {% endfor %}
             </div>
         </div>
-        <div id="image-results" class="grid col-md-6">
-            {% for i in range(10) %}
-                <div class="image-item hidden" id="image-match-{{ i }}">
-                    <a href="#" class="thumbnail">
-                        <img src="..." alt="...">
-                    </a>
-                </div>
-            {% endfor %}
+        <div id="image-result-wrapper" class="col-md-6">
+            <div id="image-results">
+                {% for i in range(20) %}
+                    <div class="pinto hidden" id="image-match-{{ i }}">
+                        <a href="#" class="thumbnail">
+                            <img src="..." alt="...">
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
 </div>
