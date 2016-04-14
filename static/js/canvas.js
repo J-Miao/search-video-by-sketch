@@ -34,6 +34,15 @@ function getPictures(searchTag, imgSrc) {
       $("#image-match-" + i + " > a > img").attr("src", "data:image/png;base64," + res["pictures"][i]["pic"]);
       //$("#image-match-" + i + " .image-tag").text(res["pictures"][i]["tag"]);
     }
+      var imgRes = $("#image-results");
+
+    //imgRes.imagesLoaded(function () {
+        imgRes.pinto({
+            itemWidth:150,
+            gapX:10,
+            gapY:10
+        });
+    //});
   });
 }
 
@@ -49,15 +58,7 @@ $(document).ready(function() {
   //  }
   //});
 
-  var imgRes = $("#image-results");
 
-    //imgRes.imagesLoaded(function () {
-        imgRes.pinto({
-            itemWidth:150,
-            gapX:10,
-            gapY:10
-        });
-    //});
 
   $("#background-color").on("change", function() {
     console.log(this.jscolor);
