@@ -37,7 +37,7 @@ $(document).ready(function() {
     columnWidth: 110,
     animate: true,
     animationOptions: {
-      duration: speed,
+      duration: 700,
       queue: true
     }
   });
