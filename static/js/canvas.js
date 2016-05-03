@@ -32,7 +32,9 @@ function getPictures(searchTag, imgSrc) {
     for (var i = 0; i < res["pictures"].length; i++) {
       $("#image-match-" + i).removeClass("hidden");
       $("#image-match-" + i + " > a > img").attr("src", "data:image/png;base64," + res["pictures"][i]["pic"]);
-      $("#image-match-" + i).draggable();
+      $("#image-match-" + i).draggable({
+          helper: "clone"
+      });
       //$("#image-match-" + i + " .image-tag").text(res["pictures"][i]["tag"]);
     }
       var imgRes = $("#image-results");
@@ -46,6 +48,7 @@ function getPictures(searchTag, imgSrc) {
     //});
   });
 }
+
 
 $(document).ready(function() {
 
@@ -61,11 +64,6 @@ $(document).ready(function() {
     $("#canvas-wrapper").droppable({
       drop: function(event, ui) {
         console.log(event);
-        console.log(ui);
-        $(this)
-          .addClass( "ui-state-highlight" )
-          .find( "p" )
-            .html( "Dropped!" );
       }
     });
 
