@@ -109,8 +109,14 @@ function loadSketch2Canvas(img) {
   //var tempImg = new Image();
   //tempImg.src = $(img)[0].src;
   //console.log(tempImg);
-
+  console.log($(img)[0].src);
   var image = new DragImage($(img)[0].src, 200, 100);
+  var loop = setInterval(function() {
+    //c.fillStyle = "gray";
+    //c.fillRect(0, 0, 500, 500);
+    image.update();
+
+  }, 30);
 }
 
 $(document).ready(function() {
