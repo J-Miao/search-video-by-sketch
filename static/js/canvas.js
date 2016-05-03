@@ -51,18 +51,18 @@ function getPictures(searchTag, imgSrc) {
 
 function loadPicture2Canvas(img) {
   var tempImg = new Image();
-  tempImg.src = $(this)[0].src;
+  tempImg.src = $(img)[0].src;
   context[0].clearRect(0, 0, context[0].canvas.width, context[0].canvas.height);
   context[1].clearRect(0, 0, context[1].canvas.width, context[1].canvas.height);
   //clearCanvas();
 
   var ww = backCanvas.width;
-  var hh = $(img).width() / backCanvas.width * $(img).height();
+  var hh = backCanvas.width / $(img).width() * $(img).height();
   if (hh > backCanvas.height) {
     hh = backCanvas.height;
-    ww = $(img).height() / backCanvas.height * $(img).width();
+    ww = backCanvas.height / $(img).height() * $(img).width();
   }
-  context[0].drawImage(img, 0, 0, ww, hh);
+  context[0].drawImage(tempImg, 0, 0, ww, hh);
 }
 
 $(document).ready(function() {
