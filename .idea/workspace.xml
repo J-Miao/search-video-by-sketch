@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="31d3c2f7-5447-43e9-bf60-e1a70a7b5b80" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/canvas.js" afterPath="$PROJECT_DIR$/static/js/canvas.js" />
     </list>
     <ignored path="search-video-by-sketch.iws" />
@@ -74,8 +73,8 @@
       <file leaf-file-name="canvas.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/js/canvas.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5057307">
-              <caret line="408" column="4" selection-start-line="408" selection-start-column="4" selection-end-line="408" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.66618913">
+              <caret line="404" column="35" selection-start-line="404" selection-start-column="35" selection-end-line="404" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -904,8 +903,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/canvas.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5057307">
-          <caret line="408" column="4" selection-start-line="408" selection-start-column="4" selection-end-line="408" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.66618913">
+          <caret line="404" column="35" selection-start-line="404" selection-start-column="35" selection-end-line="404" selection-end-column="35" />
           <folding />
         </state>
       </provider>
