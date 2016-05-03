@@ -394,12 +394,12 @@ function addClick(x, y, dragging) {
 }
 
 function redraw(idx, x, y, transparent) {
-  //if (isEraser) {
-  //  context[idx].globalCompositeOperation = "destination-out";
-  //} else {
-  //  context[idx].globalCompositeOperation = "source-over";
-  //}
-  context[idx].globalCompositeOperation = "source-over";
+  if (isEraser) {
+    context[idx].globalCompositeOperation = "destination-out";
+  } else {
+    context[idx].globalCompositeOperation = "source-over";
+  }
+  //context[idx].globalCompositeOperation = "source-over";
   //console.log(isEraser, idx, current_layer);
   context[idx].beginPath();
   if (!isEraser) {
@@ -429,7 +429,7 @@ function redraw(idx, x, y, transparent) {
     //  //context[idx].strokeStyle = "white";
     //}
     if (transparent) {
-      context[idx].strokeStyle = "rgba(0,0,0,0.0)";
+      context[idx].strokeStyle = "rgba(0,0,0,0)";
     }
     else {
       context[idx].strokeStyle = "white";
@@ -474,4 +474,6 @@ function redraw(idx, x, y, transparent) {
      context.stroke();
      }
      */
+    context[idx].globalCompositeOperation = "source-over";
+
 }
