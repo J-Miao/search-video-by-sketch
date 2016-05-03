@@ -401,14 +401,14 @@ function redraw(idx, x, y) {
   }
   else {
     if (idx === 1) {
-      // context[idx].strokeStyle = "rgba("+255+","+255+","+255+","+0.0+")";
-      context[idx].globalAlpha=0.0;
+      context[idx].strokeStyle = "rgba("+255+","+255+","+255+","+0.2+")";
+      //context[idx].globalAlpha=0.0;
     }
     else{
-      context[idx].globalAlpha=1.0;
-
+      //context[idx].globalAlpha=1.0;
+      context[idx].strokeStyle = "white";
     }
-    context[idx].strokeStyle = "white";
+
     context[idx].lineJoin = "round";
     context[idx].lineWidth =  eraserSlider.getValue();
   }
