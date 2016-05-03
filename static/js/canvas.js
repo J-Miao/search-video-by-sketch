@@ -4,6 +4,8 @@
 
 var canvas;
 var backCanvas;
+var tempCanvas;
+var tempContext;
 var context = [null, null];
 var paint;
 var current_layer = 1;
@@ -13,21 +15,59 @@ var backSlider;
 var eraserSlider;
 var backgroundColor = "#ff0000";
 
-function getPictures(searchTag) {
+function getPictures(searchTag, imgSrc) {
   $.ajax({
     type: "POST",
     url: "/get_pictures",
     data: {
-      tag: searchTag
+      tag: searchTag,
+      sketch_filepath: imgSrc
     }
   }).done(function(res) {
     console.log(res);
+    for (var i = 0; i < 20; i++) {
+      $("#image-match-" + i).addClass("hidden");
+      $("#image-match-" + i + " > a > img").attr("src", "");
+    }
     for (var i = 0; i < res["pictures"].length; i++) {
       $("#image-match-" + i).removeClass("hidden");
       $("#image-match-" + i + " > a > img").attr("src", "data:image/png;base64," + res["pictures"][i]["pic"]);
+      $("#image-match-" + i).draggable({
+        helper: "clone",
+        //revert: "invalid",
+        //stack: ".droppable",
+        //snap: ".droppable"
+      });
       //$("#image-match-" + i + " .image-tag").text(res["pictures"][i]["tag"]);
     }
+      var imgRes = $("#image-results");
+
+    //imgRes.imagesLoaded(function () {
+        imgRes.pinto({
+            itemWidth:150,
+            gapX:10,
+            gapY:10
+        });
+    //});
   });
+}
+
+function loadPicture2Canvas(img) {
+  var tempImg = new Image();
+  tempImg.src = $(img)[0].src;
+  console.log(tempImg);
+  context[0].clearRect(0, 0, context[0].canvas.width, context[0].canvas.height);
+  context[1].clearRect(0, 0, context[1].canvas.width, context[1].canvas.height);
+  //clearCanvas();
+
+  var ww = backCanvas.width;
+  var hh = backCanvas.width / $(img).width() * $(img).height();
+  if (hh > backCanvas.height) {
+    hh = backCanvas.height;
+    ww = backCanvas.height / $(img).height() * $(img).width();
+  }
+  console.log(ww, hh);
+  context[0].drawImage(tempImg, 0, 0, ww, hh);
 }
 
 $(document).ready(function() {
@@ -41,16 +81,14 @@ $(document).ready(function() {
   //    queue: true
   //  }
   //});
-
-  var imgRes = $("#image-results");
-
-    imgRes.imagesLoaded(function () {
-        imgRes.pinto({
-            itemWidth:150,
-            gapX:10,
-            gapY:10
-        });
+    $("#canvas-wrapper").droppable({
+      drop: function(event, ui) {
+        console.log(event);
+        console.log($($(ui)[0].draggable[0]));
+        loadPicture2Canvas($($(ui)[0].draggable[0]).find('img'));
+      }
     });
+
 
   $("#background-color").on("change", function() {
     console.log(this.jscolor);
@@ -58,17 +96,45 @@ $(document).ready(function() {
   });
 
   $("#sketch-results a img").click(function() {
-    console.log($(this)[0]);
     var tempImg = new Image();
     tempImg.src = $(this)[0].src;
-    context[1].drawImage(tempImg, 0, 0, backCanvas.width,backCanvas.height);
-    getPictures($($(this)[0]).attr("tag"));
+    context[1].clearRect(0, 0, context[1].canvas.width, context[1].canvas.height);
+    //clearCanvas();
+    context[1].drawImage(tempImg, 0, 0, Math.min(backCanvas.width,backCanvas.height), Math.min(backCanvas.width,backCanvas.height));
+    console.log(tempImg);
+    var imgd = context[1].getImageData(0, 0, Math.min(backCanvas.width,backCanvas.height), Math.min(backCanvas.width,backCanvas.height));
+    var pix = imgd.data;
+    console.log(canvas.toDataURL("image/png"));
+    context[1].clearRect(0, 0, context[1].canvas.width, context[1].canvas.height);
+    console.log(pix);
+    var newColor = {r:0,g:0,b:0, a:0};
+    var replaceCnt = 0;
+    for (var i = 0, n = pix.length; i <n; i += 4) {
+      var r = pix[i],
+        g = pix[i+1],
+        b = pix[i+2];
+
+      // If its white then change it
+      if(r >= 200 && g >= 200 && b >= 200){
+        // Change the white to whatever.
+        pix[i] = newColor.r;
+        pix[i+1] = newColor.g;
+        pix[i+2] = newColor.b;
+        pix[i+3] = newColor.a;
+        replaceCnt += 1;
+      }
+    }
+    console.log(replaceCnt);
+
+    context[1].putImageData(imgd, 0, 0);
+    console.log(canvas.toDataURL("image/png"));
+
+    getPictures($($(this)[0]).attr("tag"), $(this)[0].src);
     saveCanvas();
   });
 
   $(".sketch-type.dropdown-menu li a").click(function(){
     var selText = $(this).text();
-    console.log($.trim(selText));
     $(this).parents().find('.sketch-type.dropdown-toggle').html(selText+' <span class="caret"></span>');
     if ($.trim(selText) === "Draw sketch") {
       isEraser = 0;
@@ -111,34 +177,33 @@ $(document).ready(function() {
 
 
 function saveCanvas() {
-  context[0].drawImage(canvas,0,0);
-
   //get the current ImageData for the canvas.
-  var imgData = context[0].getImageData(0,0,Math.min(backCanvas.width,backCanvas.height), Math.min(backCanvas.width,backCanvas.height));
+  var imgData = context[1].getImageData(0,0,canvas.width,canvas.height);
 
+  // context[1].drawImage(canvas,0,0);
   //store the current globalCompositeOperation
-  var compositeOperation = context[0].globalCompositeOperation;
+  var compositeOperation = context[1].globalCompositeOperation;
 
   //set to draw behind current content
-  context[0].globalCompositeOperation = "destination-over";
+  context[1].globalCompositeOperation = "destination-over";
 
   //set background color
-  context[0].fillStyle = "#FFFFFF";
+  context[1].fillStyle = "#FFFFFF";
 
   //draw background / rect on entire canvas
-  context[0].fillRect(0,0,backCanvas.width, backCanvas.height);
+  context[1].fillRect(0,0,canvas.width, canvas.height);
 
-  var canvasData = backCanvas.toDataURL("image/png");
+  var canvasData = canvas.toDataURL("image/png");
   //delete "data:image/png;base64,"
   canvasData = canvasData.substring(22);
   console.log(canvasData);
   //clear the canvas
-  context[0].clearRect(0,0,backCanvas.width, backCanvas.height);
+  context[1].clearRect(0,0,canvas.width, canvas.height);
   //restore it with original / cached ImageData
-  context[0].putImageData(imgData, 0,0);
+  context[1].putImageData(imgData, 0,0);
 
   //reset the globalCompositeOperation to what it was
-  context[0].globalCompositeOperation = compositeOperation;
+  context[1].globalCompositeOperation = compositeOperation;
 
   $.ajax({
     type: "POST",
@@ -180,11 +245,15 @@ function mouseDownEvent(event) {
   }
   //redraw(x-this.offsetLeft, y-this.offsetTop);
   if (isEraser) {
-    redraw(1 - current_layer, x - this.offsetLeft, y - 9 - this.offsetTop-$('#navbar').height());
+    redraw(1 - current_layer, x - this.offsetLeft, y - 9 - this.offsetTop-$('#navbar').height(), false);
     //redraw(1 - current_layer, x - 16 -this.offsetLeft, y - 9 - this.offsetTop-$('#navbar').height());
   }
-  redraw(current_layer, x - this.offsetLeft, y - 9 -this.offsetTop-$('#navbar').height());
+  redraw(current_layer, x - this.offsetLeft, y - 9 - this.offsetTop-$('#navbar').height(), false);
   //redraw(current_layer, x - 16 - this.offsetLeft, y - 9 - this.offsetTop-$('#navbar').height());
+  if (isEraser) {
+      redraw(1, x - this.offsetLeft, y - 10 - this.offsetTop-$('#navbar').height(), true);
+      //redraw(1 - current_layer, x - 15, y - 10 - this.offsetTop-$('#navbar').height());
+  }
 }
 
 function mouseMoveEvent(event) {
@@ -198,14 +267,18 @@ function mouseMoveEvent(event) {
       x = event.clientX;
       y = event.clientY
     }
-    console.log(x, y, this.offsetLeft, this.offsetTop, $('#navbar').height());
+    // console.log(x, y, this.offsetLeft, this.offsetTop, $('#navbar').height());
     //redraw(x-this.offsetLeft, y-this.offsetTop);
     if (isEraser) {
-      redraw(1 - current_layer, x-this.offsetLeft, y-10-this.offsetTop-$('#navbar').height());
+      redraw(1 - current_layer, x-this.offsetLeft, y-10-this.offsetTop-$('#navbar').height(), false);
       //redraw(1 - current_layer, x - 25, y - 10 - this.offsetTop-$('#navbar').height());
     }
-    redraw(current_layer, x-this.offsetLeft, y-10-this.offsetTop-$('#navbar').height());
+    redraw(current_layer, x-this.offsetLeft, y-10-this.offsetTop-$('#navbar').height(), false);
     //redraw(current_layer, x - 25, y - 10 - this.offsetTop-$('#navbar').height());
+    if (isEraser) {
+      redraw(1, x - this.offsetLeft, y - 10 - this.offsetTop-$('#navbar').height(), true);
+      //redraw(1 - current_layer, x - 15, y - 10 - this.offsetTop-$('#navbar').height());
+    }
   }
 }
 
@@ -222,10 +295,15 @@ function mouseUpEvent(event) {
     }
 
     if (isEraser) {
-      redraw(1 - current_layer, x - this.offsetLeft, y - 10 - this.offsetTop-$('#navbar').height());
+      redraw(1 - current_layer, x - this.offsetLeft, y - 10 - this.offsetTop-$('#navbar').height(), false);
       //redraw(1 - current_layer, x - 15, y - 10 - this.offsetTop-$('#navbar').height());
     }
-    redraw(current_layer, x - this.offsetLeft, y - 10 - this.offsetTop-$('#navbar').height());
+    redraw(current_layer, x - this.offsetLeft, y - 10 - this.offsetTop-$('#navbar').height(), false);
+
+    if (isEraser) {
+      redraw(1, x - this.offsetLeft, y - 10 - this.offsetTop-$('#navbar').height(), true);
+      //redraw(1 - current_layer, x - 15, y - 10 - this.offsetTop-$('#navbar').height());
+    }
     //redraw(current_layer, x - 15, y - 10 - this.offsetTop-$('#navbar').height());
 
     paint = false;
@@ -237,13 +315,17 @@ function mouseUpEvent(event) {
 function loadSketchCanvas() {
   canvas = document.getElementById('canvas');
   backCanvas = document.getElementById('canvas-color');
+  // tempCanvas = document.getElementById('temp-canvas');
   context[0] = backCanvas.getContext("2d");
   context[1] = canvas.getContext("2d");
+  // tempContext = tempCanvas.getContext("2d");
 
   canvas.width = $('#canvas-wrapper').width() * 0.98;
   canvas.height = $('#canvas-wrapper').height();
   backCanvas.width = $('#canvas-wrapper').width() * 0.98;
   backCanvas.height = $('#canvas-wrapper').height();
+  // tempCanvas.width = $('#canvas-wrapper').width() * 0.98;
+  // tempCanvas.height = $('#canvas-wrapper').height();
   //  //
     //canvas.width = 600;
     //canvas.height = 400;
@@ -341,12 +423,13 @@ function addClick(x, y, dragging) {
   clickEraser.push(isEraser);
 }
 
-function redraw(idx, x, y) {
+function redraw(idx, x, y, transparent) {
   if (isEraser) {
     context[idx].globalCompositeOperation = "destination-out";
   } else {
     context[idx].globalCompositeOperation = "source-over";
   }
+  //context[idx].globalCompositeOperation = "source-over";
   //console.log(isEraser, idx, current_layer);
   context[idx].beginPath();
   if (!isEraser) {
@@ -354,14 +437,18 @@ function redraw(idx, x, y) {
       context[idx].strokeStyle = "black";
     }
     else {
-      console.log(backgroundColor);
       context[idx].strokeStyle = backgroundColor;
     }
     context[idx].lineJoin = "round";
     context[idx].lineWidth =  idx==1 ? sketchSlider.getValue(): backSlider.getValue();
   }
   else {
-    context[idx].strokeStyle = "white";
+    if (transparent) {
+      context[idx].strokeStyle = "rgba(0,0,0,0)";
+    }
+    else {
+      context[idx].strokeStyle = "white";
+    }
     context[idx].lineJoin = "round";
     context[idx].lineWidth =  eraserSlider.getValue();
   }
@@ -402,4 +489,6 @@ function redraw(idx, x, y) {
      context.stroke();
      }
      */
+    context[idx].globalCompositeOperation = "source-over";
+
 }

@@ -1,0 +1,51 @@
+Todo list
+
+0. Data Prepration
+    sketches: more detailed classification
+    images: object in pic
+            color vector 
+
+    videos: segment into shots
+            color vector for every frame in shots
+            motion of the shots
+            object in the shots
+    We need to carefully pick and label these data
+
+
+[Done]1. draw a sketch  
+
+[Done]2. draw a background
+
+3. perform search
+    [Done]* sketch : recognize it, turn it into a tag,
+               use tag to filter
+    * color: use signature to rank pictures
+            - backends need more modification
+    * motion: 9 different directions, add another tag to video
+            - need to manually label videos
+            - auto motion detection should be done [[TZ]]
+
+4. revise a search
+    [Done]* drag thumbnails to canvas for further editing.
+         - all old drawings dropped, new picture as the background
+         - size of image changed, fit in the bounding box of size(canvas)
+
+    * When it is a video, extract a certain frame and put it on canvas
+         - backend support
+    * '+' selector
+         - videos are segmented into shots, if '+' is hitted on shot S_1, then all shots from the video V_1 which contains S_1 should be put
+           in higher position in the result lise. [Another API]
+         
+5. show results
+    * right hand side, a list of similar videos
+        - should have thumbnails
+        - should be able to play there
+        - separate UI for image and video representation
+        - dynamically loading, if loading needs too much time
+        - pagination
+        - video descriptions (UI issue)
+
+6. User Study
+    find someone write some comments
+    record their experiment
+
