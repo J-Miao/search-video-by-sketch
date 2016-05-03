@@ -22,6 +22,7 @@ Todo list
     * color: use signature to rank pictures
             - backends need more modification
     * motion: 9 different directions, add another tag to video
+            - camera motion and object motion
             - need to manually label videos
             - auto motion detection should be done [[TZ]]
 
@@ -45,7 +46,11 @@ Todo list
         - pagination
         - video descriptions (UI issue)
 
+Matching: precise match for a frame > threshold then put it in the very front, otherwise not
+
 6. User Study
     find someone write some comments
     record their experiment
+
+7. Evaluation
 
