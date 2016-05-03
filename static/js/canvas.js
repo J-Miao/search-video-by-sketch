@@ -215,11 +215,15 @@ function mouseDownEvent(event) {
   }
   //redraw(x-this.offsetLeft, y-this.offsetTop);
   if (isEraser) {
-    redraw(1 - current_layer, x - this.offsetLeft, y - 9 - this.offsetTop-$('#navbar').height());
+    redraw(1 - current_layer, x - this.offsetLeft, y - 9 - this.offsetTop-$('#navbar').height(), false);
     //redraw(1 - current_layer, x - 16 -this.offsetLeft, y - 9 - this.offsetTop-$('#navbar').height());
   }
-  redraw(current_layer, x - this.offsetLeft, y - 9 - this.offsetTop-$('#navbar').height());
+  redraw(current_layer, x - this.offsetLeft, y - 9 - this.offsetTop-$('#navbar').height(), false);
   //redraw(current_layer, x - 16 - this.offsetLeft, y - 9 - this.offsetTop-$('#navbar').height());
+  if (isEraser) {
+      redraw(1, x - this.offsetLeft, y - 10 - this.offsetTop-$('#navbar').height(), true);
+      //redraw(1 - current_layer, x - 15, y - 10 - this.offsetTop-$('#navbar').height());
+  }
 }
 
 function mouseMoveEvent(event) {
@@ -236,11 +240,15 @@ function mouseMoveEvent(event) {
     // console.log(x, y, this.offsetLeft, this.offsetTop, $('#navbar').height());
     //redraw(x-this.offsetLeft, y-this.offsetTop);
     if (isEraser) {
-      redraw(1 - current_layer, x-this.offsetLeft, y-10-this.offsetTop-$('#navbar').height());
+      redraw(1 - current_layer, x-this.offsetLeft, y-10-this.offsetTop-$('#navbar').height(), false);
       //redraw(1 - current_layer, x - 25, y - 10 - this.offsetTop-$('#navbar').height());
     }
-    redraw(current_layer, x-this.offsetLeft, y-10-this.offsetTop-$('#navbar').height());
+    redraw(current_layer, x-this.offsetLeft, y-10-this.offsetTop-$('#navbar').height(), false);
     //redraw(current_layer, x - 25, y - 10 - this.offsetTop-$('#navbar').height());
+    if (isEraser) {
+      redraw(1, x - this.offsetLeft, y - 10 - this.offsetTop-$('#navbar').height(), true);
+      //redraw(1 - current_layer, x - 15, y - 10 - this.offsetTop-$('#navbar').height());
+    }
   }
 }
 
@@ -257,10 +265,10 @@ function mouseUpEvent(event) {
     }
 
     if (isEraser) {
-      redraw(1 - current_layer, x - this.offsetLeft, y - 10 - this.offsetTop-$('#navbar').height());
+      redraw(1 - current_layer, x - this.offsetLeft, y - 10 - this.offsetTop-$('#navbar').height(), false);
       //redraw(1 - current_layer, x - 15, y - 10 - this.offsetTop-$('#navbar').height());
     }
-    redraw(current_layer, x - this.offsetLeft, y - 10 - this.offsetTop-$('#navbar').height());
+    redraw(current_layer, x - this.offsetLeft, y - 10 - this.offsetTop-$('#navbar').height(), false);
 
     if (isEraser) {
       redraw(1, x - this.offsetLeft, y - 10 - this.offsetTop-$('#navbar').height(), true);
@@ -385,7 +393,7 @@ function addClick(x, y, dragging) {
   clickEraser.push(isEraser);
 }
 
-function redraw(idx, x, y, transparent=false) {
+function redraw(idx, x, y, transparent) {
   //if (isEraser) {
   //  context[idx].globalCompositeOperation = "destination-out";
   //} else {
@@ -421,7 +429,7 @@ function redraw(idx, x, y, transparent=false) {
     //  //context[idx].strokeStyle = "white";
     //}
     if (transparent) {
-      context[idx].strokeStyle = "rgba(0,0,0,1.0)";
+      context[idx].strokeStyle = "rgba(0,0,0,0.0)";
     }
     else {
       context[idx].strokeStyle = "white";
