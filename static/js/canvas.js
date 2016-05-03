@@ -261,6 +261,11 @@ function mouseUpEvent(event) {
       //redraw(1 - current_layer, x - 15, y - 10 - this.offsetTop-$('#navbar').height());
     }
     redraw(current_layer, x - this.offsetLeft, y - 10 - this.offsetTop-$('#navbar').height());
+
+    if (isEraser) {
+      redraw(1, x - this.offsetLeft, y - 10 - this.offsetTop-$('#navbar').height(), true);
+      //redraw(1 - current_layer, x - 15, y - 10 - this.offsetTop-$('#navbar').height());
+    }
     //redraw(current_layer, x - 15, y - 10 - this.offsetTop-$('#navbar').height());
 
     paint = false;
@@ -380,7 +385,7 @@ function addClick(x, y, dragging) {
   clickEraser.push(isEraser);
 }
 
-function redraw(idx, x, y) {
+function redraw(idx, x, y, transparent=false) {
   //if (isEraser) {
   //  context[idx].globalCompositeOperation = "destination-out";
   //} else {
@@ -405,17 +410,18 @@ function redraw(idx, x, y) {
     context[idx].lineWidth =  idx==1 ? sketchSlider.getValue(): backSlider.getValue();
   }
   else {
-    if (idx === 1) {
-      context[idx].strokeStyle = "rgba("+255+","+255+","+255+","+0.0+")";
-      //context[idx].globalAlpha=0.0;
-      //context[idx].strokeStyle = "white";
-    }
-    else{
-      context[idx].strokeStyle = "rgba("+255+","+255+","+255+","+1.0+")";
-      //context[idx].globalAlpha=1.0;
-      //context[idx].strokeStyle = "white";
-    }
+    //if (idx === 1) {
+    //  //context[idx].strokeStyle = "rgba("+255+","+255+","+255+","+0.0+")";
+    //  //context[idx].globalAlpha=0.0;
+    //  context[idx].strokeStyle = "white";
+    //}
+    //else{
+    //  //context[idx].strokeStyle = "rgba("+255+","+255+","+255+","+1.0+")";
+    //  //context[idx].globalAlpha=1.0;
+    //  //context[idx].strokeStyle = "white";
+    //}
 
+    context[idx].strokeStyle = "rgba("+255+","+255+","+255+","+1.0+")";
     context[idx].lineJoin = "round";
     context[idx].lineWidth =  eraserSlider.getValue();
   }
