@@ -397,8 +397,8 @@ function redraw(idx, x, y) {
     }
     else {
       //context[idx].globalAlpha=1.0;
-      //context[idx].strokeStyle = backgroundColor;
-      context[idx].setStrokeColor(backgroundColor, 1.0);
+      context[idx].strokeStyle = backgroundColor;
+      //context[idx].setStrokeColor(backgroundColor, 1.0);
 
     }
     context[idx].lineJoin = "round";
