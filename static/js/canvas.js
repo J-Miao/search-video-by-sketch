@@ -33,7 +33,10 @@ function getPictures(searchTag, imgSrc) {
       $("#image-match-" + i).removeClass("hidden");
       $("#image-match-" + i + " > a > img").attr("src", "data:image/png;base64," + res["pictures"][i]["pic"]);
       $("#image-match-" + i).draggable({
-        helper: "clone"
+        helper: "clone",
+        //revert: "invalid",
+        //stack: ".droppable",
+        //snap: ".droppable"
       });
       //$("#image-match-" + i + " .image-tag").text(res["pictures"][i]["tag"]);
     }
@@ -52,6 +55,7 @@ function getPictures(searchTag, imgSrc) {
 function loadPicture2Canvas(img) {
   var tempImg = new Image();
   tempImg.src = $(img)[0].src;
+  console.log(tempImg);
   context[0].clearRect(0, 0, context[0].canvas.width, context[0].canvas.height);
   context[1].clearRect(0, 0, context[1].canvas.width, context[1].canvas.height);
   //clearCanvas();
@@ -62,7 +66,57 @@ function loadPicture2Canvas(img) {
     hh = backCanvas.height;
     ww = backCanvas.height / $(img).height() * $(img).width();
   }
+  console.log(ww, hh);
   context[0].drawImage(tempImg, 0, 0, ww, hh);
+}
+
+function DragImage(src, x, y) {
+  var that = this;
+  var startX = 0, startY = 0;
+  var drag = false;
+  this.x = x;
+  this.y = y;
+  var img = new Image();
+  img.src = src;
+  this.update = function() {
+      if (mousePressed){
+          var left = that.x;
+          var right = that.x + img.width;
+          var top = that.y;
+          var bottom = that.y + img.height;
+          if (!drag){
+            startX = mouseX - that.x;
+            startY = mouseY - that.y;
+          }
+          if (mouseX < right && mouseX > left && mouseY < bottom && mouseY > top){
+             drag = true;
+          }
+      }else{
+         drag = false;
+      }
+      if (drag){
+          that.x = mouseX - startX;
+          that.y = mouseY - startY;
+      }
+      context[1].drawImage(img, that.x, that.y);
+  }
+}
+
+var mouseX = 0, mouseY = 0;
+var mousePressed = false;
+
+function loadSketch2Canvas(img) {
+  //var tempImg = new Image();
+  //tempImg.src = $(img)[0].src;
+  //console.log(tempImg);
+  console.log($(img)[0].src);
+  var image = new DragImage($(img)[0].src, 200, 100);
+  var loop = setInterval(function() {
+    //c.fillStyle = "gray";
+    //c.fillRect(0, 0, 500, 500);
+    image.update();
+
+  }, 30);
 }
 
 $(document).ready(function() {
@@ -80,7 +134,13 @@ $(document).ready(function() {
       drop: function(event, ui) {
         console.log(event);
         console.log($($(ui)[0].draggable[0]));
-        loadPicture2Canvas($($(ui)[0].draggable[0]).find('img'));
+        if ($($(ui)[0].draggable[0]).hasClass('image-match')) {
+          loadPicture2Canvas($($(ui)[0].draggable[0]).find('img'));
+        }
+        else {
+          loadSketch2Canvas($($(ui)[0].draggable[0]).find('img'));
+        }
+
       }
     });
 
@@ -121,7 +181,7 @@ $(document).ready(function() {
     }
     console.log(replaceCnt);
 
-    context[1].putImageData(imgd, 0, 0);​
+    context[1].putImageData(imgd, 0, 0);
     console.log(canvas.toDataURL("image/png"));
 
     getPictures($($(this)[0]).attr("tag"), $(this)[0].src);
@@ -213,6 +273,9 @@ function saveCanvas() {
       $("#sketch-match-" + i + " > a > img").attr("src", res["sketches"][i]["img_url"]);
       $("#sketch-match-" + i + " > a > img").attr("tag", res["sketches"][i]["tag"]);
       $("#sketch-match-" + i + " .sketch-tag").text(res["sketches"][i]["tag"]);
+      $("#sketch-match-" + i).draggable({
+        helper: "clone"
+      });
     }
   });
 }
@@ -230,6 +293,7 @@ var x, y, lastPostion = {};
 function mouseDownEvent(event) {
   event.preventDefault();
   paint = true;
+  mousePressed = true;
   if (device) {
     var touch = event.originalEvent.targetTouches[0];
     x = touch.pageX;
@@ -253,6 +317,7 @@ function mouseDownEvent(event) {
 
 function mouseMoveEvent(event) {
   event.preventDefault();
+
   if (paint) {
     if (device) {
       var touch = event.originalEvent.targetTouches[0];
@@ -262,6 +327,9 @@ function mouseMoveEvent(event) {
       x = event.clientX;
       y = event.clientY
     }
+
+    mouseX = x;
+    mouseY = y;
     // console.log(x, y, this.offsetLeft, this.offsetTop, $('#navbar').height());
     //redraw(x-this.offsetLeft, y-this.offsetTop);
     if (isEraser) {
@@ -279,6 +347,7 @@ function mouseMoveEvent(event) {
 
 function mouseUpEvent(event) {
   event.preventDefault();
+  mousePressed = false;
   if (paint) {
      if (device) {
       var touch = event.originalEvent.targetTouches[0];
@@ -439,7 +508,7 @@ function redraw(idx, x, y, transparent) {
   }
   else {
     if (transparent) {
-      context[idx].strokeStyle = "rgba(0,0,0,0.0)";
+      context[idx].strokeStyle = "rgba(0,0,0,0)";
     }
     else {
       context[idx].strokeStyle = "white";
@@ -484,6 +553,6 @@ function redraw(idx, x, y, transparent) {
      context.stroke();
      }
      */
+    context[idx].globalCompositeOperation = "source-over";
 
-  context[idx].globalCompositeOperation = "source-over";
 }
