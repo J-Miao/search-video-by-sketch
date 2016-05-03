@@ -70,8 +70,47 @@ function loadPicture2Canvas(img) {
   context[0].drawImage(tempImg, 0, 0, ww, hh);
 }
 
-function loadSketch2Canvas(ele) {
-  console.log(ele);
+function DragImage(src, x, y) {
+  var that = this;
+  var startX = 0, startY = 0;
+  var drag = false;
+  this.x = x;
+  this.y = y;
+  var img = new Image();
+  img.src = src;
+  this.update = function() {
+      if (mousePressed){
+          var left = that.x;
+          var right = that.x + img.width;
+          var top = that.y;
+          var bottom = that.y + img.height;
+          if (!drag){
+            startX = mouseX - that.x;
+            startY = mouseY - that.y;
+          }
+          if (mouseX < right && mouseX > left && mouseY < bottom && mouseY > top){
+             drag = true;
+          }
+      }else{
+         drag = false;
+      }
+      if (drag){
+          that.x = mouseX - startX;
+          that.y = mouseY - startY;
+      }
+      context[1].drawImage(img, that.x, that.y);
+  }
+}
+
+var mouseX = 0, mouseY = 0;
+var mousePressed = false;
+
+function loadSketch2Canvas(img) {
+  //var tempImg = new Image();
+  //tempImg.src = $(img)[0].src;
+  //console.log(tempImg);
+
+  var image = new DragImage($(img)[0].src, 200, 100);
 }
 
 $(document).ready(function() {
@@ -93,7 +132,7 @@ $(document).ready(function() {
           loadPicture2Canvas($($(ui)[0].draggable[0]).find('img'));
         }
         else {
-          loadSketch2Canvas($($(ui)[0].draggable[0]));
+          loadSketch2Canvas($($(ui)[0].draggable[0]).find('img'));
         }
 
       }
@@ -248,6 +287,7 @@ var x, y, lastPostion = {};
 function mouseDownEvent(event) {
   event.preventDefault();
   paint = true;
+  mousePressed = true;
   if (device) {
     var touch = event.originalEvent.targetTouches[0];
     x = touch.pageX;
@@ -271,6 +311,7 @@ function mouseDownEvent(event) {
 
 function mouseMoveEvent(event) {
   event.preventDefault();
+
   if (paint) {
     if (device) {
       var touch = event.originalEvent.targetTouches[0];
@@ -280,6 +321,9 @@ function mouseMoveEvent(event) {
       x = event.clientX;
       y = event.clientY
     }
+
+    mouseX = x;
+    mouseY = y;
     // console.log(x, y, this.offsetLeft, this.offsetTop, $('#navbar').height());
     //redraw(x-this.offsetLeft, y-this.offsetTop);
     if (isEraser) {
@@ -297,6 +341,7 @@ function mouseMoveEvent(event) {
 
 function mouseUpEvent(event) {
   event.preventDefault();
+  mousePressed = false;
   if (paint) {
      if (device) {
       var touch = event.originalEvent.targetTouches[0];
