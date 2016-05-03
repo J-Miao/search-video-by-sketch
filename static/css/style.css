@@ -16,3 +16,7 @@ canvas{
     font-family: "Comic Sans MS";
     font-size: 7pt;
 }
+
+.image-match {
+    z-index: 10;
+}

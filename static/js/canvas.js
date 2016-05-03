@@ -33,7 +33,10 @@ function getPictures(searchTag, imgSrc) {
       $("#image-match-" + i).removeClass("hidden");
       $("#image-match-" + i + " > a > img").attr("src", "data:image/png;base64," + res["pictures"][i]["pic"]);
       $("#image-match-" + i).draggable({
-        helper: "clone"
+        helper: "clone",
+        //revert: "invalid",
+        //stack: ".droppable",
+        //snap: ".droppable"
       });
       //$("#image-match-" + i + " .image-tag").text(res["pictures"][i]["tag"]);
     }
@@ -52,7 +55,6 @@ function getPictures(searchTag, imgSrc) {
 function loadPicture2Canvas(img) {
   var tempImg = new Image();
   tempImg.src = $(img)[0].src;
-  console.log(img);
   console.log(tempImg);
   context[0].clearRect(0, 0, context[0].canvas.width, context[0].canvas.height);
   context[1].clearRect(0, 0, context[1].canvas.width, context[1].canvas.height);
