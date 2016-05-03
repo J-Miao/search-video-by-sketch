@@ -400,7 +400,13 @@ function redraw(idx, x, y) {
     context[idx].lineWidth =  idx==1 ? sketchSlider.getValue(): backSlider.getValue();
   }
   else {
-    context[idx].strokeStyle = "white";
+    if (idx === 1) {
+      context[idx].strokeStyle = "rgba("+255+","+255+","+255+","+0.0+")";
+    }
+    else{
+      context[idx].strokeStyle = "white";
+    }
+    
     context[idx].lineJoin = "round";
     context[idx].lineWidth =  eraserSlider.getValue();
   }
