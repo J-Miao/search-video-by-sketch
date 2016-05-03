@@ -43,7 +43,9 @@ app.config["MONGO_PASSWORD"] = "weloveVDB"
 
 mongo = PyMongo(app)
 
-output_sketch = "static/img/sketch.png"
+# output_sketch = "static/img/sketch.png"
+output_sketch = "static/img/sketch"
+
 
 picture_results = []
 # @app.before_request
@@ -100,7 +102,7 @@ def get_sketches():
         return redirect("/")
     else:
         sketch_binary_str = request.form["sketch"]
-        fname = output_sketch + "-" + datetime.now().strftime("%Y-%m-%d-%H:%M:%S")
+        fname = output_sketch + "-" + datetime.now().strftime("%Y-%m-%d-%H:%M:%S") + ".png"
         save_to_png(sketch_binary_str, fname)
         results = sketch_recogniser(fname)
         return jsonify({"sketches": results})
