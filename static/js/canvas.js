@@ -397,8 +397,8 @@ function redraw(idx, x, y, transparent=false) {
   if (!isEraser) {
     if (idx === 1) {
       //context[idx].globalAlpha=1.0;
-      context[idx].strokeStyle = "rgba("+0+","+0+",",0.0+","+1.0+")";
-      //context[idx].strokeStyle = "black";
+      //context[idx].strokeStyle = "rgba("+0+","+0+",",0.0+","+1.0+")";
+      context[idx].strokeStyle = "black";
     }
     else {
       //context[idx].globalAlpha=1.0;
@@ -420,8 +420,12 @@ function redraw(idx, x, y, transparent=false) {
     //  //context[idx].globalAlpha=1.0;
     //  //context[idx].strokeStyle = "white";
     //}
-
-    context[idx].strokeStyle = "rgba("+255+","+255+","+255+","+1.0+")";
+    if (transparent) {
+      context[idx].strokeStyle = "rgba("+255+","+255+","+255+","+0.0+")";
+    }
+    else {
+      context[idx].strokeStyle = "white";
+    }
     context[idx].lineJoin = "round";
     context[idx].lineWidth =  eraserSlider.getValue();
   }
