@@ -32,6 +32,7 @@ function getPictures(searchTag, imgSrc) {
     for (var i = 0; i < res["pictures"].length; i++) {
       $("#image-match-" + i).removeClass("hidden");
       $("#image-match-" + i + " > a > img").attr("src", "data:image/png;base64," + res["pictures"][i]["pic"]);
+      $("#image-match-" + i).draggable();
       //$("#image-match-" + i + " .image-tag").text(res["pictures"][i]["tag"]);
     }
       var imgRes = $("#image-results");
@@ -57,7 +58,16 @@ $(document).ready(function() {
   //    queue: true
   //  }
   //});
-
+    $("#canvas-wrapper").droppable({
+      drop: function(event, ui) {
+        console.log(event);
+        console.log(ui);
+        $(this)
+          .addClass( "ui-state-highlight" )
+          .find( "p" )
+            .html( "Dropped!" );
+      }
+    });
 
 
   $("#background-color").on("change", function() {
@@ -394,40 +404,25 @@ function addClick(x, y, dragging) {
 }
 
 function redraw(idx, x, y, transparent) {
-  //if (isEraser) {
-  //  context[idx].globalCompositeOperation = "destination-out";
-  //} else {
-  //  context[idx].globalCompositeOperation = "source-over";
-  //}
-  context[idx].globalCompositeOperation = "source-over";
+  if (isEraser) {
+    context[idx].globalCompositeOperation = "destination-out";
+  } else {
+    context[idx].globalCompositeOperation = "source-over";
+  }
+  //context[idx].globalCompositeOperation = "source-over";
   //console.log(isEraser, idx, current_layer);
   context[idx].beginPath();
   if (!isEraser) {
     if (idx === 1) {
-      //context[idx].globalAlpha=1.0;
-      //context[idx].strokeStyle = "rgba("+0+","+0+",",0.0+","+1.0+")";
       context[idx].strokeStyle = "black";
     }
     else {
-      //context[idx].globalAlpha=1.0;
       context[idx].strokeStyle = backgroundColor;
-      //context[idx].setStrokeColor(backgroundColor, 1.0);
-
     }
     context[idx].lineJoin = "round";
     context[idx].lineWidth =  idx==1 ? sketchSlider.getValue(): backSlider.getValue();
   }
   else {
-    //if (idx === 1) {
-    //  //context[idx].strokeStyle = "rgba("+255+","+255+","+255+","+0.0+")";
-    //  //context[idx].globalAlpha=0.0;
-    //  context[idx].strokeStyle = "white";
-    //}
-    //else{
-    //  //context[idx].strokeStyle = "rgba("+255+","+255+","+255+","+1.0+")";
-    //  //context[idx].globalAlpha=1.0;
-    //  //context[idx].strokeStyle = "white";
-    //}
     if (transparent) {
       context[idx].strokeStyle = "rgba(0,0,0,0.0)";
     }
@@ -474,4 +469,6 @@ function redraw(idx, x, y, transparent) {
      context.stroke();
      }
      */
+
+  context[idx].globalCompositeOperation = "source-over";
 }
