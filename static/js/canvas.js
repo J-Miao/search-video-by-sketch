@@ -33,7 +33,7 @@ function getPictures(searchTag, imgSrc) {
       $("#image-match-" + i).removeClass("hidden");
       $("#image-match-" + i + " > a > img").attr("src", "data:image/png;base64," + res["pictures"][i]["pic"]);
       $("#image-match-" + i).draggable({
-          helper: "clone"
+        helper: "clone"
       });
       //$("#image-match-" + i + " .image-tag").text(res["pictures"][i]["tag"]);
     }
@@ -49,6 +49,24 @@ function getPictures(searchTag, imgSrc) {
   });
 }
 
+function loadPicture2Canvas(img) {
+  var tempImg = new Image();
+  tempImg.src = $(img)[0].src;
+  console.log(img);
+  console.log(tempImg);
+  context[0].clearRect(0, 0, context[0].canvas.width, context[0].canvas.height);
+  context[1].clearRect(0, 0, context[1].canvas.width, context[1].canvas.height);
+  //clearCanvas();
+
+  var ww = backCanvas.width;
+  var hh = backCanvas.width / $(img).width() * $(img).height();
+  if (hh > backCanvas.height) {
+    hh = backCanvas.height;
+    ww = backCanvas.height / $(img).height() * $(img).width();
+  }
+  console.log(ww, hh);
+  context[0].drawImage(tempImg, 0, 0, ww, hh);
+}
 
 $(document).ready(function() {
 
@@ -64,6 +82,8 @@ $(document).ready(function() {
     $("#canvas-wrapper").droppable({
       drop: function(event, ui) {
         console.log(event);
+        console.log($($(ui)[0].draggable[0]));
+        loadPicture2Canvas($($(ui)[0].draggable[0]).find('img'));
       }
     });
 
