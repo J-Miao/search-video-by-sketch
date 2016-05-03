@@ -70,6 +70,10 @@ function loadPicture2Canvas(img) {
   context[0].drawImage(tempImg, 0, 0, ww, hh);
 }
 
+function loadSketch2Canvas(ele) {
+  console.log(ele);
+}
+
 $(document).ready(function() {
 
   //$('.grid').masonry({
@@ -85,7 +89,13 @@ $(document).ready(function() {
       drop: function(event, ui) {
         console.log(event);
         console.log($($(ui)[0].draggable[0]));
-        loadPicture2Canvas($($(ui)[0].draggable[0]).find('img'));
+        if ($($(ui)[0].draggable[0]).hasClass('image-match')) {
+          loadPicture2Canvas($($(ui)[0].draggable[0]).find('img'));
+        }
+        else {
+          loadSketch2Canvas($($(ui)[0].draggable[0]));
+        }
+
       }
     });
 
@@ -218,6 +228,9 @@ function saveCanvas() {
       $("#sketch-match-" + i + " > a > img").attr("src", res["sketches"][i]["img_url"]);
       $("#sketch-match-" + i + " > a > img").attr("tag", res["sketches"][i]["tag"]);
       $("#sketch-match-" + i + " .sketch-tag").text(res["sketches"][i]["tag"]);
+      $("#sketch-match-" + i).draggable({
+        helper: "clone"
+      });
     }
   });
 }

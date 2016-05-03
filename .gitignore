@@ -2,5 +2,6 @@
 *.pyc
 *.swp
 *.o
+.idea/*.*
 static/img/
 static/sketch-recognizer/build/*.o
