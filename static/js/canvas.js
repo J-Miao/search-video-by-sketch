@@ -17,6 +17,7 @@ var eraserSlider;
 var backgroundColor = "#ff0000";
 
 function getPictures(searchTag, imgSrc) {
+  console.log(searchTag, imgSrc);
   $.ajax({
     type: "POST",
     url: "/get_pictures",
@@ -51,6 +52,13 @@ function getPictures(searchTag, imgSrc) {
         });
     //});
   });
+}
+
+function search() {
+  var canvasData = canvas.toDataURL("image/png");
+  //delete "data:image/png;base64,"
+  canvasData = canvasData.substring(22);
+  getPictures("", canvasData);
 }
 
 function loadPicture2Canvas(img) {
@@ -848,7 +856,7 @@ function addRect(x, y, w, h, fillImg) {
   var pat = context[1].createPattern(fillImg, 'no-repeat');
   rect.x = x;
   rect.y = y;
-  rect.w = w
+  rect.w = w;
   rect.h = h;
   rect.fill = pat;
   boxes2.push(rect);
