@@ -127,9 +127,14 @@ $(document).ready(function() {
           }
           loadSketch2Canvas($($(ui)[0].draggable[0]).find('img'), xx, yy);
        */ }
-
       }
     });
+  $("#sketch-layer").droppable({
+    drop: function (event, ui) {
+      console.log(event);
+      console.log($($(ui)[0].draggable[0]));
+    }
+  });
 
   $("#sketch-layer").on("click", function() {
     $('#sketch-layer').addClass('hidden');
