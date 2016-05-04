@@ -91,8 +91,8 @@ function loadSketch2Canvas(img, xx, yy) {
   //context[1].fillStyle = pattern;
   //console.log($(img)[0].width, $(img)[0].height)
   //context[1].fillRect(0, 0, $(img)[0].width, $(img)[0].height);
-
-  addRect(xx, yy, $(img)[0].width, $(img)[0].height, tempImg);
+  addRect(xx, yy, 100, 100, tempImg);
+  //addRect(xx, yy, $(img)[0].width, $(img)[0].height, tempImg);
 }
 
 $(document).ready(function() {
@@ -648,6 +648,7 @@ function addClick(x, y, dragging) {
 }
 
 function redraw(idx, x, y, transparent) {
+console.log(isSelecting, isEraser);
   if (isEraser) {
     context[idx].globalCompositeOperation = "destination-out";
   } else {
@@ -858,7 +859,7 @@ function addRect(x, y, w, h, fillImg) {
   image.width = w;
   image.height = h;
 
-  pat = context[1].createPattern(image, 'no-repeat');
+  var pat = context[1].createPattern(image, 'no-repeat');
   rect.x = x;
   rect.y = y;
   rect.w = w;
