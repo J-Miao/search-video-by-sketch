@@ -116,7 +116,7 @@ $(document).ready(function() {
           loadPicture2Canvas($($(ui)[0].draggable[0]).find('img'));
         }
         else {
-          var xx, yy;
+          /*var xx, yy;
           if (device) {
             var touch = event.originalEvent.targetTouches[0];
             xx = touch.pageX;
@@ -126,7 +126,7 @@ $(document).ready(function() {
             yy = event.clientY
           }
           loadSketch2Canvas($($(ui)[0].draggable[0]).find('img'), xx, yy);
-        }
+       */ }
 
       }
     });
