@@ -46,7 +46,7 @@ Todo list
         - pagination
         - video descriptions (UI issue)
 
-Matching: precise match for a frame > threshold then put it in the very front, otherwise not
+        Matching: precise match for a frame > threshold then put it in the very front, otherwise not
 
 6. User Study
     find someone write some comments
