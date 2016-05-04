@@ -15,6 +15,7 @@ var sketchSlider;
 var backSlider;
 var eraserSlider;
 var backgroundColor = "#ff0000";
+var tagList;
 
 function getPictures(searchTag, imgSrc) {
   console.log(searchTag, imgSrc);
@@ -40,6 +41,7 @@ function getPictures(searchTag, imgSrc) {
         //stack: ".droppable",
         //snap: ".droppable"
       });
+      $("#image-match-" + i).resizable();
       //$("#image-match-" + i + " .image-tag").text(res["pictures"][i]["tag"]);
     }
       var imgRes = $("#image-results");
@@ -135,43 +137,43 @@ $(document).ready(function() {
     backgroundColor = "#" + this.jscolor;
   });
 
-  $("#sketch-results a img").click(function() {
-    var tempImg = new Image();
-    tempImg.src = $(this)[0].src;
-    context[1].clearRect(0, 0, context[1].canvas.width, context[1].canvas.height);
-    //clearCanvas();
-    context[1].drawImage(tempImg, 0, 0, Math.min(backCanvas.width,backCanvas.height), Math.min(backCanvas.width,backCanvas.height));
-    console.log(tempImg);
-    var imgd = context[1].getImageData(0, 0, Math.min(backCanvas.width,backCanvas.height), Math.min(backCanvas.width,backCanvas.height));
-    var pix = imgd.data;
-    console.log(canvas.toDataURL("image/png"));
-    context[1].clearRect(0, 0, context[1].canvas.width, context[1].canvas.height);
-    console.log(pix);
-    var newColor = {r:0,g:0,b:0, a:0};
-    var replaceCnt = 0;
-    for (var i = 0, n = pix.length; i <n; i += 4) {
-      var r = pix[i],
-        g = pix[i+1],
-        b = pix[i+2];
-
-      // If its white then change it
-      if(r >= 200 && g >= 200 && b >= 200){
-        // Change the white to whatever.
-        pix[i] = newColor.r;
-        pix[i+1] = newColor.g;
-        pix[i+2] = newColor.b;
-        pix[i+3] = newColor.a;
-        replaceCnt += 1;
-      }
-    }
-    console.log(replaceCnt);
-
-    context[1].putImageData(imgd, 0, 0);
-    console.log(canvas.toDataURL("image/png"));
-
-    getPictures($($(this)[0]).attr("tag"), $(this)[0].src);
-    saveCanvas();
-  });
+  //$("#sketch-results a img").click(function() {
+  //  var tempImg = new Image();
+  //  tempImg.src = $(this)[0].src;
+  //  context[1].clearRect(0, 0, context[1].canvas.width, context[1].canvas.height);
+  //  //clearCanvas();
+  //  context[1].drawImage(tempImg, 0, 0, Math.min(backCanvas.width,backCanvas.height), Math.min(backCanvas.width,backCanvas.height));
+  //  console.log(tempImg);
+  //  var imgd = context[1].getImageData(0, 0, Math.min(backCanvas.width,backCanvas.height), Math.min(backCanvas.width,backCanvas.height));
+  //  var pix = imgd.data;
+  //  console.log(canvas.toDataURL("image/png"));
+  //  context[1].clearRect(0, 0, context[1].canvas.width, context[1].canvas.height);
+  //  console.log(pix);
+  //  var newColor = {r:0,g:0,b:0, a:0};
+  //  var replaceCnt = 0;
+  //  for (var i = 0, n = pix.length; i <n; i += 4) {
+  //    var r = pix[i],
+  //      g = pix[i+1],
+  //      b = pix[i+2];
+  //
+  //    // If its white then change it
+  //    if(r >= 200 && g >= 200 && b >= 200){
+  //      // Change the white to whatever.
+  //      pix[i] = newColor.r;
+  //      pix[i+1] = newColor.g;
+  //      pix[i+2] = newColor.b;
+  //      pix[i+3] = newColor.a;
+  //      replaceCnt += 1;
+  //    }
+  //  }
+  //  console.log(replaceCnt);
+  //
+  //  context[1].putImageData(imgd, 0, 0);
+  //  console.log(canvas.toDataURL("image/png"));
+  //
+  //  getPictures($($(this)[0]).attr("tag"), $(this)[0].src);
+  //  saveCanvas();
+  //});
 
   $(".sketch-type.dropdown-menu li a").click(function(){
     var selText = $(this).text();
@@ -272,13 +274,15 @@ function saveCanvas() {
         helper: "clone",
         start: function( event, ui ) {
           $('#sketch-layer').removeClass('hidden');
+          console.log(ui);
+          //tagList += ;
         },
         stop: function( event, ui ) {
           $('#sketch-layer').addClass('hidden');
         }
       });
     }
-    init2();
+    //init2();
   });
 }
 
