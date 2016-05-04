@@ -70,53 +70,18 @@ function loadPicture2Canvas(img) {
   context[0].drawImage(tempImg, 0, 0, ww, hh);
 }
 
-function DragImage(src, x, y) {
-  var that = this;
-  var startX = 0, startY = 0;
-  var drag = false;
-  this.x = x;
-  this.y = y;
-  var img = new Image();
-  img.src = src;
-  this.update = function() {
-      if (mousePressed){
-          var left = that.x;
-          var right = that.x + img.width;
-          var top = that.y;
-          var bottom = that.y + img.height;
-          if (!drag){
-            startX = mouseX - that.x;
-            startY = mouseY - that.y;
-          }
-          if (mouseX < right && mouseX > left && mouseY < bottom && mouseY > top){
-             drag = true;
-          }
-      }else{
-         drag = false;
-      }
-      if (drag){
-          that.x = mouseX - startX;
-          that.y = mouseY - startY;
-      }
-      context[1].drawImage(img, that.x, that.y);
-  }
-}
-
 var mouseX = 0, mouseY = 0;
 var mousePressed = false;
 
 function loadSketch2Canvas(img) {
-  //var tempImg = new Image();
-  //tempImg.src = $(img)[0].src;
-  //console.log(tempImg);
-  console.log($(img)[0].src);
-  var image = new DragImage($(img)[0].src, 20, 20);
-  var loop = setInterval(function() {
-    //c.fillStyle = "gray";
-    //c.fillRect(0, 0, 500, 500);
-    image.update();
-
-  }, 100);
+  var tempImg = new Image();
+  tempImg.src = $(img)[0].src;
+  console.log(tempImg);
+  //console.log($(img)[0].src);
+  var pattern = context[1].createPattern(tempImg, 'repeat');
+  context[1].fillStyle = pattern;
+  console.log($(img)[0].width, $(img)[0].height);
+  context[1].fillRect(0, 0, $(img)[0].width, $(img)[0].height);
 }
 
 $(document).ready(function() {

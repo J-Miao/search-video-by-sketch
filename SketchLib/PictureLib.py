@@ -4,6 +4,7 @@ from image_match.goldberg import ImageSignature
 import base64
 import numpy as np
 import time
+import subprocess
 from math import sqrt
 
 gis = ImageSignature()
@@ -30,7 +31,7 @@ def save_to_png(base64_str, file_name):
     f.write(base64_str.decode("base64"))
     f.close()
 
-    args = ("./static/copyfile", filename)
+    args = ("./static/copyfile", file_name)
     popen = subprocess.Popen(args, stdout=subprocess.PIPE)
     popen.wait()
     
