@@ -74,15 +74,17 @@ function loadPicture2Canvas(img) {
 var mouseX = 0, mouseY = 0;
 var mousePressed = false;
 
-function loadSketch2Canvas(img) {
+function loadSketch2Canvas(img, xx, yy) {
   var tempImg = new Image();
   tempImg.src = $(img)[0].src;
   console.log(tempImg);
   //console.log($(img)[0].src);
-  var pattern = context[1].createPattern(tempImg, 'repeat');
-  context[1].fillStyle = pattern;
-  console.log($(img)[0].width, $(img)[0].height);
-  context[1].fillRect(0, 0, $(img)[0].width, $(img)[0].height);
+  //var pattern = context[1].createPattern(tempImg, 'repeat');
+  //context[1].fillStyle = pattern;
+  //console.log($(img)[0].width, $(img)[0].height)
+  //context[1].fillRect(0, 0, $(img)[0].width, $(img)[0].height);
+
+  addRect(xx, yy, $(img)[0].width, $(img)[0].height, tempImg);
 }
 
 $(document).ready(function() {
@@ -104,7 +106,16 @@ $(document).ready(function() {
           loadPicture2Canvas($($(ui)[0].draggable[0]).find('img'));
         }
         else {
-          loadSketch2Canvas($($(ui)[0].draggable[0]).find('img'));
+          var xx, yy;
+          if (device) {
+            var touch = event.originalEvent.targetTouches[0];
+            xx = touch.pageX;
+            yy = touch.pageY
+          } else {
+            xx = event.clientX;
+            yy = event.clientY
+          }
+          loadSketch2Canvas($($(ui)[0].draggable[0]).find('img'), xx, yy);
         }
 
       }
@@ -833,13 +844,15 @@ Box2.prototype = {
 }
 
 //Initialize a new Box, add it, and invalidate the canvas
-function addRect(x, y, w, h, fill) {
+function addRect(x, y, w, h, fillImg) {
   var rect = new Box2;
+  console.log(fillImg);
+  var pat = context[1].createPattern(fillImg, 'no-repeat');
   rect.x = x;
   rect.y = y;
   rect.w = w
   rect.h = h;
-  rect.fill = fill;
+  rect.fill = pat;
   boxes2.push(rect);
   invalidate();
 }
@@ -885,14 +898,14 @@ function init2() {
   // add custom initialization here:
 
 
-  // add a large green rectangle
-  addRect(260, 70, 60, 65, 'rgba(0,205,0,0.7)');
-
-  // add a green-blue rectangle
-  addRect(240, 120, 40, 40, 'rgba(2,165,165,0.7)');
-
-  // add a smaller purple rectangle
-  addRect(45, 60, 25, 25, 'rgba(150,150,250,0.7)');
+  //// add a large green rectangle
+  //addRect(260, 70, 60, 65, 'rgba(0,205,0,0.7)');
+  //
+  //// add a green-blue rectangle
+  //addRect(240, 120, 40, 40, 'rgba(2,165,165,0.7)');
+  //
+  //// add a smaller purple rectangle
+  //addRect(45, 60, 25, 25, 'rgba(150,150,250,0.7)');
 }
 
 
