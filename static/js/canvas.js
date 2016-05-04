@@ -83,8 +83,8 @@ function loadSketch2Canvas(img, xx, yy) {
   //context[1].fillStyle = pattern;
   //console.log($(img)[0].width, $(img)[0].height)
   //context[1].fillRect(0, 0, $(img)[0].width, $(img)[0].height);
-
-  addRect(xx, yy, $(img)[0].width, $(img)[0].height, tempImg);
+  addRect(xx, yy, 100, 100, tempImg);
+  //addRect(xx, yy, $(img)[0].width, $(img)[0].height, tempImg);
 }
 
 $(document).ready(function() {
@@ -857,6 +857,17 @@ function addRect(x, y, w, h, fillImg) {
   invalidate();
 }
 
+function addRect2(x, y, w, h, fill) {
+  var rect = new Box2;
+  rect.x = x;
+  rect.y = y;
+  rect.w = w
+  rect.h = h;
+  rect.fill = fill;
+  boxes2.push(rect);
+  invalidate();
+}
+
 // initialize our canvas, add a ghost canvas, set draw loop
 // then add everything we want to intially exist on the canvas
 function init2() {
@@ -943,7 +954,7 @@ function myDblClick(event) {
   // so I left them as vars in case someone wanted to make them args for something and copy this code
   var width = 20;
   var height = 20;
-  addRect(mx - (width / 2), my - (height / 2), width, height, 'rgba(220,205,65,0.7)');
+  addRect2(mx - (width / 2), my - (height / 2), width, height, 'rgba(220,205,65,0.7)');
 }
 
 
