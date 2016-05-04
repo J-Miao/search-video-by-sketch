@@ -42,7 +42,6 @@ function getPictures(searchTag, imgSrc) {
         //stack: ".droppable",
         //snap: ".droppable"
       });
-      $("#image-match-" + i).resizable();
       //$("#image-match-" + i + " .image-tag").text(res["pictures"][i]["tag"]);
     }
       var imgRes = $("#image-results");
@@ -117,20 +116,26 @@ $(document).ready(function() {
           loadPicture2Canvas($($(ui)[0].draggable[0]).find('img'));
         }
         else {
-          var xx, yy;
-          if (device) {
-            var touch = event.originalEvent.targetTouches[0];
-            xx = touch.pageX;
-            yy = touch.pageY
-          } else {
-            xx = event.clientX;
-            yy = event.clientY
-          }
-          loadSketch2Canvas($($(ui)[0].draggable[0]).find('img'), xx, yy);
+          //var xx, yy;
+          //if (device) {
+          //  var touch = event.originalEvent.targetTouches[0];
+          //  xx = touch.pageX;
+          //  yy = touch.pageY
+          //} else {
+          //  xx = event.clientX;
+          //  yy = event.clientY
+          //}
+          //loadSketch2Canvas($($(ui)[0].draggable[0]).find('img'), xx, yy);
         }
 
       }
     });
+  $("#sketch-layer").droppable({
+    drop: function (event, ui) {
+      console.log(event);
+      console.log($($(ui)[0].draggable[0]));
+    }
+  });
 
   $("#sketch-layer").on("click", function() {
     $('#sketch-layer').addClass('hidden');
@@ -276,6 +281,7 @@ function saveCanvas() {
       $("#sketch-match-" + i + " > a > img").attr("src", res["sketches"][i]["img_url"]);
       $("#sketch-match-" + i + " > a > img").attr("tag", res["sketches"][i]["tag"]);
       $("#sketch-match-" + i + " .sketch-tag").text(res["sketches"][i]["tag"]);
+      $("#sketch-match-" + i).resizable({});
       $("#sketch-match-" + i).draggable({
         helper: "clone",
         start: function( event, ui ) {

@@ -74,7 +74,7 @@
 
 <div class="container-fluid" style="height: 600px;">
     <div class="row" style="height:100%;">
-        <div id="sketch-wrapper" class="col-md-6 droppable" style="height:100%;">
+        <div id="sketch-wrapper" class="col-md-6" style="height:100%;">
             <div id="sketch" class="row" style="height:70%;">
 {#                <div id="options" class="col-md-2">#}
 {#                    Sketch brush width: <input id="sketch-width-slider" data-slider-id='ex1Slider' data-slider-tooltip="hide" type="text" data-slider-min="0" data-slider-max="10" data-slider-step="0.2" data-slider-value="3"/>#}
@@ -90,7 +90,7 @@
                     <canvas id="canvas" style="position: absolute; z-index: 1"></canvas>
                     <canvas id="canvas-color" style="position: absolute; z-index: 0"></canvas>
                 </div>
-                <div id="sketch-layer" class="col-md-12 hidden" style="height:100%;"></div>
+                <div id="sketch-layer" class="col-md-12 hidden droppable" style="height:100%;"></div>
             </div>
             <div id="sketch-results" class="row row-horizon" style="height: 30%; width: 100%;">
                 {% for i in range(10) %}
