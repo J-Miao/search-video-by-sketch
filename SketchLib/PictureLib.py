@@ -14,16 +14,16 @@ user_signature = np.array([])
 
 def distance(a,b):
     suma = 0
-    print len(a), "lena"
-    print len(b), "lenb"
     for item in a:
-    suma += item * item
+        suma += item * item
+    
     sumb = 0
     for item in b:
-    sumb += item * item
+        sumb += item * item
+    
     de = 0
     for i in range (len(a)):
-    de += (a[i] - b[i]) * (a[i] - b[i])
+        de += (a[i] - b[i]) * (a[i] - b[i])
     return sqrt(de) / (sqrt(suma) + sqrt(sumb))
 
 def dirty_copy_file(file_name):
