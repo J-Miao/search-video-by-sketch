@@ -87,7 +87,11 @@ def get_pictures():
     sketch_pic_base64 = request.form.get('sketch_pic', "")
     page_idx = int(request.form.get('page', 0))
     sketch_file_path = request.form.get('sketch_filepath', "")
-    if not sketch_file_path:
+    print "@@@@@@@@@@@@@"
+    print "sketch_tag", sketch_tag 
+    print "sketch_filepath:", sketch_file_path
+    if not sketch_tag:
+        print "Sketch tag is empty"
         sketch_file_path = copied_sketch
     else:
         sketch_file_path = sketch_file_path.replace("http://45.79.141.71:8080/", "")
