@@ -160,16 +160,26 @@ $(document).ready(function() {
     if ($.trim(selText) === "Draw sketch") {
       isEraser = 0;
       current_layer = 1;
+      isSelecting = 0;
     }
     else {
       if ($.trim(selText) === "Draw background") {
         isEraser = 0;
         current_layer = 0;
+        isSelecting = 0;
       }
       else {
         if ($.trim(selText === "Eraser")) {
           current_layer = 1;
           isEraser = 1;
+          isSelecting = 0;
+        }
+        else {
+          if ($.trim(selText === "Select")) {
+            current_layer = 1;
+            isEraser = 0;
+            isSelecting = 1;
+          }
         }
       }
     }
