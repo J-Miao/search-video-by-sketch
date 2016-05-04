@@ -856,14 +856,14 @@ function addRect(x, y, w, h, fillImg) {
   var rect = new Box2;
   var image = new Image();
   image.src = fillImg.src;
-  image.width = w;
-  image.height = h;
+  image.width = w * 2;
+  image.height = h * 2;
 
-  var pat = context[1].createPattern(image, 'no-repeat');
+  var pat = context[1].createPattern(image, 'repeat');
   rect.x = x;
   rect.y = y;
-  rect.w = w/3;
-  rect.h = h/3;
+  rect.w = w;
+  rect.h = h;
   rect.fill = pat;
   boxes2.push(rect);
   invalidate();
