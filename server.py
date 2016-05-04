@@ -87,14 +87,10 @@ def get_pictures():
     sketch_pic_base64 = request.form.get('sketch_pic', "")
     page_idx = int(request.form.get('page', 0))
     sketch_file_path = request.form.get('sketch_filepath', "")
-<<<<<<< HEAD
-    #sketch_file_path = copied_sketch
-=======
     if not sketch_file_path:
         sketch_file_path = copied_sketch
     else:
         sketch_file_path = sketch_file_path.replace("http://45.79.141.71:8080/", "")
->>>>>>> 01c7ede1e9d228e6db9f2fbd9fb8a8f089787dda
     global picture_results
     picture_results = picture_matcher(mongo, sketch_tag, sketch_pic_base64, sketch_file_path)
     return jsonify({"pictures": picture_results[page_idx:page_idx + 20]})
