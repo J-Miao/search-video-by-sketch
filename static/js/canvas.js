@@ -271,7 +271,7 @@ function mouseDownEvent(event) {
   event.preventDefault();
 
   if (isSelecting) {
-    getMouse(e);
+    getMouse(event);
 
     //we are over a selection box
     if (expectResize !== -1) {
@@ -341,7 +341,7 @@ function mouseMoveEvent(event) {
 
   if (isSelecting) {
     if (isDrag) {
-      getMouse(e);
+      getMouse(event);
 
       mySel.x = mx - offsetx;
       mySel.y = my - offsety;
@@ -396,7 +396,7 @@ function mouseMoveEvent(event) {
       invalidate();
     }
 
-    getMouse(e);
+    getMouse(event);
     // if there's a selection see if we grabbed one of the selection handles
     if (mySel !== null && !isResizeDrag) {
       for (var i = 0; i < 8; i++) {
@@ -924,8 +924,8 @@ function mainDraw() {
 
 
 // adds a new node
-function myDblClick(e) {
-  getMouse(e);
+function myDblClick(event) {
+  getMouse(event);
   // for this method width and height determine the starting X and Y, too.
   // so I left them as vars in case someone wanted to make them args for something and copy this code
   var width = 20;
@@ -940,7 +940,7 @@ function invalidate() {
 
 // Sets mx,my to the mouse position relative to the canvas
 // unfortunately this can be tricky, we have to worry about padding and borders
-function getMouse(e) {
+function getMouse(event) {
       var element = canvas, offsetX = 0, offsetY = 0;
 
       if (element.offsetParent) {
