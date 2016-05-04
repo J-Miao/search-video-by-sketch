@@ -169,13 +169,13 @@ $(document).ready(function() {
         isSelecting = 0;
       }
       else {
-        if ($.trim(selText === "Eraser")) {
+        if ($.trim(selText) === "Eraser") {
           current_layer = 1;
           isEraser = 1;
           isSelecting = 0;
         }
         else {
-          if ($.trim(selText === "Select")) {
+          if ($.trim(selText) === "Select") {
             current_layer = 1;
             isEraser = 0;
             isSelecting = 1;
@@ -629,6 +629,7 @@ function addClick(x, y, dragging) {
 }
 
 function redraw(idx, x, y, transparent) {
+console.log(isSelecting, isEraser);
   if (isEraser) {
     context[idx].globalCompositeOperation = "destination-out";
   } else {
