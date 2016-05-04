@@ -63,12 +63,6 @@ def index():
 
     return render_template("index.html")
 
-
-# def save_to_png(base64_str, file_name):
-#     f = open(file_name, 'w')
-#     f.write(base64_str.decode("base64"))
-#     f.close()
-
 @app.route("/get_sketches", methods=["POST", "GET"])
 def get_sketches():
     if request.method == "GET":
@@ -87,8 +81,7 @@ def get_pictures():
     sketch_pic_base64 = request.form.get('sketch_pic', "")
     page_idx = int(request.form.get('page', 0))
     sketch_file_path = request.form.get('sketch_filepath', "")
-
-    if sketch_tag is None:
+    if not sketch_tag:
         sketch_file_path = copied_sketch
     else:
         sketch_file_path = sketch_file_path.replace("http://45.79.141.71:8080/", "")

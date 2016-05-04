@@ -5,6 +5,7 @@ import subprocess
 import base64
 import numpy as np
 import time
+import subprocess
 from math import sqrt
 
 gis = ImageSignature()
@@ -47,7 +48,9 @@ def compare(result_dict):
 def picture_matcher(mongo, sketch_tag, user_sketch_pic_base64, sketch_file_path,  page_idx=0):
     call_back = mongo.db.vdb_images.find()
     results = []
-    global user_signature 
+    global user_signature
+    print "############"
+    print "sketch_file_path", sketch_file_path 
     user_signature = gis.generate_signature(sketch_file_path)
     if sketch_tag:
         for document in call_back:

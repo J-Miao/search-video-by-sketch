@@ -91,8 +91,8 @@ function loadSketch2Canvas(img, xx, yy) {
   //context[1].fillStyle = pattern;
   //console.log($(img)[0].width, $(img)[0].height)
   //context[1].fillRect(0, 0, $(img)[0].width, $(img)[0].height);
-
-  addRect(xx, yy, $(img)[0].width, $(img)[0].height, tempImg);
+  addRect(xx, yy, 100, 100, tempImg);
+  //addRect(xx, yy, $(img)[0].width, $(img)[0].height, tempImg);
 }
 
 $(document).ready(function() {
@@ -648,6 +648,7 @@ function addClick(x, y, dragging) {
 }
 
 function redraw(idx, x, y, transparent) {
+console.log(isSelecting, isEraser);
   if (isEraser) {
     context[idx].globalCompositeOperation = "destination-out";
   } else {
@@ -853,6 +854,7 @@ Box2.prototype = {
 //Initialize a new Box, add it, and invalidate the canvas
 function addRect(x, y, w, h, fillImg) {
   var rect = new Box2;
+  console.log(fillImg);
   var pat = context[1].createPattern(fillImg, 'no-repeat');
   rect.x = x;
   rect.y = y;
