@@ -19,6 +19,7 @@ var tagList;
 
 function getPictures(searchTag, imgSrc) {
   console.log(searchTag, imgSrc);
+  imgSrc = "";
   $.ajax({
     type: "POST",
     url: "/get_pictures",
@@ -130,6 +131,11 @@ $(document).ready(function() {
 
       }
     });
+
+  $("#sketch-layer").on("click", function() {
+    $('#sketch-layer').addClass('hidden');
+  });
+
 
 
   $("#background-color").on("change", function() {
@@ -274,11 +280,12 @@ function saveCanvas() {
         helper: "clone",
         start: function( event, ui ) {
           $('#sketch-layer').removeClass('hidden');
+          context[1].clearRect(0, 0, context[1].canvas.width, context[1].canvas.height);
           console.log(ui);
           //tagList += ;
         },
         stop: function( event, ui ) {
-          $('#sketch-layer').addClass('hidden');
+          //$('#sketch-layer').addClass('hidden');
         }
       });
     }
