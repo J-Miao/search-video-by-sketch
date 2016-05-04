@@ -1,12 +1,13 @@
 from flask import jsonify
-from image_match.goldberg import ImageSignature
+# from image_match.goldberg import ImageSignature
 
+import subprocess
 import base64
 import numpy as np
 import time
 from math import sqrt
 
-gis = ImageSignature()
+# gis = ImageSignature()
 user_sketch_image = "/home/search-video-by-sketch/static/img/user_sketch_img.png"
 #user_sketch_image = "/home/search-video-by-sketch/static/sketch-recognizer/data/sketches_sbsr/images/1.png"
 user_signature = np.array([])
@@ -25,14 +26,18 @@ def distance(a,b):
 	de += (a[i] - b[i]) * (a[i] - b[i])
     return sqrt(de) / (sqrt(suma) + sqrt(sumb))
 
+def dirty_copy_file(file_name):
+    args = ("./static/copyfile", file_name)
+    popen = subprocess.Popen(args, stdout=subprocess.PIPE)
+    popen.wait()
+    output = popen.stdout.read()
+    
 def save_to_png(base64_str, file_name):
     f = open(file_name, 'wb')
     f.write(base64_str.decode("base64"))
     f.close()
 
-    args = ("./static/copyfile", filename)
-    popen = subprocess.Popen(args, stdout=subprocess.PIPE)
-    popen.wait()
+    dirty_copy_file(file_name)
     
     return file_name
 
@@ -49,3 +54,5 @@ def picture_matcher(mongo, sketch_tag, user_sketch_pic_base64, sketch_file_path,
            results.append({'pic': document['base64'], 'signature': document['signature']})
     return sorted(results, key=compare)
 
+if __name__ == "__main__":
+    dirty_copy_file("static/img/sketch.png")
