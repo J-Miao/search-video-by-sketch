@@ -116,20 +116,26 @@ $(document).ready(function() {
           loadPicture2Canvas($($(ui)[0].draggable[0]).find('img'));
         }
         else {
-          var xx, yy;
-          if (device) {
-            var touch = event.originalEvent.targetTouches[0];
-            xx = touch.pageX;
-            yy = touch.pageY
-          } else {
-            xx = event.clientX;
-            yy = event.clientY
-          }
-          loadSketch2Canvas($($(ui)[0].draggable[0]).find('img'), xx, yy);
+          //var xx, yy;
+          //if (device) {
+          //  var touch = event.originalEvent.targetTouches[0];
+          //  xx = touch.pageX;
+          //  yy = touch.pageY
+          //} else {
+          //  xx = event.clientX;
+          //  yy = event.clientY
+          //}
+          //loadSketch2Canvas($($(ui)[0].draggable[0]).find('img'), xx, yy);
         }
 
       }
     });
+  $("#sketch-layer").droppable({
+    drop: function (event, ui) {
+      console.log(event);
+      console.log($($(ui)[0].draggable[0]));
+    }
+  });
 
   $("#sketch-layer").on("click", function() {
     $('#sketch-layer').addClass('hidden');
