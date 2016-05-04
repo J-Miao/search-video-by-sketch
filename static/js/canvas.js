@@ -845,12 +845,23 @@ Box2.prototype = {
 //Initialize a new Box, add it, and invalidate the canvas
 function addRect(x, y, w, h, fillImg) {
   var rect = new Box2;
-  var pat = context[1].createPattern(fillImg, direction);
+  var pat = context[1].createPattern(fillImg, 'no-repeat');
   rect.x = x;
   rect.y = y;
   rect.w = w
   rect.h = h;
   rect.fill = pat;
+  boxes2.push(rect);
+  invalidate();
+}
+
+function addRect2(x, y, w, h, fill) {
+  var rect = new Box2;
+  rect.x = x;
+  rect.y = y;
+  rect.w = w
+  rect.h = h;
+  rect.fill = fill;
   boxes2.push(rect);
   invalidate();
 }
@@ -941,7 +952,7 @@ function myDblClick(event) {
   // so I left them as vars in case someone wanted to make them args for something and copy this code
   var width = 20;
   var height = 20;
-  addRect(mx - (width / 2), my - (height / 2), width, height, 'rgba(220,205,65,0.7)');
+  addRect2(mx - (width / 2), my - (height / 2), width, height, 'rgba(220,205,65,0.7)');
 }
 
 
