@@ -17,13 +17,13 @@ def distance(a,b):
     print len(a), "lena"
     print len(b), "lenb"
     for item in a:
-	suma += item * item
+    suma += item * item
     sumb = 0
     for item in b:
-	sumb += item * item
+    sumb += item * item
     de = 0
     for i in range (len(a)):
-	de += (a[i] - b[i]) * (a[i] - b[i])
+    de += (a[i] - b[i]) * (a[i] - b[i])
     return sqrt(de) / (sqrt(suma) + sqrt(sumb))
 
 def dirty_copy_file(file_name):
@@ -50,11 +50,11 @@ def picture_matcher(mongo, sketch_tag, user_sketch_pic_base64, sketch_file_path,
     global user_signature 
     user_signature = gis.generate_signature(sketch_file_path)
     if sketch_tag:
-	    for document in call_back:
-	    	if sketch_tag in document['tags']:
-	           results.append({'pic': document['base64'], 'signature': document['signature']})
-	else:
-		results.extend([{'pic': document['base64'], 'signature': document['signature']} for document in call_back])
+        for document in call_back:
+            if sketch_tag in document['tags']:
+               results.append({'pic': document['base64'], 'signature': document['signature']})
+    else:
+        results.extend([{'pic': document['base64'], 'signature': document['signature']} for document in call_back])
     return sorted(results, key=compare)
 
 # if __name__ == "__main__":
