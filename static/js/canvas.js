@@ -269,7 +269,13 @@ function saveCanvas() {
       $("#sketch-match-" + i + " > a > img").attr("tag", res["sketches"][i]["tag"]);
       $("#sketch-match-" + i + " .sketch-tag").text(res["sketches"][i]["tag"]);
       $("#sketch-match-" + i).draggable({
-        helper: "clone"
+        helper: "clone",
+        start: function( event, ui ) {
+          $('#sketch-layer').removeClass('hidden');
+        },
+        stop: function( event, ui ) {
+          $('#sketch-layer').addClass('hidden');
+        }
       });
     }
     init2();
@@ -718,7 +724,7 @@ console.log(isSelecting, isEraser);
 
 }
 
-
+/*
 
 // holds all our boxes
 var boxes2 = [];
@@ -1000,3 +1006,4 @@ function getMouse(event) {
 // If you dont want to use <body onLoad='init()'>
 // You could uncomment this init() reference and place the script reference inside the body tag
 //init();
+*/
