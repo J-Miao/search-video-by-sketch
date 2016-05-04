@@ -957,8 +957,8 @@ function getMouse(event) {
       offsetX += styleBorderLeft;
       offsetY += styleBorderTop;
 
-      mx = e.pageX - offsetX;
-      my = e.pageY - offsetY
+      mx = event.pageX - offsetX;
+      my = event.pageY - offsetY
 }
 
 // If you dont want to use <body onLoad='init()'>
