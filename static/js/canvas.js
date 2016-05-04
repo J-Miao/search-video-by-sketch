@@ -58,7 +58,7 @@ function search() {
   var canvasData = canvas.toDataURL("image/png");
   //delete "data:image/png;base64,"
   canvasData = canvasData.substring(22);
-  getPictures("", canvasData);
+  getPictures("", "");
 }
 
 function loadPicture2Canvas(img) {
@@ -853,7 +853,12 @@ Box2.prototype = {
 //Initialize a new Box, add it, and invalidate the canvas
 function addRect(x, y, w, h, fillImg) {
   var rect = new Box2;
-  var pat = context[1].createPattern(fillImg, 'no-repeat');
+  var image = new Image();
+  image.src = fillImg.src;
+  image.width = w;
+  image.height = h;
+
+  pat = context[1].createPattern(image, 'no-repeat');
   rect.x = x;
   rect.y = y;
   rect.w = w;
