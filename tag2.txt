@@ -29,8 +29,8 @@
 389 church
 411 temple
 423 house
-463 skycrper
-468 lighttower
+463 skyscraper
+468 lighthouse
 473 tent
 482 bottle
 494 cup
