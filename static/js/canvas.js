@@ -42,7 +42,6 @@ function getPictures(searchTag, imgSrc) {
         //stack: ".droppable",
         //snap: ".droppable"
       });
-      $("#image-match-" + i).resizable();
       //$("#image-match-" + i + " .image-tag").text(res["pictures"][i]["tag"]);
     }
       var imgRes = $("#image-results");
@@ -276,6 +275,7 @@ function saveCanvas() {
       $("#sketch-match-" + i + " > a > img").attr("src", res["sketches"][i]["img_url"]);
       $("#sketch-match-" + i + " > a > img").attr("tag", res["sketches"][i]["tag"]);
       $("#sketch-match-" + i + " .sketch-tag").text(res["sketches"][i]["tag"]);
+      $("#sketch-match-" + i).resizable({});
       $("#sketch-match-" + i).draggable({
         helper: "clone",
         start: function( event, ui ) {
