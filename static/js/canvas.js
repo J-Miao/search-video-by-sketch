@@ -17,7 +17,8 @@ var eraserSlider;
 var backgroundColor = "#ff0000";
 var tagList = [];
 var locList = [];
-var searchMode = 'Video';
+var searchMode = 'Image';
+var motionDir = 0;
 
 function getPictures(imgSrc) {
   imgSrc = "";
@@ -143,10 +144,14 @@ $(document).ready(function() {
     if (searchMode === 'Video') {
       searchMode = 'Image';
       $(this).html('Image Mode');
+      $('#video-results').addClass('hidden');
+      $('#image-results').removeClass('hidden');
     }
     else {
       searchMode = 'Video';
       $(this).html('Video Mode');
+      $('#image-results').addClass('hidden');
+      $('#video-results').removeClass('hidden');
     }
   })
 
@@ -279,6 +284,25 @@ $(document).ready(function() {
       }
     }
   });
+
+
+  $(".video-motion-dir.dropdown-menu li a").click(function(){
+    var selText = $.trim($(this).text());
+    $(this).parents().find('.sketch-type.dropdown-toggle').html(selText+' <span class="caret"></span>');
+    switch (selText) {
+      case 'Up': motionDir = 1; break;
+      case 'Upper-Left': motionDir = 2; break;
+      case 'Left': motionDir = 3; break;
+      case 'Bottom-Left': motionDir = 4; break;
+      case 'Down': motionDir = 5; break;
+      case 'Bottom-Right': motionDir = 6; break;
+      case 'Right': motionDir = 7; break;
+      case 'Upper-Right': motionDir = 8; break;
+      default:
+            motionDir = 0; break;
+    }
+  });
+
   $('ul.dropdown-menu.not-close-dropdown-menu').on('click', function(event){
     event.stopPropagation();
   });
