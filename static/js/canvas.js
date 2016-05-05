@@ -20,6 +20,11 @@ var locList = [];
 var searchMode = 'Image';
 var motionDir = 0;
 
+function getBackground() {
+  var canvasData = backCanvas.toDataURL("image/png");
+  return canvasData.substring(22);
+}
+
 function getPictures(imgSrc) {
   imgSrc = "";
   var twoDString = get2DString();
@@ -31,7 +36,8 @@ function getPictures(imgSrc) {
       tag: tagList.join(),
       two_d_string_x: twoDString[0].join(),
       two_d_string_y: twoDString[1].join(),
-      sketch_filepath: imgSrc
+      sketch_filepath: imgSrc,
+      background: getBackground()
     }
   }).done(function(res) {
     for (var i = 0; i < 20; i++) {
@@ -42,6 +48,7 @@ function getPictures(imgSrc) {
     for (var i = 0; i < res["pictures"].length; i++) {
       $("#image-match-" + i).removeClass("hidden");
       $("#image-match-" + i + " > a > img").attr("src", res["pictures"][i]["pic"]);
+      $("#image-match-" + i).css("display","block");
       $("#image-match-" + i).draggable({
         helper: "clone",
         //revert: "invalid",
@@ -50,15 +57,15 @@ function getPictures(imgSrc) {
       });
       //$("#image-match-" + i + " .image-tag").text(res["pictures"][i]["tag"]);
     }
-      var imgRes = $("#image-results");
+    var imgRes = $("#image-results");
 
-    //imgRes.imagesLoaded(function () {
+    imgRes.imagesLoaded(function () {
         imgRes.pinto({
-            itemWidth:150,
+            itemWidth:120,
             gapX:10,
             gapY:10
         });
-    //});
+    });
   });
 }
 
@@ -72,7 +79,8 @@ function getVideos() {
       tag: tagList.join(),
       two_d_string_x: twoDString[0].join(),
       two_d_string_y: twoDString[1].join(),
-      sketch_filepath: imgSrc
+      sketch_filepath: imgSrc,
+      background: getBackground()
     }
   }).done(function(res) {
     for (var i = 0; i < 20; i++) {
@@ -104,10 +112,15 @@ function getVideos() {
 
 
 function search() {
-  var canvasData = canvas.toDataURL("image/png");
-  //delete "data:image/png;base64,"
-  canvasData = canvasData.substring(22);
-  getPictures("", "");
+  if (searchMode === 'Image') {
+    getPictures();
+  }
+  else {
+    if (searchMode === 'Video') {
+      getVideos();
+    }
+  }
+
 }
 
 
@@ -189,12 +202,14 @@ $(document).ready(function() {
       $(this).html('Image Mode');
       $('#video-results').addClass('hidden');
       $('#image-results').removeClass('hidden');
+      $('#motion-dir-dropdown').addClass('disabled')
     }
     else {
       searchMode = 'Video';
       $(this).html('Video Mode');
       $('#image-results').addClass('hidden');
       $('#video-results').removeClass('hidden');
+      $('#motion-dir-dropdown').removeClass('disabled')
     }
   })
 
@@ -528,7 +543,9 @@ function mouseUpEvent(event) {
 
     paint = false;
     lastPostion = null;
-    saveCanvas();
+    if (current_layer == 1) {
+      saveCanvas();
+    }
   }
 }
 

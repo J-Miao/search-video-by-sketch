@@ -44,12 +44,12 @@
                     </li>
                 </ul>
             </li>
-            <li  style="width: 20%;" >
+            <li style="width: 20%;" >
                 <form class="navbar-form">
                     <input style="width: 100%;"  class="jscolor {closable:true,closeText:'Confirm'}"  id="background-color" value="ff0000">
                 </form>
             </li>
-            <li class="dropdown hidden">
+            <li id="motion-dir-dropdown" class="dropdown disabled">
 {#                <div class="form-group">#}
 {#                    <label for="canvas-layer"><span class="glyphicon glyphicon-cog"></span></label>#}
 {#                    <select class="form-control" id="canvas-layer">#}
@@ -142,7 +142,7 @@
                     {% for i in range(20) %}
                         <div class="hidden video-match" id="video-match-{{ i }}" ;>
                             <a href="#" class="thumbnail">
-                                <video src="..." alt="...">
+                                <video src="..." alt="..."></video>
                             </a>
                         </div>
                     {% endfor %}
