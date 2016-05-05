@@ -131,13 +131,23 @@ $(document).ready(function() {
       }
     });*/
   $("#sketch-layer").droppable({
-    drop: function (event, ui) {
-      console.log(event);
-      if ($($(ui)[0].draggable[0]).hasClass('image-match')) {
-          loadPicture2Canvas($($(ui)[0].draggable[0]).find('img'));
-      }
-      else {
-        console.log($($(ui)[0].draggable[0]));
+    //accept: '.sketch-match',
+    drop: function (e, ui) {
+      console.log($(ui.draggable));
+      if ($(ui.draggable)[0].id != "") {
+        x = ui.helper.clone();
+        ui.helper.remove();
+        x.draggable({
+          helper: 'original',
+          containment: '#droppable',
+          tolerance: 'fit'
+        });
+        x.resizable({
+          maxHeight: 40,
+          minHeight: 40,
+          minWidth: 50
+        });
+        x.appendTo('#sketch-layer');
       }
     }
   });
