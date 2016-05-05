@@ -40,15 +40,22 @@ function getPictures(imgSrc) {
       background: getBackground()
     }
   }).done(function(res) {
-    for (var i = 0; i < 20; i++) {
-      $("#image-match-" + i).addClass("hidden");
-      $("#image-match-" + i + " > a > img").attr("src", "");
-    }
+    $('#image-results').empty();
+    //for (var i = 0; i < 20; i++) {
+    //  $("#image-match-" + i).addClass("hidden");
+    //  $("#image-match-" + i + " > a > img").attr("src", "");
+    //}
     console.log(res['pictures']);
     for (var i = 0; i < res["pictures"].length; i++) {
-      $("#image-match-" + i).removeClass("hidden");
-      $("#image-match-" + i + " > a > img").attr("src", res["pictures"][i]["pic"]);
-      $("#image-match-" + i).css("display","block");
+      var img = $('<img id="dynamic">'); //Equivalent: $(document.createElement('img'))
+      img.attr('src', res["pictures"][i]["pic"]);
+      var newDiv =  $('<div/>', {id: 'image-match-'+i, class: 'pinto image-match'});
+      img.appendTo(newDiv);
+      newDiv.appendTo('#image-results');
+
+      //$("#image-match-" + i).removeClass("hidden");
+      //$("#image-match-" + i + " > a > img").attr("src", res["pictures"][i]["pic"]);
+      //$("#image-match-" + i).css("display","block");
       $("#image-match-" + i).draggable({
         helper: "clone",
         //revert: "invalid",
@@ -61,7 +68,7 @@ function getPictures(imgSrc) {
 
     imgRes.imagesLoaded(function () {
         imgRes.pinto({
-            itemWidth:120,
+            itemWidth: $('#result-wrapper').width() / 3 - 30,
             gapX:10,
             gapY:10
         });
