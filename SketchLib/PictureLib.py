@@ -76,4 +76,4 @@ def picture_matcher(mongo, sketch_tag, user_sketch_pic_base64, sketch_file_path,
     if results:
         return results
     else:
-        return matched_files
+        return [{'pic': file} for file in matched_files]
