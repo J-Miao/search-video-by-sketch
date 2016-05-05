@@ -104,7 +104,7 @@
 1632 helmet
 1642 ladder
 1646 city
-1666 Newton's cardle
+1666 Newton cardle
 1670 roadsign
 1686 map
 1698 treasure chest
