@@ -176,7 +176,7 @@ $(document).ready(function() {
       console.log($(ui.draggable));
       if ($(ui.draggable)[0].id != "") {
         x = ui.helper.clone();
-        x.setAttribute('id', 'selected-sketch-' + tagList.length);
+        x.attr('id', 'selected-sketch-' + tagList.length);
         tagList.push($($(this)[0]).attr("tag"));
         x.draggable({
           helper: 'original',
