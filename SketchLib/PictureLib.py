@@ -68,6 +68,7 @@ def get_tag_from_file_path(file_path):
 
 def picture_matcher(mongo, sketch_tag, file_path, page_idx=0):
     usr_tags = str_to_list(sketch_tag)
+    print "usr_tags:", usr_tags
     results = []
     global phash_alg
     colorlists = phash_alg.search(file_path, False)
@@ -79,6 +80,8 @@ def picture_matcher(mongo, sketch_tag, file_path, page_idx=0):
         if file_tag in usr_tags:
             results.append({'pic': file})
     if results:
+	print "Here is results", results
         return results
     else:
+	print "No match tag, no result!"
         return [{'pic': file} for file in matched_files]

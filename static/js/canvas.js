@@ -61,7 +61,7 @@ function getPictures(imgSrc) {
 
     imgRes.imagesLoaded(function () {
         imgRes.pinto({
-            itemWidth:120,
+            itemWidth: 130, // $('#result-wrapper').width() / 3 - 30,
             gapX:10,
             gapY:10
         });
