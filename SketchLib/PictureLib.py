@@ -45,19 +45,22 @@ def save_to_png(base64_str, file_name):
 def compare(result_dict):
     return gis.normalized_distance(np.fromiter(result_dict['signature'], dtype='int8'), user_signature)
 
-def picture_matcher(mongo, sketch_tag, user_sketch_pic_base64, sketch_file_path,  page_idx=0):
+def str_to_list(string):
+    return string.split(',')
+
+def picture_matcher(mongo, sketch_tag, user_sketch_pic_base64, sketch_file_path, page_idx=0):
+    tags = str_to_list(sketch_tag)
     call_back = mongo.db.vdb_images.find()
     results = []
     global user_signature
-    print "############"
-    print "sketch_file_path", sketch_file_path 
     user_signature = gis.generate_signature(sketch_file_path)
-    if sketch_tag:
-        for document in call_back:
-            if sketch_tag in document['tags']:
-               results.append({'pic': document['base64'], 'signature': document['signature']})
-    else:
-        results.extend([{'pic': document['base64'], 'signature': document['signature']} for document in call_back])
+    for sketch_tag in tags:
+        if sketch_tag:
+            for document in call_back:
+                if sketch_tag in document['tags']:
+                   results.append({'pic': document['base64'], 'signature': document['signature']})
+        else:
+            results.extend([{'pic': document['base64'], 'signature': document['signature']} for document in call_back])
     return sorted(results, key=compare)
 
 # if __name__ == "__main__":
