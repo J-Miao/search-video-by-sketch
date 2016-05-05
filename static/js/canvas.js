@@ -41,7 +41,7 @@ function getPictures(imgSrc) {
     console.log(res['pictures']);
     for (var i = 0; i < res["pictures"].length; i++) {
       $("#image-match-" + i).removeClass("hidden");
-      $("#image-match-" + i + " > a > img").attr("src", "data:image/png;base64," + res["pictures"][i]["pic"]);
+      $("#image-match-" + i + " > a > img").attr("src", res["pictures"][i]["pic"]);
       $("#image-match-" + i).draggable({
         helper: "clone",
         //revert: "invalid",
@@ -228,7 +228,7 @@ $(document).ready(function() {
 
         console.log($($($(ui.draggable)[0]).find('img')[0]).attr('tag'));
         tagList.push($($($(ui.draggable)[0]).find('img')[0]).attr('tag'));
-        
+
         x.draggable({
           helper: 'original',
           containment: '#sketch-layer',
