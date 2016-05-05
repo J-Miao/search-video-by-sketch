@@ -176,8 +176,8 @@ $(document).ready(function() {
     drop: function (e, ui) {
       if ($(ui.draggable)[0].id != "") {
         x = ui.helper.clone();
-        x.setAttribute('id', 'selected-sketch-' + tagList.length);
-        tagList.push($($(this)[0]).attr("tag"));
+        x.attr('id', 'selected-sketch-' + tagList.length);
+        tagList.push($($(ui.draggable)[0]).attr("tag"));
         x.draggable({
           helper: 'original',
           containment: '#sketch-layer',
