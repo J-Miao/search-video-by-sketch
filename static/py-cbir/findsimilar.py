@@ -28,9 +28,9 @@ SETNAME = 'pic_by_chris'
 class LocalMatcher(object):
     def __init__(self, setname):
         self.hog_index = {}
-        self.load('conf/%s_hog_lsh.txt' % setname, self.hog_index)
+        self.load('../static/py-cbir/conf/%s_hog_lsh.txt' % setname, self.hog_index)
         self.sift_index = {}
-        self.load('conf/%s_sift_lsh.txt' % setname, self.sift_index)
+        self.load('../static/py-cbir/conf/%s_sift_lsh.txt' % setname, self.sift_index)
 
     def load(self, pin, obj):
         for line in open(pin):
@@ -132,13 +132,13 @@ class GlobalMatcher(object):
         self.grayhisto = {}
         self.ohash2 = {}
         #self.load('conf/%s_otsu_hash2.txt' % setname, self.ohash2)
-        self.load('conf/%s_grayhisto.txt' % setname, self.grayhisto)
+        self.load('../static/py-cbir/conf/%s_grayhisto.txt' % setname, self.grayhisto)
         self.rgbhisto = {}
-        self.load('conf/%s_rgbhisto.txt' % setname, self.rgbhisto)
+        self.load('../static/py-cbir/conf/%s_rgbhisto.txt' % setname, self.rgbhisto)
         self.yuvhisto = {}
-        self.load('conf/%s_yuvhisto.txt' % setname, self.yuvhisto)
+        self.load('../static/py-cbir/conf/%s_yuvhisto.txt' % setname, self.yuvhisto)
         self.hsvhisto = {}
-        self.load('conf/%s_hsvhisto.txt' % setname, self.hsvhisto)
+        self.load('../static/py-cbir/conf/%s_hsvhisto.txt' % setname, self.hsvhisto)
         self.gist = {}
         #self.load('conf/%s_gist.txt' % setname, self.gist)
 
