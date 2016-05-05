@@ -35,3 +35,10 @@ canvas{
 .navbar .nav > li {
   z-index: 1001;
 }
+
+#results {
+  position: relative;
+}
+#image-results, #video-reuslts {
+  position: absolute;
+}
