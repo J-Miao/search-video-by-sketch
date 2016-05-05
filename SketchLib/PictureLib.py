@@ -61,6 +61,7 @@ def str_to_list(string):
     return [string.lower() for string in string.split(',')]
 
 def get_tag_from_file_path(file_path):
+    print "file_path", file_path
     match_obj = re.search(r"pic_by_chris/([\w ]+)/", file_path)
     tag = match_obj.group(1)
     return tag.lower()
