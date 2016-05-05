@@ -27,7 +27,6 @@ function getPictures(imgSrc) {
       sketch_filepath: imgSrc
     }
   }).done(function(res) {
-    console.log(res);
     for (var i = 0; i < 20; i++) {
       $("#image-match-" + i).addClass("hidden");
       $("#image-match-" + i + " > a > img").attr("src", "");
@@ -65,7 +64,6 @@ function search() {
 function loadPicture2Canvas(img) {
   var tempImg = new Image();
   tempImg.src = $(img)[0].src;
-  console.log(tempImg);
   context[0].clearRect(0, 0, context[0].canvas.width, context[0].canvas.height);
   context[1].clearRect(0, 0, context[1].canvas.width, context[1].canvas.height);
   //clearCanvas();
@@ -76,7 +74,6 @@ function loadPicture2Canvas(img) {
     hh = backCanvas.height;
     ww = backCanvas.height / $(img).height() * $(img).width();
   }
-  console.log(ww, hh);
   context[0].drawImage(tempImg, 0, 0, ww, hh);
 }
 
@@ -110,12 +107,21 @@ $(document).ready(function() {
 
   $("#canvas-wrapper").droppable({
       drop: function(event, ui) {
-        console.log(event);
-        console.log($($(ui)[0].draggable[0]));
+
         if ($($(ui)[0].draggable[0]).hasClass('image-match')) {
           loadPicture2Canvas($($(ui)[0].draggable[0]).find('img'));
         }
         else {
+          //var xx, yy;
+          //if (device) {
+          //  var touch = event.originalEvent.targetTouches[0];
+          //  xx = touch.pageX;
+          //  yy = touch.pageY
+          //} else {
+          //  xx = event.clientX;
+          //  yy = event.clientY
+          //}
+          //loadSketch2Canvas($($(ui)[0].draggable[0]).find('img'), xx, yy);
         }
       }
   });
@@ -157,7 +163,7 @@ $(document).ready(function() {
 
 
   $("#background-color").on("change", function() {
-    console.log(this.jscolor);
+
     backgroundColor = "#" + this.jscolor;
   });
 
@@ -276,7 +282,6 @@ function saveCanvas() {
   var canvasData = canvas.toDataURL("image/png");
   //delete "data:image/png;base64,"
   canvasData = canvasData.substring(22);
-  console.log(canvasData);
   //clear the canvas
   context[1].clearRect(0,0,canvas.width, canvas.height);
   //restore it with original / cached ImageData
@@ -292,7 +297,6 @@ function saveCanvas() {
       sketch: canvasData
     }
   }).done(function(res) {
-    console.log(res);
     for (var i = 0; i < res["sketches"].length; i++) {
       $("#sketch-match-" + i).removeClass("hidden");
       $("#sketch-match-" + i + " > a > img").attr("src", res["sketches"][i]["img_url"]);
@@ -474,6 +478,7 @@ function clearCanvas() {
 
   isEraser = false;
   $("#name").text("sketch name");
+  $("#sketch-layer").empty();
   tagList = [];
   //document.getElementById("change").innerHTML = "eraser";
 }
@@ -486,7 +491,6 @@ function addClick(x, y, dragging) {
 }
 
 function redraw(idx, x, y, transparent) {
-console.log(isSelecting, isEraser);
   if (isEraser) {
     context[idx].globalCompositeOperation = "destination-out";
   } else {
