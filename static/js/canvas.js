@@ -116,6 +116,7 @@ $(document).ready(function() {
           loadPicture2Canvas($($(ui)[0].draggable[0]).find('img'));
         }
         else {
+          console.log("fuck");
           //var xx, yy;
           //if (device) {
           //  var touch = event.originalEvent.targetTouches[0];
@@ -131,23 +132,24 @@ $(document).ready(function() {
       }
     });
   $("#sketch-layer").droppable({
-    accept: '.sketch-match',
+    // accept: '.sketch-match',
     drop: function (e, ui) {
       if ($(ui.draggable)[0].id != "") {
         x = ui.helper.clone();
-        ui.helper.remove();
+
         x.draggable({
           helper: 'original',
-          containment: '#droppable',
+          containment: '#sketch-layer',
           tolerance: 'fit'
         });
         x.resizable({
           maxHeight: 200,
-          minHeight: 40,
+          minHeight: 30,
           maxWidth: 200,
-          minWidth: 40
+          minWidth: 30
         });
-        x.appendTo('#droppable');
+        x.appendTo('#sketch-layer');
+        ui.helper.remove();
       }
     }
   });
@@ -295,9 +297,11 @@ function saveCanvas() {
       $("#sketch-match-" + i + " > a > img").attr("src", res["sketches"][i]["img_url"]);
       $("#sketch-match-" + i + " > a > img").attr("tag", res["sketches"][i]["tag"]);
       $("#sketch-match-" + i + " .sketch-tag").text(res["sketches"][i]["tag"]);
-      $("#sketch-match-" + i).resizable({});
+      //$("#sketch-match-" + i).resizable({});
       $("#sketch-match-" + i).draggable({
         helper: "clone",
+        cursor: 'move',
+        tolerance: 'fit',
         start: function( event, ui ) {
 
           console.log(ui);
