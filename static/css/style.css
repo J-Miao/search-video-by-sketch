@@ -37,8 +37,9 @@ canvas{
 }
 
 #results {
-  position: relative;
+    position: relative;
 }
 #image-results, #video-reuslts {
-  position: absolute;
+    position: absolute;
+    max-height: 1000px;
 }
