@@ -280,6 +280,8 @@ $(document).ready(function() {
           $('#resizeSelector').draggable();
           $(this).resizable();
         });
+        x.css('background-color', 'transparent');
+        $(x.find('a')[0]).css('background-color', 'transparent');
         x.appendTo('#sketch-layer');
         ui.helper.remove();
       }
