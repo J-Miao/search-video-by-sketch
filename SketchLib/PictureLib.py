@@ -8,11 +8,17 @@ import time
 import subprocess
 from math import sqrt
 
+sys.path.append(os.path.abspath(os.path.join(cur_path, '../static/py-cbir/util/')))
+sys.path.append(os.path.abspath(os.path.join(cur_path, '../static/py-cbir/')))
+
+
 gis = ImageSignature()
 user_sketch_image = "/home/search-video-by-sketch/static/img/user_sketch_img.png"
 #user_sketch_image = "/home/search-video-by-sketch/static/sketch-recognizer/data/sketches_sbsr/images/1.png"
 user_signature = np.array([])
 
+phash_alg, index_alg = get_global_vars()
+    
 def distance(a,b):
     suma = 0
     for item in a:
@@ -48,10 +54,18 @@ def compare(result_dict):
 def picture_matcher(mongo, sketch_tag, user_sketch_pic_base64, sketch_file_path,  page_idx=0):
     call_back = mongo.db.vdb_images.find()
     results = []
+    '''
     global user_signature
     print "############"
     print "sketch_file_path", sketch_file_path 
     user_signature = gis.generate_signature(sketch_file_path)
+    '''
+    
+    colorlists = []
+    global phash_alg
+    colorlists += phash_alg.search(sketch_file_path, False)
+    # this list is a list of [(filename, similarity),(filename,similarity)]
+
     if sketch_tag:
         for document in call_back:
             if sketch_tag in document['tags']:
@@ -60,5 +74,6 @@ def picture_matcher(mongo, sketch_tag, user_sketch_pic_base64, sketch_file_path,
         results.extend([{'pic': document['base64'], 'signature': document['signature']} for document in call_back])
     return sorted(results, key=compare)
 
+    
 # if __name__ == "__main__":
 #     dirty_copy_file("static/img/sketch.png")
