@@ -15,16 +15,15 @@ var sketchSlider;
 var backSlider;
 var eraserSlider;
 var backgroundColor = "#ff0000";
-var tagList;
+var tagList = [];
 
-function getPictures(searchTag, imgSrc) {
-  console.log(searchTag, imgSrc);
+function getPictures(imgSrc) {
   imgSrc = "";
   $.ajax({
     type: "POST",
     url: "/get_pictures",
     data: {
-      tag: searchTag,
+      tag: tagList.join(),
       sketch_filepath: imgSrc
     }
   }).done(function(res) {
@@ -126,6 +125,8 @@ $(document).ready(function() {
       console.log($(ui.draggable));
       if ($(ui.draggable)[0].id != "") {
         x = ui.helper.clone();
+
+        tagList.append($($(this)[0]).attr("tag"));
 
         x.draggable({
           helper: 'original',
@@ -473,6 +474,7 @@ function clearCanvas() {
 
   isEraser = false;
   $("#name").text("sketch name");
+  tagList = [];
   //document.getElementById("change").innerHTML = "eraser";
 }
 
