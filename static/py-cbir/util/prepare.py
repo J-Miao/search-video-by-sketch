@@ -10,7 +10,7 @@ def prepare(setname, func, p_out):
     p_out = '../conf/%s_%s.txt' % (setname, p_out)
     with open(p_out, 'w') as f_out:
         #relative_path = '../static/dataset/%s' % setname
-        relative_path = '/home/%s' % setname
+        relative_path = '/home/leetz/projects/search-video-by-sketch/tmp_pic/tmp_pic/%s' % setname
         for root, dirs, files in os.walk(relative_path):
             for f in files:
                 postfix = f.split('.')[-1]
@@ -27,7 +27,7 @@ def prepare_local(setname, f_func, h_func, p_out):
     p_out = '../conf/%s_%s.txt' % (setname, p_out)
     with open(p_out, 'w') as f_out:
         #relative_path = '../static/dataset/%s' % setname
-        relative_path = '/home/%s' % setname
+        relative_path = '/home/leetz/projects/search-video-by-sketch/tmp_pic/tmp_pic/%s' % setname
         
         for root, dirs, files in os.walk(relative_path):
             for f in files:
@@ -57,9 +57,9 @@ def prepare_all(setname):
     #print "rgbhistoing"
     
     #prepare(dataset, yuv_histo, 'yuvhisto')
-    #print "hsvhistoing"
+    print "hsvhistoing"
     
-    #prepare(dataset, hsv_histo, 'hsvhisto')
+    prepare(dataset, hsv_histo, 'hsvhisto')
 
     print "gisting"
     

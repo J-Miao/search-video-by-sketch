@@ -23,7 +23,7 @@ from lsh import LSH_hog, LSH_sift
 from rerank import blending, ensembling
 
 upload_prefix = './static/upload/'
-SETNAME = 'ferrari'
+SETNAME = 'pic_by_chris'
 
 class LocalMatcher(object):
     def __init__(self, setname):
@@ -221,15 +221,14 @@ def get_global_vars():
         index_alg = None
     return phash_alg, index_alg
 
-
+"""
 def main(argv):
     lists = []
     phash_alg, index_alg = get_global_vars()
-    lists = []
     lists += phash_alg.search(argv, False)
     print str(lists)
     return lists    
     
 if __name__ == "__main__":
    main(sys.argv[1])
-
+"""

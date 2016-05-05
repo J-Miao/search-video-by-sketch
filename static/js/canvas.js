@@ -183,8 +183,8 @@ $(document).ready(function() {
       if ($(ui.draggable)[0].id != "") {
         x = ui.helper.clone();
         x.attr('id', 'selected-sketch-' + tagList.length);
-        console.log($($(ui.draggable)[0]));
-        tagList.push($($(ui.draggable)[0]).attr("tag"));
+        console.log($($($(ui.draggable)[0]).find('img')[0]).attr('tag'));
+        tagList.push($($($(ui.draggable)[0]).find('img')[0]).attr('tag'));
         console.log($($(ui.draggable)[0]));
         x.draggable({
           helper: 'original',

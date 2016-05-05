@@ -77,6 +77,7 @@ def get_sketches():
 @app.route("/get_pictures", methods=["POST"])
 def get_pictures():
     
+    print "all variable:", request.form
     sketch_tag = request.form.get('tag', None)
     sketch_pic_base64 = request.form.get('sketch_pic', "")
     page_idx = int(request.form.get('page', 0))
