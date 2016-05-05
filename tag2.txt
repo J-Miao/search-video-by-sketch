@@ -110,7 +110,7 @@
 1666 Newton's cardle
 1670 roadsign
 1686 map
-1698 box
+1698 treasure chest
 1705 door
 1733 stair
 1740 shoe
