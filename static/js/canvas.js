@@ -207,24 +207,28 @@ $(document).ready(function() {
       isEraser = 0;
       current_layer = 1;
       isSelecting = 0;
+      $('#sketch-layer').css('z-index', 0);
     }
     else {
       if ($.trim(selText) === "Draw background") {
         isEraser = 0;
         current_layer = 0;
         isSelecting = 0;
+        $('#sketch-layer').css('z-index', 0);
       }
       else {
         if ($.trim(selText) === "Eraser") {
           current_layer = 1;
           isEraser = 1;
           isSelecting = 0;
+          $('#sketch-layer').css('z-index', 0);
         }
         else {
           if ($.trim(selText) === "Select") {
             current_layer = 1;
             isEraser = 0;
             isSelecting = 1;
+            $('#sketch-layer').css('z-index', 1000);
           }
         }
       }
@@ -299,13 +303,13 @@ function saveCanvas() {
       $("#sketch-match-" + i).draggable({
         helper: "clone",
         start: function( event, ui ) {
-          $('#sketch-layer').removeClass('hidden');
-          context[1].clearRect(0, 0, context[1].canvas.width, context[1].canvas.height);
+
           console.log(ui);
           //tagList += ;
         },
         stop: function( event, ui ) {
           //$('#sketch-layer').addClass('hidden');
+          context[1].clearRect(0, 0, context[1].canvas.width, context[1].canvas.height);
         }
       });
     }
