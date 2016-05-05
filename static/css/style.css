@@ -20,3 +20,25 @@ canvas{
 .image-match {
     z-index: 10;
 }
+
+#sketch {
+  position: relative;
+}
+#sketch canvas, #sketch-layer {
+  position: absolute;
+}
+
+.navbar, .nav {
+  z-index: 1001;
+}
+
+.navbar .nav > li {
+  z-index: 1001;
+}
+
+#results {
+  position: relative;
+}
+#image-results, #video-reuslts {
+  position: absolute;
+}

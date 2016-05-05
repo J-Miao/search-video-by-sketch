@@ -17,9 +17,9 @@ Todo list
 [Done]2. draw a background
 
 3. perform search
-    [Done]* sketch : recognize it, turn it into a tag,
+    [Done] * sketch : recognize it, turn it into a tag,
                use tag to filter
-    * color: use signature to rank pictures
+    [Done]* color: use signature to rank pictures
             - backends need more modification
     * motion: 9 different directions, add another tag to video
             - camera motion and object motion
@@ -46,7 +46,7 @@ Todo list
         - pagination
         - video descriptions (UI issue)
 
-Matching: precise match for a frame > threshold then put it in the very front, otherwise not
+        Matching: precise match for a frame > threshold then put it in the very front, otherwise not
 
 6. User Study
     find someone write some comments
