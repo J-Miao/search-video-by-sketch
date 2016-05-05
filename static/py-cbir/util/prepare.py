@@ -57,9 +57,9 @@ def prepare_all(setname):
     #print "rgbhistoing"
     
     #prepare(dataset, yuv_histo, 'yuvhisto')
-    print "hsvhistoing"
+    #print "hsvhistoing"
     
-    prepare(dataset, hsv_histo, 'hsvhisto')
+    #prepare(dataset, hsv_histo, 'hsvhisto')
 
     print "gisting"
     
