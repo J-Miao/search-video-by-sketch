@@ -58,7 +58,7 @@ def compare(result_dict):
     return gis.normalized_distance(np.fromiter(result_dict['signature'], dtype='int8'), user_signature)
 
 def str_to_list(string):
-    return [string.lower() for string in string.split(',')]
+    return [string.lower().strip() for string in string.split(',')]
 
 def get_tag_from_file_path(file_path):
     print "file_path", file_path
