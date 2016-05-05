@@ -66,7 +66,9 @@ def get_tag_from_file_path(file_path):
     tag = match_obj.group(1)
     return tag.lower()
 
-def picture_matcher(mongo, sketch_tag, file_path, page_idx=0):
+def video_matcher():
+
+def picture_matcher(sketch_tag, file_path, page_idx=0):
     usr_tags = str_to_list(sketch_tag)
     print "usr_tags:", usr_tags
     results = []
