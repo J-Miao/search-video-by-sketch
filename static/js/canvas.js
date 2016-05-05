@@ -41,6 +41,7 @@ function getPictures(imgSrc) {
     for (var i = 0; i < res["pictures"].length; i++) {
       $("#image-match-" + i).removeClass("hidden");
       $("#image-match-" + i + " > a > img").attr("src", res["pictures"][i]["pic"]);
+      $("#image-match-" + i).css("display","block");
       $("#image-match-" + i).draggable({
         helper: "clone",
         //revert: "invalid",
@@ -51,13 +52,13 @@ function getPictures(imgSrc) {
     }
       var imgRes = $("#image-results");
 
-    //imgRes.imagesLoaded(function () {
+    imgRes.imagesLoaded(function () {
         imgRes.pinto({
             itemWidth:150,
             gapX:10,
             gapY:10
         });
-    //});
+    });
   });
 }
 
