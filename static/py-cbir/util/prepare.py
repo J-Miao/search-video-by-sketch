@@ -9,7 +9,8 @@ from img_sift import sift2, sift_lsh_list, sift_histo
 def prepare(setname, func, p_out):
     p_out = '../conf/%s_%s.txt' % (setname, p_out)
     with open(p_out, 'w') as f_out:
-        relative_path = '../static/dataset/%s' % setname
+        #relative_path = '../static/dataset/%s' % setname
+        relative_path = '/home/%s' % setname
         for root, dirs, files in os.walk(relative_path):
             for f in files:
                 postfix = f.split('.')[-1]
@@ -25,7 +26,9 @@ def prepare(setname, func, p_out):
 def prepare_local(setname, f_func, h_func, p_out):
     p_out = '../conf/%s_%s.txt' % (setname, p_out)
     with open(p_out, 'w') as f_out:
-        relative_path = '../static/dataset/%s' % setname
+        #relative_path = '../static/dataset/%s' % setname
+        relative_path = '/home/%s' % setname
+        
         for root, dirs, files in os.walk(relative_path):
             for f in files:
                 postfix = f.split('.')[-1]
@@ -42,40 +45,36 @@ def prepare_local(setname, f_func, h_func, p_out):
                     print full_path
 
 def prepare_all(setname):
-    print "here"
     
-    prepare(dataset, phash, 'phash')
-    print "here"
-    prepare(dataset, otsu_hash, 'otsu_hash')
-    print "here"
-    
-    prepare(dataset, otsu_hash2, 'otsu_hash2')
-    print "here"
+    #prepare(dataset, phash, 'phash')
+    #prepare(dataset, otsu_hash, 'otsu_hash')
+    #prepare(dataset, otsu_hash2, 'otsu_hash2')
     
     prepare(dataset, gray_histo, 'grayhisto')
-    print "here"
+    print "grayhistoing"
     
     prepare(dataset, rgb_histo, 'rgbhisto')
-    print "here"
+    print "rgbhistoing"
     
     prepare(dataset, yuv_histo, 'yuvhisto')
-    print "here"
+    print "hsvhistoing"
     
     prepare(dataset, hsv_histo, 'hsvhisto')
 
-    print "here"
+    print "gisting"
     
     prepare(dataset, gist, 'gist')
 
-    print "here"
+    print "hoging"
     prepare_local(dataset, hog3, LSH_hog, 'hog_lsh')
-    print "here"
+    print "sifting"
     prepare_local(dataset, sift2, LSH_sift, 'sift_lsh')
 
 if __name__ == '__main__':
     #dataset = 'simpcity'
     #dataset = 'infochimps'
-    dataset = 'ferrari'
+    #dataset = 'ferrari'
+    dataset = 'pic_by_chris'
     #dataset = 'mixed'
     prepare_all(dataset)
 
