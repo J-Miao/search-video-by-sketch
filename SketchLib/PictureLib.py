@@ -1,19 +1,24 @@
 from flask import jsonify
 from image_match.goldberg import ImageSignature
 
-import re
 import subprocess
 import base64
 import numpy as np
 import time
+import re
 import subprocess
+import sys
+import os
+
 from math import sqrt
+
+cur_path = os.path.dirname(__file__)
 
 sys.path.append(os.path.abspath(os.path.join(cur_path, '../static/py-cbir/util/')))
 sys.path.append(os.path.abspath(os.path.join(cur_path, '../static/py-cbir/')))
 
-
-gis = ImageSignature()
+from findsimilar import get_global_vars
+#gis = ImageSignature()
 user_sketch_image = "/home/search-video-by-sketch/static/img/user_sketch_img.png"
 #user_sketch_image = "/home/search-video-by-sketch/static/sketch-recognizer/data/sketches_sbsr/images/1.png"
 user_signature = np.array([])
@@ -53,17 +58,16 @@ def compare(result_dict):
     return gis.normalized_distance(np.fromiter(result_dict['signature'], dtype='int8'), user_signature)
 
 def str_to_list(string):
-    return string.split(',')
+    return [string.lower() for string in string.split(',')]
 
 def get_tag_from_file_path(file_path):
     match_obj = re.search(r"pic_by_chris/([\w ]+)/", file_path)
     tag = match_obj.group(1)
-    return tag
+    return tag.lower()
 
 def picture_matcher(mongo, sketch_tag, user_sketch_pic_base64, sketch_file_path, page_idx=0):
     usr_tags = str_to_list(sketch_tag)
     results = []
-    
     global phash_alg
     colorlists = phash_alg.search(sketch_file_path, False)
     # this list is a list of [(filename, similarity),(filename,similarity)]
