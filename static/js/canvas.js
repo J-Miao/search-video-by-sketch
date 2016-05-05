@@ -1,4 +1,4 @@
-/**
+/*
  * Created by J-Miao on 4/3/16.
  */
 
@@ -68,6 +68,7 @@ function search() {
 }
 
 function switchMode() {
+  console.log($(this));
   if (searchMode === 'Video') {
     searchMode = 'Image';
     $(this).html('Image Mode');
@@ -177,6 +178,7 @@ $(document).ready(function() {
       if ($(ui.draggable)[0].id != "") {
         x = ui.helper.clone();
         x.attr('id', 'selected-sketch-' + tagList.length);
+        console.log($($(ui.draggable)[0]));
         tagList.push($($(ui.draggable)[0]).attr("tag"));
         x.draggable({
           helper: 'original',
