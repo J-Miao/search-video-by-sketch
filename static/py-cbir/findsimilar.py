@@ -182,7 +182,7 @@ class GlobalMatcher(object):
                                (rhisto_list, 1),
                                (yhisto_list, 1),
                                (hhisto_list, 1),
-                               ], 5, 2)
+                               ], 500, 2)
         """
         histo_list2 = ensembling([(ghisto_list, 3),
                                (rhisto_list, 1),
