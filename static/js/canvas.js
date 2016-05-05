@@ -146,7 +146,10 @@ $(document).ready(function() {
           maxHeight: 200,
           minHeight: 30,
           maxWidth: 200,
-          minWidth: 30
+          minWidth: 30,
+          resize: function( event, ui ) {
+            console.log("wocao", ui);
+          }
         });
         x.appendTo('#sketch-layer');
         ui.helper.remove();
