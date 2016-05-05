@@ -16,14 +16,20 @@ var backSlider;
 var eraserSlider;
 var backgroundColor = "#ff0000";
 var tagList = [];
+var locList = [];
+var searchMode = 'Video';
 
 function getPictures(imgSrc) {
   imgSrc = "";
+  var twoDString = get2DString();
+
   $.ajax({
     type: "POST",
     url: "/get_pictures",
     data: {
       tag: tagList.join(),
+      two_d_string_x: twoDString[0].join(),
+      two_d_string_y: twoDString[1].join(),
       sketch_filepath: imgSrc
     }
   }).done(function(res) {
@@ -60,6 +66,45 @@ function search() {
   canvasData = canvasData.substring(22);
   getPictures("", "");
 }
+
+function switchMode() {
+  if (searchMode === 'Video') {
+    searchMode = 'Image';
+    $(this).html('Image Mode');
+  }
+  else {
+    searchMode = 'Video';
+    $(this).html('Video Mode');
+  }
+}
+
+function get2DString() {
+  var xList = [], yList = [];
+  for (var i = 0; i < tagList.length; i++) {
+    var o = $('#selected-sketch-' + i).offset();
+    var w = $('#selected-sketch-' + i).width();
+    var h = $('#selected-sketch-' + i).height();
+    xList.push([tagList[i], o.left]);
+    xList.push([tagList[i], o.left + w]);
+    yList.push([tagList[i], o.top]);
+    yList.push([tagList[i], o.top + h]);
+  }
+
+  xList.sort(function(a, b) {
+    return a[1] - b[1];
+  });
+  yList.sort(function(a, b) {
+    return b[1] - a[1];
+  });
+  console.log(xList);
+  console.log(yList);
+  return [xList.map(function(d) {
+    return d[0];
+  }), yList.map(function(d) {
+    return d[0];
+  })];
+}
+
 
 function loadPicture2Canvas(img) {
   var tempImg = new Image();
@@ -131,9 +176,8 @@ $(document).ready(function() {
     drop: function (e, ui) {
       if ($(ui.draggable)[0].id != "") {
         x = ui.helper.clone();
-
+        x.setAttribute('id', 'selected-sketch-' + tagList.length);
         tagList.push($($(this)[0]).attr("tag"));
-
         x.draggable({
           helper: 'original',
           containment: '#sketch-layer',
@@ -472,6 +516,7 @@ function clearCanvas() {
 
   isEraser = false;
   $("#name").text("sketch name");
+  $("#sketch-layer").empty();
   tagList = [];
   //document.getElementById("change").innerHTML = "eraser";
 }
