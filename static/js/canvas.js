@@ -67,16 +67,6 @@ function search() {
   getPictures("", "");
 }
 
-function switchMode() {
-  if (searchMode === 'Video') {
-    searchMode = 'Image';
-    $(this).html('Image Mode');
-  }
-  else {
-    searchMode = 'Video';
-    $(this).html('Video Mode');
-  }
-}
 
 function get2DString() {
   var xList = [], yList = [];
@@ -149,6 +139,17 @@ $(document).ready(function() {
   //    queue: true
   //  }
   //});
+  $('#switch').on('click', function () {
+    if (searchMode === 'Video') {
+      searchMode = 'Image';
+      $(this).html('Image Mode');
+    }
+    else {
+      searchMode = 'Video';
+      $(this).html('Video Mode');
+    }
+  })
+
     $("#canvas-wrapper").droppable({
       drop: function(event, ui) {
 
@@ -178,6 +179,7 @@ $(document).ready(function() {
         x = ui.helper.clone();
         x.attr('id', 'selected-sketch-' + tagList.length);
         tagList.push($($(ui.draggable)[0]).attr("tag"));
+        console.log($($(ui.draggable)[0]));
         x.draggable({
           helper: 'original',
           containment: '#sketch-layer',
