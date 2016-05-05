@@ -126,7 +126,7 @@ $(document).ready(function() {
       if ($(ui.draggable)[0].id != "") {
         x = ui.helper.clone();
 
-        tagList.append($($(this)[0]).attr("tag"));
+        tagList.push($($(this)[0]).attr("tag"));
 
         x.draggable({
           helper: 'original',
