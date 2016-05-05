@@ -39,8 +39,8 @@ def distance(a,b):
         de += (a[i] - b[i]) * (a[i] - b[i])
     return sqrt(de) / (sqrt(suma) + sqrt(sumb))
 
-def dirty_copy_file(file_name):
-    args = ("./static/copyfile", file_name)
+def dirty_copy_file(infile_name, outfile_name):
+    args = ("./static/copyfile", infile_name, outfile_name)
     popen = subprocess.Popen(args, stdout=subprocess.PIPE)
     popen.wait()
     output = popen.stdout.read()
@@ -50,7 +50,7 @@ def save_to_png(base64_str, file_name):
     f.write(base64_str.decode("base64"))
     f.close()
 
-    dirty_copy_file(file_name)
+    dirty_copy_file(file_name, file_name.replace('.png', '_copied.png'))
     
     return file_name
 
