@@ -35,7 +35,7 @@ from SketchLib.SketchRecogniser import sketch_recogniser
 
 from SketchLib.PictureLib import picture_matcher
 from SketchLib.PictureLib import save_to_png
-
+from SketchLib.PictureLib import video_matcher
 
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = "vdb_images"
@@ -50,6 +50,7 @@ copied_sketch = "static/img/copied.png"
 background_file = "static/img/background.png"
 
 picture_results = []
+video_results = []
 
 @app.route('/')
 def index():
@@ -76,24 +77,45 @@ def get_sketches():
         results = sketch_recogniser(fname)
         return jsonify({"sketches": results})
 
+@app.route("/get_videos", methods=["POST"])
+def get_videos():
+    sketch_tag = request.form.get('tag', None)
+    background_base64 = request.form.get('background', "")
+    direction = request.form.get("motion", "")
+
+    if background_base64:
+        save_to_png(background_base64, background_file)
+    
+    global video_results
+
+    if not background_base64:
+        video_results = video_matcher(sketch_tag, direction, copied_sketch)
+    else:
+        video_results = video_matcher(sketch_tag, direction, background_file)
+
+    return jsonify({"videos": video_results})
+
+
 @app.route("/get_pictures", methods=["POST"])
 def get_pictures():
     sketch_tag = request.form.get('tag', None)
     background_base64 = request.form.get('background', "")
-    page_idx = int(request.form.get('page', 0))
-    sketch_file_path = copied_sketch
+
+    x_2D_str = request.form.get('two_d_string_x', '')
+    y_2D_str = request.form.get('two_d_string_y', '')
 
     if background_base64:
         save_to_png(background_base64, background_file)
     
     global picture_results
 
-    if background_base64:
-        picture_results = picture_matcher(mongo, sketch_tag, copied_sketch)
+    if not background_base64:
+        picture_results = picture_matcher(sketch_tag, copied_sketch)
     else:
-        picture_results = picture_matcher(mongo, sketch_tag, background_file)
+        picture_results = picture_matcher(sketch_tag, background_file)
 
-    return jsonify({"pictures": picture_results[page_idx:page_idx + 20]})
+    return jsonify({"pictures": picture_results})
+
 
 @app.route("/search_by_potential_sketches", methods=["POST", "GET"])
 def search_by_potential_sketches():
