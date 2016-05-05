@@ -89,7 +89,7 @@ function getVideos() {
       tag: tagList.join(),
       two_d_string_x: twoDString[0].join(),
       two_d_string_y: twoDString[1].join(),
-      sketch_filepath: imgSrc,
+      sketch_filepath: "",
       background: getBackground()
     }
   }).done(function(res) {
@@ -256,7 +256,9 @@ $(document).ready(function() {
 
         console.log($($($(ui.draggable)[0]).find('img')[0]).attr('tag'));
         tagList.push($($($(ui.draggable)[0]).find('img')[0]).attr('tag'));
-
+        console.log(x.find('img')[0]);
+        var originalSrc = $(x.find('img')[0]).attr('src');
+        $(x.find('img')[0]).attr('src', originalSrc.substring(0, originalSrc.length - 4) + '_trans.png');
         x.draggable({
           helper: 'original',
           containment: '#sketch-layer',
