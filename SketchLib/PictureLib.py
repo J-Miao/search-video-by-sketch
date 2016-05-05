@@ -1,6 +1,7 @@
 from flask import jsonify
 from image_match.goldberg import ImageSignature
 
+import re
 import subprocess
 import base64
 import numpy as np
@@ -8,11 +9,17 @@ import time
 import subprocess
 from math import sqrt
 
+sys.path.append(os.path.abspath(os.path.join(cur_path, '../static/py-cbir/util/')))
+sys.path.append(os.path.abspath(os.path.join(cur_path, '../static/py-cbir/')))
+
+
 gis = ImageSignature()
 user_sketch_image = "/home/search-video-by-sketch/static/img/user_sketch_img.png"
 #user_sketch_image = "/home/search-video-by-sketch/static/sketch-recognizer/data/sketches_sbsr/images/1.png"
 user_signature = np.array([])
 
+phash_alg, index_alg = get_global_vars()
+    
 def distance(a,b):
     suma = 0
     for item in a:
@@ -45,20 +52,28 @@ def save_to_png(base64_str, file_name):
 def compare(result_dict):
     return gis.normalized_distance(np.fromiter(result_dict['signature'], dtype='int8'), user_signature)
 
-def picture_matcher(mongo, sketch_tag, user_sketch_pic_base64, sketch_file_path,  page_idx=0):
-    call_back = mongo.db.vdb_images.find()
-    results = []
-    global user_signature
-    print "############"
-    print "sketch_file_path", sketch_file_path 
-    user_signature = gis.generate_signature(sketch_file_path)
-    if sketch_tag:
-        for document in call_back:
-            if sketch_tag in document['tags']:
-               results.append({'pic': document['base64'], 'signature': document['signature']})
-    else:
-        results.extend([{'pic': document['base64'], 'signature': document['signature']} for document in call_back])
-    return sorted(results, key=compare)
+def str_to_list(string):
+    return string.split(',')
 
-# if __name__ == "__main__":
-#     dirty_copy_file("static/img/sketch.png")
+def get_tag_from_file_path(file_path):
+    match_obj = re.search(r"pic_by_chris/([\w ]+)/", file_path)
+    tag = match_obj.group(1)
+    return tag
+
+def picture_matcher(mongo, sketch_tag, user_sketch_pic_base64, sketch_file_path, page_idx=0):
+    usr_tags = str_to_list(sketch_tag)
+    results = []
+    
+    global phash_alg
+    colorlists = phash_alg.search(sketch_file_path, False)
+    # this list is a list of [(filename, similarity),(filename,similarity)]
+    matched_files = [file_similarity[0] for file_similarity in colorlists]
+    for file in matched_files:
+        file_tag = get_tag_from_file_path(file)
+        if file_tag in usr_tags:
+            results.append({'pic': file})
+
+    if results:
+        return results
+    else:
+        return matched_files

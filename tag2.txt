@@ -17,7 +17,7 @@
 109 rabbit
 113 skeleton
 118 human 
-267 dinosour
+267 dinosaur
 277 turtle
 283 brain
 290 face
@@ -33,16 +33,14 @@
 468 lighthouse
 473 tent
 482 bottle
-494 cup
+494 goblet
 503 mug
 510 bucket
 514 mailbox
-523 cyclinder
+523 cylinder
 526 vase
 548 television
-573 carpet
-577 closet
-578 chip
+573 chip
 579 sign
 580 glasses
 587 microscope
@@ -65,7 +63,7 @@
 791 chair
 829 sofa
 844 shelf
-862 drawers
+862 drawer
 870 table
 939 chair and table
 944 bed
@@ -80,14 +78,13 @@
 1113 screwdriver
 1118 biplane
 1146 airplane
-1302 Helicopter
+1302 helicopter
 1337 hot air balloon
-1337 balloon
 1353 aircraft
-1363 UFO
+1363 star trek
 1388 satellite
-1395 spaceship
-1401 drone
+1395 space shuttle
+1401 satelite
 1406 fighter
 1411 tank
 1427 boat

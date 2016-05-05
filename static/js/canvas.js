@@ -1,4 +1,4 @@
-/**
+/*
  * Created by J-Miao on 4/3/16.
  */
 
@@ -181,6 +181,7 @@ $(document).ready(function() {
   //    queue: true
   //  }
   //});
+
   $('#switch').on('click', function () {
     if (searchMode === 'Video') {
       searchMode = 'Image';
@@ -203,7 +204,6 @@ $(document).ready(function() {
           loadPicture2Canvas($($(ui)[0].draggable[0]).find('img'));
         }
         else {
-
           //var xx, yy;
           //if (device) {
           //  var touch = event.originalEvent.targetTouches[0];
@@ -215,17 +215,19 @@ $(document).ready(function() {
           //}
           //loadSketch2Canvas($($(ui)[0].draggable[0]).find('img'), xx, yy);
         }
-
       }
-    });
+  });
   $("#sketch-layer").droppable({
-    // accept: '.sketch-match',
+    accept: '.sketch-match',
     drop: function (e, ui) {
+      console.log($(ui.draggable));
       if ($(ui.draggable)[0].id != "") {
         x = ui.helper.clone();
         x.attr('id', 'selected-sketch-' + tagList.length);
-        tagList.push($($(ui.draggable)[0]).attr("outerText"));
+
         console.log($($($(ui.draggable)[0]).find('img')[0]).attr('tag'));
+        tagList.push($($($(ui.draggable)[0]).find('img')[0]).attr('tag'));
+        
         x.draggable({
           helper: 'original',
           containment: '#sketch-layer',
@@ -240,6 +242,12 @@ $(document).ready(function() {
           resize: function( event, ui ) {
             console.log("wocao", ui);
           }
+        });
+        x.on('dblclick', function() {
+          console.log('hahaha');
+          $(this).wrap('<div id="resizeSelector" style="dislplay:inline-block;">');
+          $('#resizeSelector').draggable();
+          $(this).resizable();
         });
         x.appendTo('#sketch-layer');
         ui.helper.remove();
@@ -638,3 +646,4 @@ function redraw(idx, x, y, transparent) {
   context[idx].globalCompositeOperation = "source-over";
 
 }
+
