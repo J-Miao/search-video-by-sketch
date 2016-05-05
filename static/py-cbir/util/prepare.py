@@ -50,13 +50,13 @@ def prepare_all(setname):
     #prepare(dataset, otsu_hash, 'otsu_hash')
     #prepare(dataset, otsu_hash2, 'otsu_hash2')
     
-    prepare(dataset, gray_histo, 'grayhisto')
-    print "grayhistoing"
+    #prepare(dataset, gray_histo, 'grayhisto')
+    #print "grayhistoing"
     
-    prepare(dataset, rgb_histo, 'rgbhisto')
-    print "rgbhistoing"
+    #prepare(dataset, rgb_histo, 'rgbhisto')
+    #print "rgbhistoing"
     
-    prepare(dataset, yuv_histo, 'yuvhisto')
+    #prepare(dataset, yuv_histo, 'yuvhisto')
     print "hsvhistoing"
     
     prepare(dataset, hsv_histo, 'hsvhisto')
