@@ -66,12 +66,13 @@ def get_tag_from_file_path(file_path):
     tag = match_obj.group(1)
     return tag.lower()
 
-def picture_matcher(mongo, sketch_tag, user_sketch_pic_base64, sketch_file_path, page_idx=0):
+def picture_matcher(mongo, sketch_tag, file_path, page_idx=0):
     usr_tags = str_to_list(sketch_tag)
     results = []
     global phash_alg
-    colorlists = phash_alg.search(sketch_file_path, False)
+    colorlists = phash_alg.search(file_path, False)
     # this list is a list of [(filename, similarity),(filename,similarity)]
+    
     matched_files = ['static/' + file_similarity[0] for file_similarity in colorlists]
     for file in matched_files:
         file_tag = get_tag_from_file_path(file)

@@ -47,6 +47,7 @@ mongo = PyMongo(app)
 output_sketch = "static/img/sketch.png"
 # output_sketch = "static/img/sketch"
 copied_sketch = "static/img/copied.png"
+background_file = "static/img/background.png"
 
 picture_results = []
 
@@ -77,14 +78,21 @@ def get_sketches():
 
 @app.route("/get_pictures", methods=["POST"])
 def get_pictures():
-    
     sketch_tag = request.form.get('tag', None)
-    sketch_pic_base64 = request.form.get('sketch_pic', "")
+    background_base64 = request.form.get('background', "")
     page_idx = int(request.form.get('page', 0))
     sketch_file_path = copied_sketch
 
+    if background_base64:
+        save_to_png(background_base64, background_file)
+    
     global picture_results
-    picture_results = picture_matcher(mongo, sketch_tag, sketch_pic_base64, sketch_file_path)
+
+    if background_base64:
+        picture_results = picture_matcher(mongo, sketch_tag, copied_sketch)
+    else:
+        picture_results = picture_matcher(mongo, sketch_tag, background_file)
+
     return jsonify({"pictures": picture_results[page_idx:page_idx + 20]})
 
 @app.route("/search_by_potential_sketches", methods=["POST", "GET"])
