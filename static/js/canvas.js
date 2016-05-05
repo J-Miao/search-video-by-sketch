@@ -147,6 +147,7 @@ $(document).ready(function() {
           minHeight: 30,
           maxWidth: 200,
           minWidth: 30,
+          handles: 'all',
           resize: function( event, ui ) {
             console.log("wocao", ui);
           }
