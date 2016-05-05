@@ -19,6 +19,7 @@ var tagList = [];
 var locList = [];
 var searchMode = 'Image';
 var motionDir = 0;
+var draggingNewSketch = false;
 
 function getBackground() {
   var canvasData = backCanvas.toDataURL("image/png");
@@ -245,6 +246,9 @@ $(document).ready(function() {
   $("#sketch-layer").droppable({
     accept: '.sketch-match',
     drop: function (e, ui) {
+      if (!draggingNewSketch) {
+        return;
+      }
       console.log($(ui.draggable));
       if ($(ui.draggable)[0].id != "") {
         x = ui.helper.clone();
@@ -448,11 +452,13 @@ function saveCanvas() {
         start: function( event, ui ) {
 
           console.log(ui);
+          draggingNewSketch = true;
           //tagList += ;
         },
         stop: function( event, ui ) {
           //$('#sketch-layer').addClass('hidden');
           context[1].clearRect(0, 0, context[1].canvas.width, context[1].canvas.height);
+          draggingNewSketch = false;
         }
       });
     }
