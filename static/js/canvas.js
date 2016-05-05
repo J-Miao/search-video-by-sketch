@@ -47,10 +47,12 @@ function getPictures(imgSrc) {
     //}
     console.log(res['pictures']);
     for (var i = 0; i < res["pictures"].length; i++) {
-      var img = $('<img id="dynamic">'); //Equivalent: $(document.createElement('img'))
+      var img = $('<img>'); //Equivalent: $(document.createElement('img'))
       img.attr('src', res["pictures"][i]["pic"]);
+      var newA = $('a', {href: '#', class:'thumbnail'});
+      img.appendTo(newA);
       var newDiv =  $('<div/>', {id: 'image-match-'+i, class: 'pinto image-match'});
-      img.appendTo(newDiv);
+      newA.appendTo(newDiv);
       newDiv.appendTo('#image-results');
 
       //$("#image-match-" + i).removeClass("hidden");
