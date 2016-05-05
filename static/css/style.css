@@ -27,3 +27,11 @@ canvas{
 #sketch canvas, #sketch-layer {
   position: absolute;
 }
+
+.navbar, .nav {
+  z-index: 1001;
+}
+
+.navbar .nav > li {
+  z-index: 1001;
+}
