@@ -108,7 +108,15 @@ function search() {
   var canvasData = canvas.toDataURL("image/png");
   //delete "data:image/png;base64,"
   canvasData = canvasData.substring(22);
-  getPictures("", "");
+  if (searchMode === 'Image') {
+    getPictures();
+  }
+  else {
+    if (searchMode === 'Video') {
+      getVideos();
+    }
+  }
+
 }
 
 
@@ -190,12 +198,14 @@ $(document).ready(function() {
       $(this).html('Image Mode');
       $('#video-results').addClass('hidden');
       $('#image-results').removeClass('hidden');
+      $('#motion-dir-dropdown').addClass('disabled')
     }
     else {
       searchMode = 'Video';
       $(this).html('Video Mode');
       $('#image-results').addClass('hidden');
       $('#video-results').removeClass('hidden');
+      $('#motion-dir-dropdown').removeClass('disabled')
     }
   })
 
