@@ -108,8 +108,8 @@ $(document).ready(function() {
   //    queue: true
   //  }
   //});
-/*
-    $("#canvas-wrapper").droppable({
+
+  $("#canvas-wrapper").droppable({
       drop: function(event, ui) {
         console.log(event);
         console.log($($(ui)[0].draggable[0]));
@@ -117,35 +117,11 @@ $(document).ready(function() {
           loadPicture2Canvas($($(ui)[0].draggable[0]).find('img'));
         }
         else {
-<<<<<<< HEAD
-          /*var xx, yy;
-          if (device) {
-            var touch = event.originalEvent.targetTouches[0];
-            xx = touch.pageX;
-            yy = touch.pageY
-          } else {
-            xx = event.clientX;
-            yy = event.clientY
-          }
-          loadSketch2Canvas($($(ui)[0].draggable[0]).find('img'), xx, yy);
-=======
-          console.log("fuck");
-          //var xx, yy;
-          //if (device) {
-          //  var touch = event.originalEvent.targetTouches[0];
-          //  xx = touch.pageX;
-          //  yy = touch.pageY
-          //} else {
-          //  xx = event.clientX;
-          //  yy = event.clientY
-          //}
-          //loadSketch2Canvas($($(ui)[0].draggable[0]).find('img'), xx, yy);
->>>>>>> 4988160c32e2415b7d83f6e795eea3fef74cee7a
         }
       }
-    });*/
+  });
   $("#sketch-layer").droppable({
-    // accept: '.sketch-match',
+    accept: '.sketch-match',
     drop: function (e, ui) {
       console.log($(ui.draggable));
       if ($(ui.draggable)[0].id != "") {
@@ -161,9 +137,16 @@ $(document).ready(function() {
           minHeight: 30,
           maxWidth: 200,
           minWidth: 30,
+          handles: 'all',
           resize: function( event, ui ) {
             console.log("wocao", ui);
           }
+        });
+        x.on('dblclick', function() {
+          console.log('hahaha');
+          $(this).wrap('<div id="resizeSelector" style="dislplay:inline-block;">');
+          $('#resizeSelector').draggable();
+          $(this).resizable();
         });
         x.appendTo('#sketch-layer');
         ui.helper.remove();
