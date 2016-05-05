@@ -67,10 +67,10 @@ function getPictures(imgSrc) {
       });
       //$("#image-match-" + i + " .image-tag").text(res["pictures"][i]["tag"]);
     }
-    var imgRes = $("#image-results");
+    //var imgRes = $("#image-results");
 
-    imgRes.imagesLoaded(function () {
-        imgRes.pinto({
+     $("#image-results").imagesLoaded(function () {
+         $("#image-results").pinto({
             itemWidth: $('#result-wrapper').width() / 3 - 30,
             gapX:10,
             gapY:10
@@ -263,9 +263,9 @@ $(document).ready(function() {
           tolerance: 'fit'
         });
         x.resizable({
-          maxHeight: 200,
+          maxHeight: 400,
           minHeight: 30,
-          maxWidth: 200,
+          maxWidth: 400,
           minWidth: 30,
           handles: 'all',
           resize: function( event, ui ) {
