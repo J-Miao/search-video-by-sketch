@@ -50,7 +50,7 @@ function getPictures(imgSrc) {
     for (var i = 0; i < res["pictures"].length; i++) {
       var img = $('<img>'); //Equivalent: $(document.createElement('img'))
       img.attr('src', res["pictures"][i]["pic"]);
-      var newA = $('a', {href: '#', class:'thumbnail'});
+      var newA = $('<a/>', {href: '#', class:'thumbnail'});
       img.appendTo(newA);
       var newDiv =  $('<div/>', {id: 'image-match-'+i, class: 'pinto image-match'});
       newA.appendTo(newDiv);
@@ -366,7 +366,7 @@ $(document).ready(function() {
 
   $(".video-motion-dir.dropdown-menu li a").click(function(){
     var selText = $.trim($(this).text());
-    $(this).parents().find('.sketch-type.dropdown-toggle').html(selText+' <span class="caret"></span>');
+    $(this).parents().find('.video-motion-dir.dropdown-toggle').html(selText+' <span class="caret"></span>');
     switch (selText) {
       case 'Up': motionDir = 1; break;
       case 'Upper-Left': motionDir = 2; break;
