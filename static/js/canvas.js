@@ -108,6 +108,7 @@ $(document).ready(function() {
   //    queue: true
   //  }
   //});
+/*
     $("#canvas-wrapper").droppable({
       drop: function(event, ui) {
         console.log(event);
@@ -126,13 +127,18 @@ $(document).ready(function() {
             yy = event.clientY
           }
           loadSketch2Canvas($($(ui)[0].draggable[0]).find('img'), xx, yy);
-       */ }
+        }
       }
-    });
+    });*/
   $("#sketch-layer").droppable({
     drop: function (event, ui) {
       console.log(event);
-      console.log($($(ui)[0].draggable[0]));
+      if ($($(ui)[0].draggable[0]).hasClass('image-match')) {
+          loadPicture2Canvas($($(ui)[0].draggable[0]).find('img'));
+      }
+      else {
+        console.log($($(ui)[0].draggable[0]));
+      }
     }
   });
 
