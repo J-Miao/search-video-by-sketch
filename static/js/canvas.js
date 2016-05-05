@@ -84,18 +84,18 @@ function loadPicture2Canvas(img) {
 var mouseX = 0, mouseY = 0;
 var mousePressed = false;
 
-function loadSketch2Canvas(img, xx, yy) {
-  var tempImg = new Image();
-  tempImg.src = $(img)[0].src;
-  console.log(tempImg);
-  //console.log($(img)[0].src);
-  //var pattern = context[1].createPattern(tempImg, 'repeat');
-  //context[1].fillStyle = pattern;
-  //console.log($(img)[0].width, $(img)[0].height)
-  //context[1].fillRect(0, 0, $(img)[0].width, $(img)[0].height);
-  addRect(xx, yy, 100, 100, tempImg);
-  //addRect(xx, yy, $(img)[0].width, $(img)[0].height, tempImg);
-}
+//function loadSketch2Canvas(img, xx, yy) {
+//  var tempImg = new Image();
+//  tempImg.src = $(img)[0].src;
+//  console.log(tempImg);
+//  //console.log($(img)[0].src);
+//  //var pattern = context[1].createPattern(tempImg, 'repeat');
+//  //context[1].fillStyle = pattern;
+//  //console.log($(img)[0].width, $(img)[0].height)
+//  //context[1].fillRect(0, 0, $(img)[0].width, $(img)[0].height);
+//  addRect(xx, yy, 100, 100, tempImg);
+//  //addRect(xx, yy, $(img)[0].width, $(img)[0].height, tempImg);
+//}
 
 $(document).ready(function() {
 
@@ -143,9 +143,10 @@ $(document).ready(function() {
           tolerance: 'fit'
         });
         x.resizable({
-          maxHeight: 40,
+          maxHeight: 200,
           minHeight: 40,
-          minWidth: 50
+          maxWidth: 200,
+          minWidth: 40
         });
         x.appendTo('#sketch-layer');
       }
