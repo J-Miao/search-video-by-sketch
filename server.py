@@ -17,6 +17,7 @@ A debugger such as "pdb" may be helpful for debugging.
 Read about it online.
 """
 import os
+import sys
 from datetime import datetime
 from flask import Flask
 from flask import g
@@ -79,7 +80,7 @@ def get_pictures():
     
     sketch_tag = request.form.get('tag', None)
     sketch_pic_base64 = request.form.get('sketch_pic', "")
-    pagees_idx = int(request.form.get('page', 0))
+    page_idx = int(request.form.get('page', 0))
     sketch_file_path = copied_sketch
 
     global picture_results

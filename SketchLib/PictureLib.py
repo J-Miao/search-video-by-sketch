@@ -8,13 +8,17 @@ import time
 import re
 import subprocess
 import sys
+import os
 
 from math import sqrt
+
+cur_path = os.path.dirname(__file__)
 
 sys.path.append(os.path.abspath(os.path.join(cur_path, '../static/py-cbir/util/')))
 sys.path.append(os.path.abspath(os.path.join(cur_path, '../static/py-cbir/')))
 
-gis = ImageSignature()
+from findsimilar import get_global_vars
+#gis = ImageSignature()
 user_sketch_image = "/home/search-video-by-sketch/static/img/user_sketch_img.png"
 #user_sketch_image = "/home/search-video-by-sketch/static/sketch-recognizer/data/sketches_sbsr/images/1.png"
 user_signature = np.array([])
