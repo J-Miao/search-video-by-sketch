@@ -66,6 +66,7 @@ def get_tag_from_file_path(file_path):
     return tag.lower()
 
 def video_matcher():
+    return
 
 def picture_matcher(sketch_tag, file_path, page_idx=0):
     usr_tags = str_to_list(sketch_tag)
