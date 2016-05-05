@@ -77,12 +77,10 @@ def get_sketches():
 
 @app.route("/get_pictures", methods=["POST"])
 def get_pictures():
-    ('two_d_string_x', u'human,sword,human,sword,church,church'), ('tag', u'church,human,sword'), ('two_d_string_y', u'sword,church,human,sword,church,human'), ('sketch_filepath', u'')
     
-    print "all variable:", request.form
     sketch_tag = request.form.get('tag', None)
     sketch_pic_base64 = request.form.get('sketch_pic', "")
-    pagees_idx = int(request.form.get('page', 0))
+    page_idx = int(request.form.get('page', 0))
     sketch_file_path = copied_sketch
 
     global picture_results

@@ -38,6 +38,7 @@ function getPictures(imgSrc) {
       $("#image-match-" + i).addClass("hidden");
       $("#image-match-" + i + " > a > img").attr("src", "");
     }
+    console.log(res['pictures']);
     for (var i = 0; i < res["pictures"].length; i++) {
       $("#image-match-" + i).removeClass("hidden");
       $("#image-match-" + i + " > a > img").attr("src", res["pictures"][i]["pic"]);

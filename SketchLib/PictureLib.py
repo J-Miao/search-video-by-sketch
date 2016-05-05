@@ -71,13 +71,12 @@ def picture_matcher(mongo, sketch_tag, user_sketch_pic_base64, sketch_file_path,
     global phash_alg
     colorlists = phash_alg.search(sketch_file_path, False)
     # this list is a list of [(filename, similarity),(filename,similarity)]
-    matched_files = [file_similarity[0] for file_similarity in colorlists]
+    matched_files = ['static/' + file_similarity[0] for file_similarity in colorlists]
     for file in matched_files:
         file_tag = get_tag_from_file_path(file)
         if file_tag in usr_tags:
             results.append({'pic': file})
-
     if results:
         return results
     else:
-        return matched_files
+        return [{'pic': file} for file in matched_files]
