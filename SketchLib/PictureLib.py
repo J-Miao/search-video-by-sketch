@@ -9,6 +9,7 @@ import re
 import subprocess
 import sys
 import os
+import operator
 
 from math import sqrt
 
@@ -146,10 +147,34 @@ def picture_matcher(sketch_tag, file_path, page_idx=0):
     # this list is a list of [(filename, similarity),(filename,similarity)]
     
     matched_files = ['static/' + file_similarity[0] for file_similarity in colorlists]
+
+    matched_counts = []
+   
+    # handle the case if there are multiple tags:
+    maxtags = 0
+    for file in matched_files:
+        file_tag = get_tag_from_file_path(file)
+        tags = file_tag.split('_')
+        tagsum = 0
+        for t in tags:
+            if t in usr_tags:
+                tagsum += 1
+        if tagsum > maxtags:
+            maxtags = tagsum 
+        matched_counts.append(tagsum)
+    # handle 2D string
+
+    for mt in reversed(range(maxtags + 1)):
+        for i in range(len(matched_files)):
+            if matched_counts[i] == mt:
+                results.append({'pic': matched_files[i]})
+
+    '''
     for file in matched_files:
         file_tag = get_tag_from_file_path(file)
         if file_tag in usr_tags:
             results.append({'pic': file})
+    '''
     if results:
 	print "Here is results", results
         return results

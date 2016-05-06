@@ -158,7 +158,7 @@ class GlobalMatcher(object):
             d = d_func(obj[path], code)
             value_list.append((path, d))
         sort_list = sorted(value_list, key=lambda d:d[1])
-        return sort_list[:650]
+        return sort_list[:750]
 
     def search(self, dst_thum, debug=False):
         """
@@ -183,7 +183,7 @@ class GlobalMatcher(object):
                                (rhisto_list, 1),
                                (yhisto_list, 1),
                                (hhisto_list, 1),
-                               ], 650, 2)
+                               ], 750, 2)
         """
         histo_list2 = ensembling([(ghisto_list, 3),
                                (rhisto_list, 1),
