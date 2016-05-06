@@ -81,17 +81,25 @@ def get_shot_from_file_path(file_path):
     shot = match_obj.group(1)
     return shot
 
-def collect_tag_motion(file_list):
+
+def collect_shot_tag_motion(file_path):
+    f = open(file_path, "r")
+    video_info = f.read()
+    f.close()
+
+    shot_tag_motion_lines = video_info.split('\r\n')[:-1]
+    shot_tag_motion_tuple_list = [tuple(shot_tag_motion.split('\t')) for shot_tag_motion in shot_tag_motion_lines]
+
     shot_tag_motion_dict = {}
-    for shot_tag_motion in file_list:
-        shot, tags, motion = shot_tag_motion
-        shot_tag_motion_dict[shot] = {"tags": tags, "motion": motion}
+    for shot_tag_motion in shot_tag_motion_tuple_list:
+        shot, tags_str, motion = shot_tag_motion
+        shot_tag_motion_dict[shot] = {"tags": tags_str.split(','), "motion": int(motion)}
     return shot_tag_motion_dict
 
 def video_matcher(sketch_tag, obj_direction, file_path):
     usr_tags = str_to_list(sketch_tag)
     colorlists = phash_alg.search(file_path, False)
-    shot_tag_motion_dict = collect_tag_motion(tl_callback)
+    shot_tag_motion_dict = collect_shot_tag_motion('video_by_chris_stats.txt')
 
     shot_stats = {}
     for file_similarity_tuple in colorlists:
