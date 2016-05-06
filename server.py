@@ -110,9 +110,9 @@ def get_pictures():
     global picture_results
 
     if background_base64:
-        picture_results = picture_matcher(sketch_tag, copied_sketch)
+        picture_results = picture_matcher(sketch_tag, copied_sketch, x_2D_str, y_2D_str)
     else:
-        picture_results = picture_matcher(sketch_tag, background_file)
+        picture_results = picture_matcher(sketch_tag, background_file, x_2D_str, y_2D_str)
 
     return jsonify({"pictures": picture_results})
 

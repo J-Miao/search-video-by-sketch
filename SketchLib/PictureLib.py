@@ -25,6 +25,8 @@ user_sketch_image = "/home/search-video-by-sketch/static/img/user_sketch_img.png
 user_signature = np.array([])
 
 phash_alg, index_alg = get_global_vars()
+twodstring = {}
+load2dstring('static/py-cbir/conf/pic_by_chris_2dstring.txt', twodstring)
     
 def distance(a,b):
     suma = 0
@@ -138,7 +140,15 @@ def video_matcher(sketch_tag, obj_direction, file_path):
 
     return results
 
-def picture_matcher(sketch_tag, file_path, page_idx=0):
+def load2dstring(pin, obj):
+    for line in open(pin):
+        try:
+            path, hcode = line.strip().split('\t')
+            obj[path] = eval(hcode)
+        except Exception, e:
+            print repr(e)
+
+def picture_matcher(sketch_tag, file_path, x_2D_str, y_2D_str, page_idx=0):
     usr_tags = str_to_list(sketch_tag)
     print "usr_tags:", usr_tags
     results = []
@@ -162,12 +172,29 @@ def picture_matcher(sketch_tag, file_path, page_idx=0):
         if tagsum > maxtags:
             maxtags = tagsum 
         matched_counts.append(tagsum)
+    
     # handle 2D string
+    priority = []
+    global twodstring
+    if file in twodstring:
+        f_string = twodstring[file].split('&')
+        if f_string[0] == x_2D_str:
+            priority.append(file)
+
     print "maxtags:", maxtags
     for mt in reversed(range(maxtags + 1)):
+        if mt == 0:
+            if maxtags > 0:
+                break
+        if len(priority) > 0:
+            for i in range(len(matched_files)):
+                if matched_counts[i] == mt && matched_files[i] in priority:
+                    results.append({'pic': matched_files[i]})
         for i in range(len(matched_files)):
             if matched_counts[i] == mt:
                 results.append({'pic': matched_files[i]})
+        
+
 
     '''
     for file in matched_files:
