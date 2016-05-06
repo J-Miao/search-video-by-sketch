@@ -205,7 +205,8 @@ function loadPicture2Canvas(img) {
 
 
 function loadVideo2Canvas(v) {
-
+  console.log(v);
+  console.log($(v).attr('id'));
   context[0].clearRect(0, 0, context[0].canvas.width, context[0].canvas.height);
   context[1].clearRect(0, 0, context[1].canvas.width, context[1].canvas.height);
   //clearCanvas();
