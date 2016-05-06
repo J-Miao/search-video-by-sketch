@@ -188,7 +188,7 @@ def picture_matcher(sketch_tag, file_path, x_2D_str, y_2D_str, page_idx=0):
                 break
         if len(priority) > 0:
             for i in range(len(matched_files)):
-                if matched_counts[i] == mt && matched_files[i] in priority:
+                if matched_counts[i] == mt and matched_files[i] in priority:
                     results.append({'pic': matched_files[i]})
         for i in range(len(matched_files)):
             if matched_counts[i] == mt:
