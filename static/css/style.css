@@ -43,3 +43,7 @@ canvas{
     position: absolute;
     max-height: 1000px;
 }
+
+.thumbnail {
+    border: 1px solid #f3f3f3;
+}
