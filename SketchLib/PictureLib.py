@@ -101,7 +101,7 @@ def collect_shot_tag_motion(file_path):
 
 def video_matcher(sketch_tag, obj_direction, file_path):
     usr_tags = str_to_list(sketch_tag)
-    colorlists = phash_alg.search(file_path, False)
+    colorlists = videophash_alg.search(file_path, False)
     shot_tag_motion_dict = collect_shot_tag_motion('video_by_chris_stats.txt')
 
     shot_stats = {}
@@ -157,8 +157,6 @@ def video_matcher(sketch_tag, obj_direction, file_path):
         i += 1
 
     return results
-
-
 
 def picture_matcher(sketch_tag, file_path, x_2D_str, y_2D_str, page_idx=0):
     usr_tags = str_to_list(sketch_tag)
