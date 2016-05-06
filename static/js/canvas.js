@@ -124,7 +124,9 @@ function getVideos() {
     type: 'video/mp4',
     controls: true
   });
-  var newDiv =  $('<div/>', {id: 'video-match-'+0, class: 'video-match'});
+  v.css('width', '100%');
+  v.css('height', '100%');
+  var newDiv =  $('<div/>', {id: 'video-match-'+0, class: 'video-match '});
   v.appendTo(newDiv);
   newDiv.appendTo('#video-results');
       //$("#image-match-" + i).removeClass("hidden");
