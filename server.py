@@ -45,9 +45,9 @@ app.config["MONGO_PASSWORD"] = "weloveVDB"
 mongo = PyMongo(app)
 
 output_sketch = "static/img/sketch.png"
-copied_sketch = "static/img/sketch_copied.png"
+# output_sketch = "static/img/sketch"
+copied_sketch = "static/img/copied.png"
 background_file = "static/img/background.png"
-copied_background_file = "static/img/background_copied.png"
 
 picture_results = []
 video_results = []
@@ -88,12 +88,12 @@ def get_videos():
     
     global video_results
 
-    if not background_base64:
+    if background_base64:
         video_results = video_matcher(sketch_tag, direction, copied_sketch)
     else:
-        video_results = video_matcher(sketch_tag, direction, copied_background_file)
+        video_results = video_matcher(sketch_tag, direction, background_file)
 
-    return jsonify({"videos": video_results})
+    return jsonify({"videos": picture_results})
 
 
 @app.route("/get_pictures", methods=["POST"])
@@ -103,14 +103,16 @@ def get_pictures():
 
     x_2D_str = request.form.get('two_d_string_x', '')
     y_2D_str = request.form.get('two_d_string_y', '')
+
+    if background_base64:
+        save_to_png(background_base64, background_file)
     
     global picture_results
 
-    if not background_base64:
+    if background_base64:
         picture_results = picture_matcher(sketch_tag, copied_sketch)
     else:
-        save_to_png(background_base64, background_file)
-        picture_results = picture_matcher(sketch_tag, copied_background_file)
+        picture_results = picture_matcher(sketch_tag, background_file)
 
     return jsonify({"pictures": picture_results})
 

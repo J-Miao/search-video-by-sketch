@@ -39,8 +39,8 @@ def distance(a,b):
         de += (a[i] - b[i]) * (a[i] - b[i])
     return sqrt(de) / (sqrt(suma) + sqrt(sumb))
 
-def dirty_copy_file(infile_name, outfile_name):
-    args = ("./static/copyfile", infile_name, outfile_name)
+def dirty_copy_file(file_name):
+    args = ("./static/copyfile", file_name)
     popen = subprocess.Popen(args, stdout=subprocess.PIPE)
     popen.wait()
     output = popen.stdout.read()
@@ -50,7 +50,7 @@ def save_to_png(base64_str, file_name):
     f.write(base64_str.decode("base64"))
     f.close()
 
-    dirty_copy_file(file_name, file_name.replace('.png', '_copied.png'))
+    dirty_copy_file(file_name)
     
     return file_name
 
@@ -67,7 +67,7 @@ def get_tag_from_file_path(file_path):
 
 def video_matcher():
     return
-
+    
 def picture_matcher(sketch_tag, file_path, page_idx=0):
     usr_tags = str_to_list(sketch_tag)
     results = []
