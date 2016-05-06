@@ -29,7 +29,7 @@ def load2dstring(pin, obj):
     for line in open(pin):
         try:
             path, hcode = line.strip().split('\t')
-            obj[path] = eval(hcode)
+            obj[path] = hcode
         except Exception, e:
             print repr(e)
 twodstring = {}
