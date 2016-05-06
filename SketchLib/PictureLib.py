@@ -9,6 +9,7 @@ import re
 import subprocess
 import sys
 import os
+import operator
 
 from math import sqrt
 
@@ -18,13 +19,25 @@ sys.path.append(os.path.abspath(os.path.join(cur_path, '../static/py-cbir/util/'
 sys.path.append(os.path.abspath(os.path.join(cur_path, '../static/py-cbir/')))
 
 from findsimilar import get_global_vars
+from findsimilar import get_video_global_vars
 #gis = ImageSignature()
 user_sketch_image = "/home/search-video-by-sketch/static/img/user_sketch_img.png"
 #user_sketch_image = "/home/search-video-by-sketch/static/sketch-recognizer/data/sketches_sbsr/images/1.png"
 user_signature = np.array([])
 
 phash_alg, index_alg = get_global_vars()
-    
+videophash_alg, index_alg = get_video_global_vars()
+
+def load2dstring(pin, obj):
+    for line in open(pin):
+        try:
+            path, hcode = line.strip().split('\t')
+            obj[path] = hcode
+        except Exception, e:
+            print repr(e)
+twodstring = {}
+load2dstring('static/py-cbir/conf/pic_by_chris_2dstring.txt', twodstring)
+#print twodstring
 def distance(a,b):
     suma = 0
     for item in a:
@@ -61,7 +74,7 @@ def str_to_list(string):
     return [string.lower().strip() for string in string.split(',')]
 
 def get_tag_from_file_path(file_path):
-    print "file_path", file_path
+    #print "file_path", file_path
     match_obj = re.search(r"pic_by_chris/([\w ]+)/", file_path)
     tag = match_obj.group(1)
     return tag.lower()
@@ -71,17 +84,25 @@ def get_shot_from_file_path(file_path):
     shot = match_obj.group(1)
     return shot
 
-def collect_tag_motion(file_list):
+
+def collect_shot_tag_motion(file_path):
+    f = open(file_path, "r")
+    video_info = f.read()
+    f.close()
+
+    shot_tag_motion_lines = video_info.split('\r\n')[:-1]
+    shot_tag_motion_tuple_list = [tuple(shot_tag_motion.split('\t')) for shot_tag_motion in shot_tag_motion_lines]
+
     shot_tag_motion_dict = {}
-    for shot_tag_motion in file_list:
-        shot, tags, motion = shot_tag_motion
-        shot_tag_motion_dict[shot] = {"tags": tags, "motion": motion}
+    for shot_tag_motion in shot_tag_motion_tuple_list:
+        shot, tags_str, motion = shot_tag_motion
+        shot_tag_motion_dict[shot] = {"tags": tags_str.split(','), "motion": int(motion)}
     return shot_tag_motion_dict
 
 def video_matcher(sketch_tag, obj_direction, file_path):
     usr_tags = str_to_list(sketch_tag)
     colorlists = phash_alg.search(file_path, False)
-    shot_tag_motion_dict = collect_tag_motion(tl_callback)
+    shot_tag_motion_dict = collect_shot_tag_motion('video_by_chris_stats.txt')
 
     shot_stats = {}
     for file_similarity_tuple in colorlists:
@@ -137,7 +158,9 @@ def video_matcher(sketch_tag, obj_direction, file_path):
 
     return results
 
-def picture_matcher(sketch_tag, file_path, page_idx=0):
+
+
+def picture_matcher(sketch_tag, file_path, x_2D_str, y_2D_str, page_idx=0):
     usr_tags = str_to_list(sketch_tag)
     print "usr_tags:", usr_tags
     results = []
@@ -146,12 +169,61 @@ def picture_matcher(sketch_tag, file_path, page_idx=0):
     # this list is a list of [(filename, similarity),(filename,similarity)]
     
     matched_files = ['static/' + file_similarity[0] for file_similarity in colorlists]
+
+    matched_counts = []
+   
+    # handle the case if there are multiple tags:
+    maxtags = 0
+    
+    # handle 2D string
+    priority = []
+    global twodstring
+    #eliminate all space in x_2D_str
+    x_2D_str = "".join(x_2D_str.split(" "))
+    y_2D_str = "".join(y_2D_str.split(" "))
+    #print twodstring
+    
+    for file in matched_files:
+        file_tag = get_tag_from_file_path(file)
+        tags = file_tag.split('_')
+        tagsum = 0
+        for t in tags:
+            if t in usr_tags:
+                tagsum += 1
+        if tagsum > maxtags:
+            maxtags = tagsum 
+        matched_counts.append(tagsum)
+        #print file
+        if file in twodstring:
+            f_string = twodstring[file].split('&')
+            print "f_string:",f_string
+            print "user input:",x_2D_str
+            if f_string[0] == x_2D_str:
+                priority.append(file)
+
+    print "maxtags:", maxtags
+    for mt in reversed(range(maxtags + 1)):
+        if mt == 0:
+            if maxtags > 0:
+                break
+        if len(priority) > 0:
+            for i in range(len(matched_files)):
+                if matched_counts[i] == mt and matched_files[i] in priority:
+                    results.append({'pic': matched_files[i]})
+        for i in range(len(matched_files)):
+            if matched_counts[i] == mt and matched_files[i] not in priority:
+                results.append({'pic': matched_files[i]})
+        
+
+
+    '''
     for file in matched_files:
         file_tag = get_tag_from_file_path(file)
         if file_tag in usr_tags:
             results.append({'pic': file})
+    '''
     if results:
-	print "Here is results", results
+        #print "Here is results", results
         return results
     else:
 	print "No match tag, no result!"
