@@ -147,9 +147,11 @@ function getVideos() {
     //    });
     ////});
   });*/
-  $('video').forEach(function(d) {
-    d.attr('src', '');
-  });
+  var videoList = $('video');
+  var l = videoList.length;
+  for (var i = 0; i < l; i++) {
+    $($('video')[i]).attr('src', '');
+  };
   //$('#video-match-v-' + 0).attr('src', '');
   $('#video-results').empty();
   var v = $('<video/>', {
