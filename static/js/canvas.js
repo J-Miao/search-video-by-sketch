@@ -16,6 +16,7 @@ var backSlider;
 var eraserSlider;
 var backgroundColor = "#ff0000";
 var tagList = [];
+var tagRemoved = {};
 var locList = [];
 var searchMode = 'Image';
 var motionDir = 0;
@@ -109,6 +110,14 @@ function getPictures(imgSrc) {
 }
 
 function getVideos() {
+  var videoList = $('video');
+  var l = videoList.length;
+  for (var i = 0; i < l; i++) {
+    $($('video')[i]).attr('src', '');
+  };
+  //$('#video-match-v-' + 0).attr('src', '');
+  $('#video-results').empty();
+
   var twoDString = get2DString();
 /*
   $.ajax({
@@ -147,13 +156,7 @@ function getVideos() {
     //    });
     ////});
   });*/
-  var videoList = $('video');
-  var l = videoList.length;
-  for (var i = 0; i < l; i++) {
-    $($('video')[i]).attr('src', '');
-  };
-  //$('#video-match-v-' + 0).attr('src', '');
-  $('#video-results').empty();
+
   var v = $('<video/>', {
     src: 'static/videos/black-shot-2.mp4',
     id: 'video-match-v-' + 0,
@@ -197,6 +200,9 @@ function search() {
 function get2DString() {
   var xList = [], yList = [];
   for (var i = 0; i < tagList.length; i++) {
+    if (tagRemoved.hasOwnProperty('selected-sketch-' + i)) {
+      continue;
+    }
     var o = $('#selected-sketch-' + i).offset();
     var w = $('#selected-sketch-' + i).width();
     var h = $('#selected-sketch-' + i).height();
@@ -359,10 +365,12 @@ $(document).ready(function() {
           }
         });
         x.on('dblclick', function() {
-          console.log('hahaha');
-          $(this).wrap('<div id="resizeSelector" style="dislplay:inline-block;">');
-          $('#resizeSelector').draggable();
-          $(this).resizable();
+          //console.log('hahaha');
+          //$(this).wrap('<div id="resizeSelector" style="dislplay:inline-block;">');
+          //$('#resizeSelector').draggable();
+          //$(this).resizable();
+          tagRemoved[$(this).attr('id')] = true;
+          $(this).remove();
         });
         x.css('background-color', 'transparent');
         $(x.find('a')[0]).css('background-color', 'transparent');
@@ -444,7 +452,7 @@ $(document).ready(function() {
             current_layer = 1;
             isEraser = 0;
             isSelecting = 1;
-            $('#sketch-layer').css('z-index', 1000);
+            $('#sketch-layer').css('z-index', 999);
           }
         }
       }
