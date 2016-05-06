@@ -22,7 +22,33 @@ var motionDir = 0;
 var draggingNewSketch = false;
 
 function getBackground() {
-  var canvasData = backCanvas.toDataURL("image/png");
+  var right = 0, left = backCanvas.width;
+  var bottom = 0, top = backCanvas.height;
+  for (var i = 0; i < backCanvas.width; i++) {
+    for (var j = 0; j < backCanvas.height; j++) {
+      var p = context[0].getImageData(i, j, 1, 1).data;
+      if (p[0] > 200 && p[1] > 200 && p[2] > 200) {
+        continue;
+      }
+      if (i < left) left = i;
+      if (i > right) left = i;
+      if (j < top) top = j;
+      if (j > bottom) bottom = j;
+    }
+  }
+
+  var imgData = context[0].getImageData(left, top, right - left + 1, bottom - top + 1);
+  var tempCanvas = document.createElement('canvas');
+  tempCanvas.setAttribute('id', 'temp-canvas');
+
+  var tempContext = tempCanvas.getContext('2d');
+  tempCanvas.width = right - left + 1;
+  tempCanvas.height = bottom - top + 1;
+  tempContext.putImageData(imgData, 0, 0);
+
+  var canvasData = tempCanvas.toDataURL("image/png");
+
+  document.getElementById('temp-canvas').remove();
   return canvasData.substring(22);
 }
 
