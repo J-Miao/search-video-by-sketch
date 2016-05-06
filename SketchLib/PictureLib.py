@@ -19,12 +19,15 @@ sys.path.append(os.path.abspath(os.path.join(cur_path, '../static/py-cbir/util/'
 sys.path.append(os.path.abspath(os.path.join(cur_path, '../static/py-cbir/')))
 
 from findsimilar import get_global_vars
+from findsimilar import get_video_global_vars
 #gis = ImageSignature()
 user_sketch_image = "/home/search-video-by-sketch/static/img/user_sketch_img.png"
 #user_sketch_image = "/home/search-video-by-sketch/static/sketch-recognizer/data/sketches_sbsr/images/1.png"
 user_signature = np.array([])
 
 phash_alg, index_alg = get_global_vars()
+videophash_alg, index_alg = get_video_global_vars()
+
 def load2dstring(pin, obj):
     for line in open(pin):
         try:
