@@ -24,31 +24,32 @@ var draggingNewSketch = false;
 function getBackground() {
   var right = 0, left = backCanvas.width;
   var bottom = 0, top = backCanvas.height;
-  for (var i = 0; i < backCanvas.width; i++) {
-    for (var j = 0; j < backCanvas.height; j++) {
-      var p = context[0].getImageData(i, j, 1, 1).data;
-      if (p[0] > 200 && p[1] > 200 && p[2] > 200) {
+  var imgData = context[0].getImageData(0, 0, backCanvas.width, backCanvas.height);
+  for (var i = 0; i < imgData.data.length; i+=4) {
+    var j = i / 4;
+    if (imgData.data[i] > 200 && imgData.data[i+1] > 200 && imgData.data[i+2] > 200) {
         continue;
-      }
-      if (i < left) left = i;
-      if (i > right) left = i;
-      if (j < top) top = j;
-      if (j > bottom) bottom = j;
     }
+    var r = j / backCanvas.width;
+    var c = j % backCanvas.width;
+    if (c < left) left = c;
+    if (c > right) right = c;
+    if (r < top) top = r;
+    if (r > bottom) bottom = r;
   }
 
-  var imgData = context[0].getImageData(left, top, right - left + 1, bottom - top + 1);
+  var tempData = context[0].getImageData(left, top, right - left + 1, bottom - top + 1);
   var tempCanvas = document.createElement('canvas');
   tempCanvas.setAttribute('id', 'temp-canvas');
 
   var tempContext = tempCanvas.getContext('2d');
   tempCanvas.width = right - left + 1;
   tempCanvas.height = bottom - top + 1;
-  tempContext.putImageData(imgData, 0, 0);
+  tempContext.putImageData(tempData, 0, 0);
 
   var canvasData = tempCanvas.toDataURL("image/png");
 
-  document.getElementById('temp-canvas').remove();
+  // document.getElementById('temp-canvas').remove();
   return canvasData.substring(22);
 }
 
