@@ -65,9 +65,77 @@ def get_tag_from_file_path(file_path):
     tag = match_obj.group(1)
     return tag.lower()
 
-def video_matcher():
-    return
+def get_shot_from_file_path(file_path):
+    match_obj = re.search(r"/home/video_by_chris/([\w-]+) \d+.jpg", file_path)
+    shot = match_obj.group(1)
+    return shot
+
+def collect_tag_motion(file_list):
+    shot_tag_motion_dict = {}
+    for shot_tag_motion in file_list:
+        shot, tags, motion = shot_tag_motion
+        shot_tag_motion_dict[shot] = {"tags": tags, "motion": motion}
+    return shot_tag_motion_dict
+
+def video_matcher(sketch_tag, obj_direction, file_path):
+    usr_tags = str_to_list(sketch_tag)
+    colorlists = phash_alg.search(file_path, False)
+    shot_tag_motion_dict = collect_tag_motion(tl_callback)
+
+    shot_stats = {}
+    for file_similarity_tuple in colorlists:
+        shot = get_shot_from_file_path(file_similarity_tuple[0])
+        similarity = float(file_similarity_tuple[1])
+        if shot_stats.get(shot, None):
+            shot_stats[shot]["similarities"].append(similarity)
+        else:
+            shot_stats[shot] = {"similarities": [similarity], "max": 0, "sum": 0, "avg": 0}
+
+    for shot, stats in shot_stats.items():
+        similarities = shot_stats[shot]["similarities"]
+        sim_max = max(similarities)
+        sim_sum = sum(similarities)
+        sim_cnt = len(similarities)
+        sim_avg = sim_sum * 1.0 / sim_cnt
+        shot_stats[shot]["max"] = sim_max
+        shot_stats[shot]["avg"] = sim_avg
+        shot_stats[shot]["sum"] = sim_sum
+
+    def sim_comparator(shot1, shot2):
+        if shot_stats[shot1]["max"] < 0.15:
+            return -1
+        elif shot_stats[shot1]["avg"] > shot_stats[shot2]["avg"]:
+            return -1
+        elif shot_stats[shot1]["avg"] < shot_stats[shot2]["avg"]:
+            return 1
+        elif shot_stats[shot1]["avg"] == shot_stats[shot2]["avg"]:
+            return 0
+
+    results = sorted(shot_stats.keys(), cmp=sim_comparator)
+
+    def swap(lst, idx1, idx2):
+        tmp = lst[idx1]
+        lst[idx1] = lst[idx2]
+        lst[idx2] = tmp
     
+    i = tag_idx = 0
+
+    while i < len(results):
+        if set(shot_tag_motion_dict[results[i]]["tags"]).issubset(usr_tags):
+            swap(results, i, tag_idx)
+            tag_idx += 1
+        i += 1
+
+    i = direct_idx = 0
+
+    while i < len(results):
+        if shot_tag_motion_dict[results[i]]["motion"] == obj_direction:
+            swap(results, i, direct_idx)
+            direct_idx += 1
+        i += 1
+
+    return results
+
 def picture_matcher(sketch_tag, file_path, page_idx=0):
     usr_tags = str_to_list(sketch_tag)
     results = []
