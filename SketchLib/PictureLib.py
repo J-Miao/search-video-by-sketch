@@ -179,8 +179,8 @@ def picture_matcher(sketch_tag, file_path, x_2D_str, y_2D_str, page_idx=0):
     global twodstring
     if file in twodstring:
         f_string = twodstring[file].split('&')
-        print "f_string:" f_string
-        print "user input:" x_2D_str
+        print "f_string:",f_string
+        print "user input:",x_2D_str
         if f_string[0] == x_2D_str:
             priority.append(file)
 
