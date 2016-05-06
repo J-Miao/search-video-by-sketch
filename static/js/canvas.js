@@ -81,7 +81,7 @@ function getPictures(imgSrc) {
 
 function getVideos() {
   var twoDString = get2DString();
-
+/*
   $.ajax({
     type: "POST",
     url: "/get_videos",
@@ -117,7 +117,27 @@ function getVideos() {
     //        gapY:10
     //    });
     ////});
-  });
+  });*/
+  $('#video-results').empty();
+  var v = $('<video/>'); //Equivalent: $(document.createElement('img'))
+  var src = $('<source>')
+  src.attr('src', "static/videos/black-shot-2.mp4");
+  src.attr('type', 'video/mp4');
+  src.appendTo(v);
+  var newDiv =  $('<div/>', {id: 'video-match-'+i, class: 'video-match'});
+  v.appendTo(newDiv);
+  newDiv.appendTo('#video-results');
+      //$("#image-match-" + i).removeClass("hidden");
+      //$("#image-match-" + i + " > a > img").attr("src", res["pictures"][i]["pic"]);
+      //$("#image-match-" + i).css("display","block");
+      //$("#image-match-" + i).draggable({
+      //  helper: "clone",
+      //  //revert: "invalid",
+      //  //stack: ".droppable",
+      //  //snap: ".droppable"
+      //});
+  //$("#video-match-" + 0).removeClass("hidden");
+  //$("#video-match-" + i + " > a > video").attr("src", res["videos"][i]["src"]);
 }
 
 
