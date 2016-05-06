@@ -19,12 +19,15 @@ sys.path.append(os.path.abspath(os.path.join(cur_path, '../static/py-cbir/util/'
 sys.path.append(os.path.abspath(os.path.join(cur_path, '../static/py-cbir/')))
 
 from findsimilar import get_global_vars
+from findsimilar import get_video_global_vars
 #gis = ImageSignature()
 user_sketch_image = "/home/search-video-by-sketch/static/img/user_sketch_img.png"
 #user_sketch_image = "/home/search-video-by-sketch/static/sketch-recognizer/data/sketches_sbsr/images/1.png"
 user_signature = np.array([])
 
 phash_alg, index_alg = get_global_vars()
+videophash_alg, index_alg = get_video_global_vars()
+
 def load2dstring(pin, obj):
     for line in open(pin):
         try:
@@ -90,7 +93,7 @@ def collect_tag_motion(file_list):
 
 def video_matcher(sketch_tag, obj_direction, file_path):
     usr_tags = str_to_list(sketch_tag)
-    colorlists = phash_alg.search(file_path, False)
+    colorlists = videophash_alg.search(file_path, False)
     shot_tag_motion_dict = collect_tag_motion(tl_callback)
 
     shot_stats = {}
