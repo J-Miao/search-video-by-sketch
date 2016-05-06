@@ -39,7 +39,16 @@ canvas{
 #results {
     position: relative;
 }
-#image-results, #video-reuslts {
+#image-results, #video-results {
     position: absolute;
     max-height: 1000px;
+}
+
+.thumbnail {
+    border: 1px solid #f3f3f3;
+}
+
+.video-match {
+    max-width: 50%;
+    height: auto;
 }

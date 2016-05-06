@@ -81,7 +81,7 @@ function getPictures(imgSrc) {
 
 function getVideos() {
   var twoDString = get2DString();
-
+/*
   $.ajax({
     type: "POST",
     url: "/get_videos",
@@ -117,7 +117,29 @@ function getVideos() {
     //        gapY:10
     //    });
     ////});
+  });*/
+  $('#video-results').empty();
+  var v = $('<video/>', {
+    src: 'static/videos/black-shot-2.mp4',
+    type: 'video/mp4',
+    controls: true
   });
+  v.css('width', '100%');
+  v.css('height', '100%');
+  var newDiv =  $('<div/>', {id: 'video-match-'+0, class: 'video-match '});
+  v.appendTo(newDiv);
+  newDiv.appendTo('#video-results');
+      //$("#image-match-" + i).removeClass("hidden");
+      //$("#image-match-" + i + " > a > img").attr("src", res["pictures"][i]["pic"]);
+      //$("#image-match-" + i).css("display","block");
+      //$("#image-match-" + i).draggable({
+      //  helper: "clone",
+      //  //revert: "invalid",
+      //  //stack: ".droppable",
+      //  //snap: ".droppable"
+      //});
+  //$("#video-match-" + 0).removeClass("hidden");
+  //$("#video-match-" + i + " > a > video").attr("src", res["videos"][i]["src"]);
 }
 
 
@@ -280,6 +302,8 @@ $(document).ready(function() {
           $('#resizeSelector').draggable();
           $(this).resizable();
         });
+        x.css('background-color', 'transparent');
+        $(x.find('a')[0]).css('background-color', 'transparent');
         x.appendTo('#sketch-layer');
         ui.helper.remove();
       }
