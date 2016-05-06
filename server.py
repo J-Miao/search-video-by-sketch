@@ -93,7 +93,7 @@ def get_videos():
     else:
         video_results = video_matcher(sketch_tag, direction, background_file)
 
-    return jsonify({"videos": picture_results})
+    return jsonify({"videos": video_results})
 
 
 @app.route("/get_pictures", methods=["POST"])
