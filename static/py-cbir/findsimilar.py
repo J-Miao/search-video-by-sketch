@@ -213,6 +213,7 @@ class GlobalMatcher(object):
 
 
 phash_alg = None
+video_phash_alg = None
 index_alg = None
 def get_global_vars():
     global phash_alg
