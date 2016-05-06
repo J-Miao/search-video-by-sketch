@@ -29,11 +29,11 @@ canvas{
 }
 
 .navbar, .nav {
-  z-index: 1001;
+  z-index: 1000;
 }
 
 .navbar .nav > li {
-  z-index: 1001;
+  z-index: 1002;
 }
 
 #results {
