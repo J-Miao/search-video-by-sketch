@@ -121,23 +121,26 @@ function getVideos() {
   $('#video-results').empty();
   var v = $('<video/>', {
     src: 'static/videos/black-shot-2.mp4',
+    id: 'video-match-v-' + 0,
     type: 'video/mp4',
     controls: true
   });
   v.css('width', '100%');
   v.css('height', '100%');
+  var newA = $('<a/>', {href: '#', class:'thumbnail'});
+  v.appendTo(newA);
   var newDiv =  $('<div/>', {id: 'video-match-'+0, class: 'video-match '});
-  v.appendTo(newDiv);
+  newA.appendTo(newDiv);
   newDiv.appendTo('#video-results');
       //$("#image-match-" + i).removeClass("hidden");
       //$("#image-match-" + i + " > a > img").attr("src", res["pictures"][i]["pic"]);
       //$("#image-match-" + i).css("display","block");
-      //$("#image-match-" + i).draggable({
-      //  helper: "clone",
-      //  //revert: "invalid",
-      //  //stack: ".droppable",
-      //  //snap: ".droppable"
-      //});
+      $("#video-match-" + 0).draggable({
+        helper: "clone",
+        //revert: "invalid",
+        //stack: ".droppable",
+        //snap: ".droppable"
+      });
   //$("#video-match-" + 0).removeClass("hidden");
   //$("#video-match-" + i + " > a > video").attr("src", res["videos"][i]["src"]);
 }
@@ -200,6 +203,23 @@ function loadPicture2Canvas(img) {
   context[0].drawImage(tempImg, 0, 0, ww, hh);
 }
 
+
+function loadVideo2Canvas(v) {
+
+  context[0].clearRect(0, 0, context[0].canvas.width, context[0].canvas.height);
+  context[1].clearRect(0, 0, context[1].canvas.width, context[1].canvas.height);
+  //clearCanvas();
+  var tempVideo = document.getElementById($(v).attr('id'));
+  var ww = backCanvas.width;
+  var hh = backCanvas.width / tempVideo.width * tempVideo.height;
+  if (hh > backCanvas.height) {
+    hh = backCanvas.height;
+    ww = backCanvas.height / tempVideo.height * tempVideo.width;
+  }
+  context[0].drawImage(tempVideo, 0, 0, ww, hh);
+}
+
+
 var mouseX = 0, mouseY = 0;
 var mousePressed = false;
 
@@ -252,6 +272,10 @@ $(document).ready(function() {
           loadPicture2Canvas($($(ui)[0].draggable[0]).find('img'));
         }
         else {
+          if ($($(ui)[0].draggable[0]).hasClass('video-match')) {
+            //loadPicture2Canvas($($(ui)[0].draggable[0]).find('img'));
+            loadVideo2Canvas($($(ui)[0].draggable[0]).find('video'));
+          }
           //var xx, yy;
           //if (device) {
           //  var touch = event.originalEvent.targetTouches[0];
