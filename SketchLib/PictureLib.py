@@ -34,7 +34,7 @@ def load2dstring(pin, obj):
             print repr(e)
 twodstring = {}
 load2dstring('static/py-cbir/conf/pic_by_chris_2dstring.txt', twodstring)
-print twodstring
+#print twodstring
 def distance(a,b):
     suma = 0
     for item in a:
@@ -179,6 +179,8 @@ def picture_matcher(sketch_tag, file_path, x_2D_str, y_2D_str, page_idx=0):
     global twodstring
     if file in twodstring:
         f_string = twodstring[file].split('&')
+        print "f_string:" f_string
+        print "user input:" x_2D_str
         if f_string[0] == x_2D_str:
             priority.append(file)
 
