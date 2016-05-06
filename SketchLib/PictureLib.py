@@ -163,6 +163,12 @@ def picture_matcher(sketch_tag, file_path, x_2D_str, y_2D_str, page_idx=0):
    
     # handle the case if there are multiple tags:
     maxtags = 0
+    
+    # handle 2D string
+    priority = []
+    global twodstring
+    
+
     for file in matched_files:
         file_tag = get_tag_from_file_path(file)
         tags = file_tag.split('_')
@@ -174,15 +180,12 @@ def picture_matcher(sketch_tag, file_path, x_2D_str, y_2D_str, page_idx=0):
             maxtags = tagsum 
         matched_counts.append(tagsum)
     
-    # handle 2D string
-    priority = []
-    global twodstring
-    if file in twodstring:
-        f_string = twodstring[file].split('&')
-        print "f_string:",f_string
-        print "user input:",x_2D_str
-        if f_string[0] == x_2D_str:
-            priority.append(file)
+        if file in twodstring:
+            f_string = twodstring[file].split('&')
+            print "f_string:",f_string
+            print "user input:",x_2D_str
+            if f_string[0] == x_2D_str:
+                priority.append(file)
 
     print "maxtags:", maxtags
     for mt in reversed(range(maxtags + 1)):
