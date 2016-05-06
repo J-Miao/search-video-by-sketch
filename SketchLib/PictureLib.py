@@ -26,7 +26,7 @@ user_sketch_image = "/home/search-video-by-sketch/static/img/user_sketch_img.png
 user_signature = np.array([])
 
 phash_alg, index_alg = get_global_vars()
-videophash_alg, index_alg = get_video_global_vars()
+video_phash_alg, index_alg = get_video_global_vars()
 
 def load2dstring(pin, obj):
     for line in open(pin):
@@ -80,7 +80,8 @@ def get_tag_from_file_path(file_path):
     return tag.lower()
 
 def get_shot_from_file_path(file_path):
-    match_obj = re.search(r"/home/video_by_chris/([\w-]+) \d+.jpg", file_path)
+    # match_obj = re.search(r"video_by_chris/[\w-_]+/([\w-]+) \d+.jpg", file_path)
+    match_obj = re.search(r"video_by_chris/[\w-]+/([\w-]+) \d+.jpg", file_path)
     shot = match_obj.group(1)
     return shot
 
@@ -96,16 +97,17 @@ def collect_shot_tag_motion(file_path):
     shot_tag_motion_dict = {}
     for shot_tag_motion in shot_tag_motion_tuple_list:
         shot, tags_str, motion = shot_tag_motion
-        shot_tag_motion_dict[shot] = {"tags": tags_str.split(','), "motion": int(motion)}
+        shot_tag_motion_dict[shot] = {"tags": [tag.strip() for tag in tags_str.split(',')], "motion": int(motion)}
     return shot_tag_motion_dict
 
 def video_matcher(sketch_tag, obj_direction, file_path):
     usr_tags = str_to_list(sketch_tag)
-    colorlists = videophash_alg.search(file_path, False)
-    shot_tag_motion_dict = collect_shot_tag_motion('video_by_chris_stats.txt')
+    colorlists = video_phash_alg.search(file_path, False)
+    shot_tag_motion_dict = collect_shot_tag_motion('SketchLib/video_by_chris_stats.txt')
 
     shot_stats = {}
     for file_similarity_tuple in colorlists:
+	#print "file_similarity_tuple", file_similarity_tuple
         shot = get_shot_from_file_path(file_similarity_tuple[0])
         similarity = float(file_similarity_tuple[1])
         if shot_stats.get(shot, None):
@@ -155,8 +157,13 @@ def video_matcher(sketch_tag, obj_direction, file_path):
             swap(results, i, direct_idx)
             direct_idx += 1
         i += 1
-
+    
+    def results_packer(results):
+        return [{"src": "static/video_by_chris/videos/" + result + ".mp4"} for result in results]
+    results = results_packer(results)
+    print results
     return results
+
 
 def picture_matcher(sketch_tag, file_path, x_2D_str, y_2D_str, page_idx=0):
     usr_tags = str_to_list(sketch_tag)
