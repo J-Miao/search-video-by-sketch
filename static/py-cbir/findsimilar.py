@@ -24,6 +24,7 @@ from rerank import blending, ensembling
 
 upload_prefix = './static/upload/'
 SETNAME = 'pic_by_chris'
+VIDEOSETNAME = 'video_by_chris'
 
 class LocalMatcher(object):
     def __init__(self, setname):
@@ -220,6 +221,16 @@ def get_global_vars():
         #index_alg = LocalMatcher(SETNAME)
         index_alg = None
     return phash_alg, index_alg
+
+def get_video_global_vars():
+    global video_phash_alg
+    global video_index_alg
+    if video_phash_alg == None:
+        video_phash_alg = GlobalMatcher(VIDEOSETNAME)
+        #index_alg = LocalMatcher(SETNAME)
+        video_index_alg = None
+    return video_phash_alg, video_index_alg
+
 
 """
 def main(argv):
