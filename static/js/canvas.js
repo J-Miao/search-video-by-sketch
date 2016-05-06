@@ -28,9 +28,12 @@ function getBackground() {
   for (var i = 0; i < imgData.data.length; i+=4) {
     var j = i / 4;
     if (imgData.data[i] > 200 && imgData.data[i+1] > 200 && imgData.data[i+2] > 200) {
-        continue;
+      continue;
     }
-    var r = j / backCanvas.width;
+    var r = Math.floor(j / backCanvas.width);
+    if (r > 400) {
+      console.log(imgData.data[i]);
+    }
     var c = j % backCanvas.width;
     if (c < left) left = c;
     if (c > right) right = c;
@@ -48,8 +51,7 @@ function getBackground() {
   tempContext.putImageData(tempData, 0, 0);
 
   var canvasData = tempCanvas.toDataURL("image/png");
-
-  // document.getElementById('temp-canvas').remove();
+  $('#temp-canvas').remove();
   return canvasData.substring(22);
 }
 
@@ -145,7 +147,10 @@ function getVideos() {
     //    });
     ////});
   });*/
-  $('#video-match-v-' + 0).attr('src', '');
+  $('video').forEach(function(d) {
+    d.attr('src', '');
+  });
+  //$('#video-match-v-' + 0).attr('src', '');
   $('#video-results').empty();
   var v = $('<video/>', {
     src: 'static/videos/black-shot-2.mp4',
