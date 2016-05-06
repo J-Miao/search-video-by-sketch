@@ -141,8 +141,6 @@ class GlobalMatcher(object):
         self.hsvhisto = {}
         self.load('static/py-cbir/conf/%s_hsvhisto.txt' % setname, self.hsvhisto)
         self.gist = {}
-        self.twodstring = {}
-        self.load('static/py-cbir/conf/%s_2dstring.txt' % setname, self.twodstring)
         
         #self.load('conf/%s_gist.txt' % setname, self.gist)
 
