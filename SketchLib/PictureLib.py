@@ -167,8 +167,11 @@ def picture_matcher(sketch_tag, file_path, x_2D_str, y_2D_str, page_idx=0):
     # handle 2D string
     priority = []
     global twodstring
+    #eliminate all space in x_2D_str
+    x_2D_str = "".join(x_2D_str.split(" "))
+    y_2D_str = "".join(y_2D_str.split(" "))
+    #print twodstring
     
-    print twodstring
     for file in matched_files:
         file_tag = get_tag_from_file_path(file)
         tags = file_tag.split('_')
