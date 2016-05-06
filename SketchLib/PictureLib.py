@@ -58,9 +58,10 @@ def compare(result_dict):
     return gis.normalized_distance(np.fromiter(result_dict['signature'], dtype='int8'), user_signature)
 
 def str_to_list(string):
-    return [string.lower() for string in string.split(',')]
+    return [string.lower().strip() for string in string.split(',')]
 
 def get_tag_from_file_path(file_path):
+    print "file_path", file_path
     match_obj = re.search(r"pic_by_chris/([\w ]+)/", file_path)
     tag = match_obj.group(1)
     return tag.lower()
@@ -138,6 +139,7 @@ def video_matcher(sketch_tag, obj_direction, file_path):
 
 def picture_matcher(sketch_tag, file_path, page_idx=0):
     usr_tags = str_to_list(sketch_tag)
+    print "usr_tags:", usr_tags
     results = []
     global phash_alg
     colorlists = phash_alg.search(file_path, False)
@@ -149,6 +151,8 @@ def picture_matcher(sketch_tag, file_path, page_idx=0):
         if file_tag in usr_tags:
             results.append({'pic': file})
     if results:
+	print "Here is results", results
         return results
     else:
+	print "No match tag, no result!"
         return [{'pic': file} for file in matched_files]

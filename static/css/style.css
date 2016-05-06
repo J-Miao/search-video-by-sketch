@@ -52,3 +52,7 @@ canvas{
     max-width: 50%;
     height: auto;
 }
+
+#video-results {
+    width: 100%;
+}
