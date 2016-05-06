@@ -21,6 +21,12 @@ var locList = [];
 var searchMode = 'Image';
 var motionDir = 0;
 var draggingNewSketch = false;
+var startTimer;
+var endTimer;
+var searchImageCnt = 0;
+var searchVideoCnt = 0;
+var searchImageTime = 0.0;
+var searchVideoTime = 0.0;
 
 function getBackground() {
   var right = 0, left = backCanvas.width;
@@ -100,13 +106,16 @@ function getPictures(imgSrc) {
       //$("#image-match-" + i + " .image-tag").text(res["pictures"][i]["tag"]);
     }
     //var imgRes = $("#image-results");
+    endTimer = new Date();
+    var timeDiff = endTimer.getTime() - startTimer.getTime();
+    searchImageTime += timeDiff;
 
-     $("#image-results").imagesLoaded(function () {
-         $("#image-results").pinto({
-            itemWidth: $('#result-wrapper').width() / 3 - 30,
-            gapX:10,
-            gapY:10
-        });
+    $("#image-results").imagesLoaded(function () {
+      $("#image-results").pinto({
+        itemWidth: $('#result-wrapper').width() / 3 - 30,
+        gapX:10,
+        gapY:10
+      });
     });
   });
 }
@@ -136,21 +145,34 @@ function getVideos() {
       background: getBackground()
     }
   }).done(function(res) {
-    //for (var i = 0; i < 20; i++) {
-    //  $("#video-match-" + i).addClass("hidden");
-    //  $("#video-match-" + i + " > a > video").attr("src", "");
-    //}
-    //for (var i = 0; i < res["videos"].length; i++) {
-    //  $("#video-match-" + i).removeClass("hidden");
-    //  $("#video-match-" + i + " > a > video").attr("src", res["videos"][i]["src"]);
-      //$("#video-match-" + i).draggable({
-      //  helper: "clone",
-      //  //revert: "invalid",
-      //  //stack: ".droppable",
-      //  //snap: ".droppable"
-      //});
-      //$("#image-match-" + i + " .image-tag").text(res["pictures"][i]["tag"]);
-    //}
+    for (var i = 0; i < res["videos"].length; i++) {
+
+      var v = $('<video/>', {
+        src: res["videos"][i]["src"],//'static/videos/black-shot-2.mp4',
+        id: 'video-match-v-' + i,
+        type: 'video/mp4',
+        controls: true
+      });
+      v.css('width', '100%');
+      v.css('height', '100%');
+      var newA = $('<a/>', {href: '#', class:'thumbnail'});
+      v.appendTo(newA);
+      var newDiv =  $('<div/>', {id: 'video-match-'+i, class: 'video-match '});
+      newA.appendTo(newDiv);
+      newDiv.appendTo('#video-results');
+
+      $("#video-match-" + i).draggable({
+        helper: "clone",
+        //revert: "invalid",
+        //stack: ".droppable",
+        //snap: ".droppable"
+      });
+//      $("#image-match-" + i + " .image-tag").text(res["pictures"][i]["tag"]);
+    }
+
+    endTimer = new Date();
+    var timeDiff = endTimer.getTime() - startTimer.getTime();
+    searchVideoTime += timeDiff;
     //var imgRes = $("#image-results");
     //
     ////imgRes.imagesLoaded(function () {
@@ -162,28 +184,7 @@ function getVideos() {
     ////});
   });
 
-  var v = $('<video/>', {
-    src: 'static/videos/black-shot-2.mp4',
-    id: 'video-match-v-' + 0,
-    type: 'video/mp4',
-    controls: true
-  });
-  v.css('width', '100%');
-  v.css('height', '100%');
-  var newA = $('<a/>', {href: '#', class:'thumbnail'});
-  v.appendTo(newA);
-  var newDiv =  $('<div/>', {id: 'video-match-'+0, class: 'video-match '});
-  newA.appendTo(newDiv);
-  newDiv.appendTo('#video-results');
-      //$("#image-match-" + i).removeClass("hidden");
-      //$("#image-match-" + i + " > a > img").attr("src", res["pictures"][i]["pic"]);
-      //$("#image-match-" + i).css("display","block");
-      $("#video-match-" + 0).draggable({
-        helper: "clone",
-        //revert: "invalid",
-        //stack: ".droppable",
-        //snap: ".droppable"
-      });
+
   //$("#video-match-" + 0).removeClass("hidden");
   //$("#video-match-" + i + " > a > video").attr("src", res["videos"][i]["src"]);
 }
@@ -191,10 +192,14 @@ function getVideos() {
 
 function search() {
   if (searchMode === 'Image') {
+    searchImageCnt += 1;
+    startTimer = new Date();
     getPictures();
   }
   else {
     if (searchMode === 'Video') {
+      searchVideoCnt += 1;
+      startTimer = new Date();
       getVideos();
     }
   }
