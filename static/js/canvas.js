@@ -119,12 +119,12 @@ function getVideos() {
     ////});
   });*/
   $('#video-results').empty();
-  var v = $('<video/>'); //Equivalent: $(document.createElement('img'))
-  var src = $('<source>')
-  src.attr('src', "static/videos/black-shot-2.mp4");
-  src.attr('type', 'video/mp4');
-  src.appendTo(v);
-  var newDiv =  $('<div/>', {id: 'video-match-'+i, class: 'video-match'});
+  var v = $('<video/>', {
+    src: 'static/videos/black-shot-2.mp4',
+    type: 'video/mp4',
+    controls: true
+  });
+  var newDiv =  $('<div/>', {id: 'video-match-'+0, class: 'video-match'});
   v.appendTo(newDiv);
   newDiv.appendTo('#video-results');
       //$("#image-match-" + i).removeClass("hidden");
