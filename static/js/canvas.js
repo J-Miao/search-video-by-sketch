@@ -118,6 +118,7 @@ function getVideos() {
     //    });
     ////});
   });*/
+  $('#video-match-v-' + 0).attr('src', '');
   $('#video-results').empty();
   var v = $('<video/>', {
     src: 'static/videos/black-shot-2.mp4',
