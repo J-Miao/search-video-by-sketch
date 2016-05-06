@@ -163,7 +163,7 @@ def picture_matcher(sketch_tag, file_path, page_idx=0):
             maxtags = tagsum 
         matched_counts.append(tagsum)
     # handle 2D string
-
+    print "maxtags:", maxtags
     for mt in reversed(range(maxtags + 1)):
         for i in range(len(matched_files)):
             if matched_counts[i] == mt:
@@ -176,7 +176,7 @@ def picture_matcher(sketch_tag, file_path, page_idx=0):
             results.append({'pic': file})
     '''
     if results:
-	print "Here is results", results
+        #print "Here is results", results
         return results
     else:
 	print "No match tag, no result!"
