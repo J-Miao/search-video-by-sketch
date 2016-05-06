@@ -205,17 +205,20 @@ function loadPicture2Canvas(img) {
 
 
 function loadVideo2Canvas(v) {
-
+console.log(v);
+  console.log($(v).attr('id'));
   context[0].clearRect(0, 0, context[0].canvas.width, context[0].canvas.height);
   context[1].clearRect(0, 0, context[1].canvas.width, context[1].canvas.height);
   //clearCanvas();
   var tempVideo = document.getElementById($(v).attr('id'));
+console.log(tempVideo.width, tempVideo.height);
   var ww = backCanvas.width;
-  var hh = backCanvas.width / tempVideo.width * tempVideo.height;
+  var hh = backCanvas.width / $(v).width() * $(v).height();
   if (hh > backCanvas.height) {
     hh = backCanvas.height;
-    ww = backCanvas.height / tempVideo.height * tempVideo.width;
+    ww = backCanvas.height / $(v).height() * $(v).width();
   }
+console.log(ww, hh);
   context[0].drawImage(tempVideo, 0, 0, ww, hh);
 }
 
