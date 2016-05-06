@@ -34,7 +34,8 @@ function getBackground() {
   var imgData = context[0].getImageData(0, 0, backCanvas.width, backCanvas.height);
   for (var i = 0; i < imgData.data.length; i+=4) {
     var j = i / 4;
-    if (imgData.data[i] > 200 && imgData.data[i+1] > 200 && imgData.data[i+2] > 200) {
+    if ((imgData.data[i] > 200 && imgData.data[i+1] > 200 && imgData.data[i+2] > 200) ||
+        (imgData.data[i] === 0 && imgData.data[i+1] === 0 && imgData.data[i+2] === 0 && imgData[i+3] === 0)) {
       continue;
     }
     var r = Math.floor(j / backCanvas.width);
