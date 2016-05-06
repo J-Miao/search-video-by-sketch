@@ -71,7 +71,7 @@ def str_to_list(string):
     return [string.lower().strip() for string in string.split(',')]
 
 def get_tag_from_file_path(file_path):
-    print "file_path", file_path
+    #print "file_path", file_path
     match_obj = re.search(r"pic_by_chris/([\w ]+)/", file_path)
     tag = match_obj.group(1)
     return tag.lower()
@@ -168,7 +168,7 @@ def picture_matcher(sketch_tag, file_path, x_2D_str, y_2D_str, page_idx=0):
     priority = []
     global twodstring
     
-
+    print twodstring
     for file in matched_files:
         file_tag = get_tag_from_file_path(file)
         tags = file_tag.split('_')
@@ -179,7 +179,7 @@ def picture_matcher(sketch_tag, file_path, x_2D_str, y_2D_str, page_idx=0):
         if tagsum > maxtags:
             maxtags = tagsum 
         matched_counts.append(tagsum)
-    
+        #print file
         if file in twodstring:
             f_string = twodstring[file].split('&')
             print "f_string:",f_string
