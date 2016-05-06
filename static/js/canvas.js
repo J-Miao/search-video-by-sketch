@@ -64,7 +64,9 @@ function getPictures(imgSrc) {
     type: "POST",
     url: "/get_pictures",
     data: {
-      tag: tagList.join(),
+      tag: tagList.filter(function(d, i) {
+        return !tagRemoved.hasOwnProperty('selected-sketch-' + i);
+      }).join(),
       two_d_string_x: twoDString[0].join(),
       two_d_string_y: twoDString[1].join(),
       sketch_filepath: imgSrc,
@@ -119,25 +121,28 @@ function getVideos() {
   $('#video-results').empty();
 
   var twoDString = get2DString();
-/*
+
   $.ajax({
     type: "POST",
     url: "/get_videos",
     data: {
-      tag: tagList.join(),
+      tag: tagList.filter(function(d, i) {
+        return !tagRemoved.hasOwnProperty('selected-sketch-' + i);
+      }).join(),
       two_d_string_x: twoDString[0].join(),
       two_d_string_y: twoDString[1].join(),
       sketch_filepath: "",
+      motion: motionDir,
       background: getBackground()
     }
   }).done(function(res) {
-    for (var i = 0; i < 20; i++) {
-      $("#video-match-" + i).addClass("hidden");
-      $("#video-match-" + i + " > a > video").attr("src", "");
-    }
-    for (var i = 0; i < res["videos"].length; i++) {
-      $("#video-match-" + i).removeClass("hidden");
-      $("#video-match-" + i + " > a > video").attr("src", res["videos"][i]["src"]);
+    //for (var i = 0; i < 20; i++) {
+    //  $("#video-match-" + i).addClass("hidden");
+    //  $("#video-match-" + i + " > a > video").attr("src", "");
+    //}
+    //for (var i = 0; i < res["videos"].length; i++) {
+    //  $("#video-match-" + i).removeClass("hidden");
+    //  $("#video-match-" + i + " > a > video").attr("src", res["videos"][i]["src"]);
       //$("#video-match-" + i).draggable({
       //  helper: "clone",
       //  //revert: "invalid",
@@ -145,7 +150,7 @@ function getVideos() {
       //  //snap: ".droppable"
       //});
       //$("#image-match-" + i + " .image-tag").text(res["pictures"][i]["tag"]);
-    }
+    //}
     //var imgRes = $("#image-results");
     //
     ////imgRes.imagesLoaded(function () {
@@ -155,7 +160,7 @@ function getVideos() {
     //        gapY:10
     //    });
     ////});
-  });*/
+  });
 
   var v = $('<video/>', {
     src: 'static/videos/black-shot-2.mp4',
