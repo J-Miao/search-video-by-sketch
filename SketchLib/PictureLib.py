@@ -129,9 +129,9 @@ def video_matcher(sketch_tag, obj_direction, file_path):
         if shot_stats[shot1]["max"] < 0.15:
             return -1
         elif shot_stats[shot1]["avg"] > shot_stats[shot2]["avg"]:
-            return -1
-        elif shot_stats[shot1]["avg"] < shot_stats[shot2]["avg"]:
             return 1
+        elif shot_stats[shot1]["avg"] < shot_stats[shot2]["avg"]:
+            return -1
         elif shot_stats[shot1]["avg"] == shot_stats[shot2]["avg"]:
             return 0
 
@@ -145,22 +145,27 @@ def video_matcher(sketch_tag, obj_direction, file_path):
     i = tag_idx = 0
 
     while i < len(results):
-        if set(shot_tag_motion_dict[results[i]]["tags"]).issubset(usr_tags):
+         if set(usr_tags).issubset(shot_tag_motion_dict[results[i]]["tags"]):
             swap(results, i, tag_idx)
             tag_idx += 1
-        i += 1
+         i += 1
 
     i = direct_idx = 0
+    
 
+    print "obj_direction:", obj_direction
+    print results
+    obj_direction = int(obj_direction) 
     while i < len(results):
-        if shot_tag_motion_dict[results[i]]["motion"] == obj_direction:
+        if set(usr_tags).issubset(shot_tag_motion_dict[results[i]]["tags"]) and shot_tag_motion_dict[results[i]]["motion"] == obj_direction:
             swap(results, i, direct_idx)
+	    print results
             direct_idx += 1
         i += 1
     
     def results_packer(results):
         return [{"src": "static/video_by_chris/videos/" + result + ".mp4"} for result in results]
-    results = results_packer(results)
+    results = results_packer(results)[:10]
     print results
     return results
 
