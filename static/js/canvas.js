@@ -157,7 +157,7 @@ function getVideos() {
       v.css('height', '100%');
       var newA = $('<a/>', {href: '#', class:'thumbnail'});
       v.appendTo(newA);
-      var newDiv =  $('<div/>', {id: 'video-match-'+i, class: 'video-match '});
+      var newDiv =  $('<div/>', {id: 'video-match-'+i, class: 'video-match col-md-6'});
       newA.appendTo(newDiv);
       newDiv.appendTo('#video-results');
 
@@ -475,13 +475,13 @@ $(document).ready(function() {
     $(this).parents().find('.video-motion-dir.dropdown-toggle').html(selText+' <span class="caret"></span>');
     switch (selText) {
       case 'Up': motionDir = 1; break;
-      case 'Upper-Left': motionDir = 2; break;
-      case 'Left': motionDir = 3; break;
-      case 'Bottom-Left': motionDir = 4; break;
+      case 'Upper-Right': motionDir = 2; break;
+      case 'Right': motionDir = 3; break;
+      case 'Bottom-Right': motionDir = 4; break;
       case 'Down': motionDir = 5; break;
-      case 'Bottom-Right': motionDir = 6; break;
-      case 'Right': motionDir = 7; break;
-      case 'Upper-Right': motionDir = 8; break;
+      case 'Bottom-Left': motionDir = 6; break;
+      case 'Left': motionDir = 7; break;
+      case 'Upper-Left': motionDir = 8; break;
       default:
             motionDir = 0; break;
     }

@@ -48,10 +48,10 @@ canvas{
     border: 1px solid #f3f3f3;
 }
 
-.video-match {
-    max-width: 50%;
-    height: auto;
-}
+/*.video-match {*/
+    /*max-width: 45%;*/
+    /*height: auto;*/
+/*}*/
 
 #video-results {
     width: 100%;
